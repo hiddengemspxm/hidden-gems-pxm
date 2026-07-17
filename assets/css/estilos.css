@@ -191,6 +191,9 @@ section{padding:56px 24px;}
   font-size:0.7rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
   padding:4px 10px; border-radius:999px;
 }
+.casa-card-stats{display:flex; gap:14px; flex-wrap:wrap;}
+.casa-card-stats .stat{font-size:0.82rem; color:var(--musgo); font-weight:600;}
+.casa-card-stats .stat [aria-hidden]{margin-right:4px;}
 .casa-card h3{font-size:1.15rem; color:var(--ink); font-weight:200; margin-top:2px;}
 .casa-card .meta{font-size:0.86rem; color:var(--gris);}
 .casa-card .ahorro{font-size:0.78rem; color:var(--vino); font-weight:600;}

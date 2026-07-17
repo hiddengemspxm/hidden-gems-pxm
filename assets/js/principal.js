@@ -61,15 +61,39 @@
   ];
 
   // ===== Tarjetas de casas =====
+  // Fila de specs de la card: 👥 huéspedes y 🛏 habitaciones. Si algún dato no
+  // existe todavía (p.ej. huéspedes pendientes de confirmar), esa pieza se omite.
+  function casaStatsHTML(casa) {
+    var piezas = [];
+    if (casa.huespedes != null) {
+      piezas.push(
+        '<span class="stat"><span aria-hidden="true">👥</span> ' +
+          '<span data-es>' + casa.huespedes + ' personas</span>' +
+          '<span data-en>' + casa.huespedes + ' guests</span>' +
+        '</span>'
+      );
+    }
+    if (casa.habitaciones != null) {
+      piezas.push(
+        '<span class="stat"><span aria-hidden="true">🛏</span> ' +
+          '<span data-es>' + casa.habitaciones + ' habitaciones</span>' +
+          '<span data-en>' + casa.habitaciones + ' bedrooms</span>' +
+        '</span>'
+      );
+    }
+    return '<div class="casa-card-stats">' + piezas.join('') + '</div>';
+  }
+
   function casaCardHTML(casa) {
     return (
       '<div class="casa-card" data-id="' + casa.id + '">' +
         '<img src="' + casa.fotos[0] + '" loading="lazy" alt="' + casa.nombre + '">' +
         '<div class="casa-card-body">' +
-          '<span class="tag">' +
+          (casa.tipo === 'complejo' ? '<span class="tag">' +
             '<span data-es>' + casa.tag_es + '</span>' +
             '<span data-en>' + casa.tag_en + '</span>' +
-          '</span>' +
+          '</span>' : '') +
+          casaStatsHTML(casa) +
           '<h3>' + casa.nombre + '</h3>' +
           '<p class="meta">' +
             '<span data-es>' + casa.meta_es + '</span>' +

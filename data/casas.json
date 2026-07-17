@@ -18,7 +18,9 @@
       "/assets/img/casa-aloha-foto-5.jpg"
     ],
     "seccion": "parejas",
-    "exAirbnb": true
+    "exAirbnb": true,
+    "huespedes": 10,
+    "habitaciones": 4
   },
   {
     "id": "amara",
@@ -39,7 +41,9 @@
       "/assets/img/casa-amara-foto-5.jpg"
     ],
     "seccion": "parejas",
-    "exAirbnb": true
+    "exAirbnb": true,
+    "huespedes": 8,
+    "habitaciones": 3
   },
   {
     "id": "palacio",
@@ -60,7 +64,9 @@
       "/assets/img/casa-palacio-alegria-foto-5.jpg"
     ],
     "seccion": "parejas",
-    "exAirbnb": true
+    "exAirbnb": true,
+    "huespedes": 4,
+    "habitaciones": 2
   },
   {
     "id": "alegria",
@@ -81,7 +87,9 @@
       "/assets/img/casa-alegria-foto-5.jpg"
     ],
     "seccion": "parejas",
-    "exAirbnb": true
+    "exAirbnb": true,
+    "huespedes": 10,
+    "habitaciones": 4
   },
   {
     "id": "oasis",
@@ -102,7 +110,9 @@
       "/assets/img/casa-oasis-foto-5.jpg"
     ],
     "seccion": "parejas",
-    "exAirbnb": true
+    "exAirbnb": true,
+    "huespedes": 6,
+    "habitaciones": 3
   },
   {
     "id": "cali",
@@ -123,7 +133,9 @@
       "/assets/img/casa-cali-foto-5.jpg"
     ],
     "seccion": "parejas",
-    "exAirbnb": true
+    "exAirbnb": true,
+    "huespedes": 9,
+    "habitaciones": 4
   },
   {
     "id": "ambar",
@@ -144,7 +156,9 @@
       "/assets/img/casa-ambar-foto-5.jpg"
     ],
     "seccion": "parejas",
-    "exAirbnb": true
+    "exAirbnb": true,
+    "huespedes": 4,
+    "habitaciones": 2
   },
   {
     "id": "yara",
@@ -160,7 +174,9 @@
     "fotos": [
       "/assets/img/casa-yara-placeholder.svg"
     ],
-    "seccion": "parejas"
+    "seccion": "parejas",
+    "huespedes": null,
+    "habitaciones": 4
   },
   {
     "id": "aixha",
@@ -176,7 +192,9 @@
     "fotos": [
       "/assets/img/casa-aixha-placeholder.svg"
     ],
-    "seccion": "grupos"
+    "seccion": "grupos",
+    "huespedes": 20,
+    "habitaciones": 9
   },
   {
     "id": "luwak",
@@ -210,7 +228,9 @@
         "capacidad_es": "4 huéspedes · 2 habitaciones · 3 baños · vista al mar",
         "capacidad_en": "4 guests · 2 bedrooms · 3 bathrooms · ocean view"
       }
-    ]
+    ],
+    "huespedes": 20,
+    "habitaciones": 10
   },
   {
     "id": "mochila",
@@ -226,7 +246,9 @@
     "fotos": [
       "/assets/img/casa-mochila-placeholder.svg"
     ],
-    "seccion": "grupos"
+    "seccion": "grupos",
+    "huespedes": 14,
+    "habitaciones": 6
   },
   {
     "id": "cambria",
@@ -243,7 +265,9 @@
       "/assets/img/casa-cambria-placeholder.svg"
     ],
     "seccion": "grupos",
-    "draft": false
+    "draft": false,
+    "huespedes": 12,
+    "habitaciones": 6
   },
   {
     "id": "mar",
@@ -259,7 +283,9 @@
     "fotos": [
       "/assets/img/casa-mar-placeholder.svg"
     ],
-    "seccion": "lujo"
+    "seccion": "lujo",
+    "huespedes": 9,
+    "habitaciones": 4
   },
   {
     "id": "brutal-verde",
@@ -276,6 +302,8 @@
       "/assets/img/casa-brutal-verde-placeholder.svg"
     ],
     "seccion": "parejas",
-    "draft": true
+    "draft": true,
+    "huespedes": 5,
+    "habitaciones": 2
   }
 ]
