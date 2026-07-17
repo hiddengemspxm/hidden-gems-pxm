@@ -43,14 +43,14 @@
 
   function cargarCasas() {
     if (casasCache) return Promise.resolve(casasCache);
-    return fetch('data/casas.json').then(function (res) { return res.json(); }).then(function (data) {
+    return fetch('/data/casas.json').then(function (res) { return res.json(); }).then(function (data) {
       casasCache = data.filter(function (c) { return !c.draft; });
       return casasCache;
     });
   }
 
   function cargarTestimonios() {
-    return fetch('data/testimonios.json').then(function (res) { return res.json(); });
+    return fetch('/data/testimonios.json').then(function (res) { return res.json(); });
   }
 
   // ===== Secciones del catálogo =====
