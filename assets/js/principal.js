@@ -67,9 +67,6 @@
             '<a class="link-wa" href="' + buildWhatsAppLink(mensajeCasa(casa, ultimaBusqueda.checkin, ultimaBusqueda.checkout)) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">' +
               '<span data-es>Consultar y cotizar</span><span data-en>Check &amp; get a quote</span>' +
             '</a>' +
-            (casa.airbnb ? '<a class="link-airbnb" href="' + casa.airbnb + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">' +
-              '<span data-es>Ver en Airbnb</span><span data-en>View on Airbnb</span>' +
-            '</a>' : '') +
           '</div>' +
         '</div>' +
       '</div>'
@@ -118,13 +115,6 @@
 
     var waLink = overlay.querySelector('.modal-wa');
     waLink.href = buildWhatsAppLink(mensajeCasa(casa, ultimaBusqueda.checkin, ultimaBusqueda.checkout));
-    var airbnbLink = overlay.querySelector('.modal-airbnb');
-    if (casa.airbnb) {
-      airbnbLink.href = casa.airbnb;
-      airbnbLink.classList.remove('oculto');
-    } else {
-      airbnbLink.classList.add('oculto');
-    }
 
     overlay.classList.add('abierto');
     applyLangSafe();
