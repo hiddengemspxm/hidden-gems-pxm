@@ -178,6 +178,24 @@ section{padding:56px 24px;}
 .casas-grid{
   display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:18px;
 }
+
+/* CTA debajo de "Casas destacadas" en el home, cierre de la sección */
+.casas-destacadas-cta{text-align:center; margin:44px 0 16px;}
+
+/* En móvil, las cards destacadas del home se vuelven un carrusel horizontal
+   deslizable: cada card ocupa ~85% del ancho, dejando ~15% de la siguiente
+   card asomándose para que se note que hay más para deslizar. Solo aplica
+   a la sección de destacadas del home (#casas-grid-home) -- el catálogo
+   completo en /casas conserva su grid normal. */
+@media(max-width:700px){
+  #casas-grid-home .casas-grid{
+    display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch; scrollbar-width:none; gap:14px;
+    margin:0 -24px; padding:0 24px 6px;
+  }
+  #casas-grid-home .casas-grid::-webkit-scrollbar{display:none;}
+  #casas-grid-home .casas-grid .casa-card{flex:0 0 85%; scroll-snap-align:start;}
+}
 .casa-card{
   background:#fff; border:1px solid rgba(45,74,53,0.1); border-radius:14px;
   padding:0 0 18px; display:flex; flex-direction:column; gap:10px;
