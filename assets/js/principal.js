@@ -23,11 +23,13 @@
 
   function mensajeCasa(casa, checkin, checkout) {
     var l = lang();
-    var msg = l === 'es' ? ('Hola Patty, me interesa ' + casa.nombre) : ("Hi Patty, I'm interested in " + casa.nombre);
+    var msg = l === 'es'
+      ? ('Hola Paty! Me interesa ' + casa.nombre + ' — ¿me compartes disponibilidad y tarifa?')
+      : ("Hi Paty! I'm interested in " + casa.nombre + ' — could you share availability and rates?');
     if (checkin && checkout) {
       msg += l === 'es'
-        ? (' del ' + formatFecha(checkin) + ' al ' + formatFecha(checkout))
-        : (' from ' + formatFecha(checkin) + ' to ' + formatFecha(checkout));
+        ? (' Fechas: ' + formatFecha(checkin) + ' al ' + formatFecha(checkout) + '.')
+        : (' Dates: ' + formatFecha(checkin) + ' to ' + formatFecha(checkout) + '.');
     }
     return msg;
   }
@@ -35,8 +37,8 @@
   function cargarCasas() {
     if (casasCache) return Promise.resolve(casasCache);
     return fetch('data/casas.json').then(function (res) { return res.json(); }).then(function (data) {
-      casasCache = data;
-      return data;
+      casasCache = data.filter(function (c) { return !c.draft; });
+      return casasCache;
     });
   }
 
@@ -66,13 +68,13 @@
             '<span data-es>' + casa.meta_es + '</span>' +
             '<span data-en>' + casa.meta_en + '</span>' +
           '</p>' +
-          '<p class="ahorro">' +
+          (casa.exAirbnb ? '<p class="ahorro">' +
             '<span data-es>Reservando directo ahorras hasta 10% vs. Airbnb</span>' +
             '<span data-en>Book direct and save up to 10% vs. Airbnb</span>' +
-          '</p>' +
+          '</p>' : '') +
           '<div class="row-actions">' +
             '<a class="link-wa" href="' + buildWhatsAppLink(mensajeCasa(casa, ultimaBusqueda.checkin, ultimaBusqueda.checkout)) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">' +
-              '<span data-es>Consultar y cotizar</span><span data-en>Check &amp; get a quote</span>' +
+              '<span data-es>Reservar por WhatsApp</span><span data-en>Book via WhatsApp</span>' +
             '</a>' +
           '</div>' +
         '</div>' +

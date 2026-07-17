@@ -17,7 +17,8 @@
       "assets/img/casa-aloha-foto-4.jpg",
       "assets/img/casa-aloha-foto-5.jpg"
     ],
-    "seccion": "parejas"
+    "seccion": "parejas",
+    "exAirbnb": true
   },
   {
     "id": "amara",
@@ -37,7 +38,8 @@
       "assets/img/casa-amara-foto-4.jpg",
       "assets/img/casa-amara-foto-5.jpg"
     ],
-    "seccion": "parejas"
+    "seccion": "parejas",
+    "exAirbnb": true
   },
   {
     "id": "palacio",
@@ -57,7 +59,8 @@
       "assets/img/casa-palacio-alegria-foto-4.jpg",
       "assets/img/casa-palacio-alegria-foto-5.jpg"
     ],
-    "seccion": "parejas"
+    "seccion": "parejas",
+    "exAirbnb": true
   },
   {
     "id": "alegria",
@@ -77,7 +80,8 @@
       "assets/img/casa-alegria-foto-4.jpg",
       "assets/img/casa-alegria-foto-5.jpg"
     ],
-    "seccion": "parejas"
+    "seccion": "parejas",
+    "exAirbnb": true
   },
   {
     "id": "oasis",
@@ -97,7 +101,8 @@
       "assets/img/casa-oasis-foto-4.jpg",
       "assets/img/casa-oasis-foto-5.jpg"
     ],
-    "seccion": "parejas"
+    "seccion": "parejas",
+    "exAirbnb": true
   },
   {
     "id": "cali",
@@ -117,7 +122,8 @@
       "assets/img/casa-cali-foto-4.jpg",
       "assets/img/casa-cali-foto-5.jpg"
     ],
-    "seccion": "parejas"
+    "seccion": "parejas",
+    "exAirbnb": true
   },
   {
     "id": "ambar",
@@ -137,6 +143,105 @@
       "assets/img/casa-ambar-foto-4.jpg",
       "assets/img/casa-ambar-foto-5.jpg"
     ],
+    "seccion": "parejas",
+    "exAirbnb": true
+  },
+  {
+    "id": "yara",
+    "nombre": "Casa Yara",
+    "tag_es": "5 min de La Punta",
+    "tag_en": "5 min from La Punta",
+    "meta_es": "Nueva, a 5 min de La Punta",
+    "meta_en": "New, 5 min from La Punta",
+    "descripcion_es": "A 5 minutos de La Punta, nueva y impecable. Cuatro habitaciones para un grupo que quiere la escena cerca pero dormir en silencio.",
+    "descripcion_en": "5 minutes from La Punta, new and spotless. Four bedrooms for a group that wants the scene close by but wants to sleep in silence.",
+    "capacidad_es": "4 habitaciones · [PENDIENTE: huéspedes y baños]",
+    "capacidad_en": "4 bedrooms · [PENDING: guests and bathrooms]",
+    "fotos": [
+      "assets/img/casa-yara-placeholder.svg"
+    ],
     "seccion": "parejas"
+  },
+  {
+    "id": "aixha",
+    "nombre": "Casa Aixha",
+    "tag_es": "9 habitaciones",
+    "tag_en": "9 bedrooms",
+    "meta_es": "Nueve habitaciones, vista al mar, espacio para 20",
+    "meta_en": "Nine bedrooms, ocean view, room for 20",
+    "descripcion_es": "Nueve habitaciones, vista al mar y espacio para 20. La casa para el cumpleaños grande, el retiro o la boda íntima que no cabe en ningún otro lado de Puerto.",
+    "descripcion_en": "Nine bedrooms, ocean views, and room for 20. The house for the big birthday, the retreat, or the intimate wedding that doesn't fit anywhere else in Puerto.",
+    "capacidad_es": "20 huéspedes · 9 habitaciones · 9 baños · vista al mar · a 300 m de la playa",
+    "capacidad_en": "20 guests · 9 bedrooms · 9 bathrooms · ocean view · 300 m from the beach",
+    "fotos": [
+      "assets/img/casa-aixha-placeholder.svg"
+    ],
+    "seccion": "grupos"
+  },
+  {
+    "id": "mochila",
+    "nombre": "Casa Mochila",
+    "tag_es": "Pet friendly",
+    "tag_en": "Pet friendly",
+    "meta_es": "Jacuzzi, alberca y pet friendly",
+    "meta_en": "Jacuzzi, pool, and pet friendly",
+    "descripcion_es": "Seis habitaciones, jacuzzi, alberca y sí — tu perro también viene. La favorita para grupos de amigos que quieren todo en un solo lugar.",
+    "descripcion_en": "Six bedrooms, jacuzzi, pool, and yes — your dog comes too. The favorite for groups of friends who want everything in one place.",
+    "capacidad_es": "14 huéspedes · 6 habitaciones · 6 baños · jacuzzi · alberca · pet friendly",
+    "capacidad_en": "14 guests · 6 bedrooms · 6 bathrooms · jacuzzi · pool · pet friendly",
+    "fotos": [
+      "assets/img/casa-mochila-placeholder.svg"
+    ],
+    "seccion": "grupos"
+  },
+  {
+    "id": "cambria",
+    "nombre": "Casa Cambria",
+    "tag_es": "6 habitaciones",
+    "tag_en": "6 bedrooms",
+    "meta_es": "Seis habitaciones, ideal para grupos grandes",
+    "meta_en": "Six bedrooms, ideal for large groups",
+    "descripcion_es": "Seis habitaciones para 12, a buen precio para grupos grandes que priorizan espacio.",
+    "descripcion_en": "Six bedrooms for 12, priced right for large groups that prioritize space.",
+    "capacidad_es": "12 huéspedes · 6 habitaciones · 6 baños",
+    "capacidad_en": "12 guests · 6 bedrooms · 6 bathrooms",
+    "fotos": [
+      "assets/img/casa-cambria-placeholder.svg"
+    ],
+    "seccion": "grupos",
+    "draft": false
+  },
+  {
+    "id": "mar",
+    "nombre": "Casa Mar",
+    "tag_es": "Frente al mar",
+    "tag_en": "Beachfront",
+    "meta_es": "Frente a la playa, chef y staff incluidos",
+    "meta_en": "Beachfront, chef and staff included",
+    "descripcion_es": "Frente a la playa, con chef y staff incluidos. Despiertas, abres la puerta y estás en la arena. Así de literal.",
+    "descripcion_en": "Right on the beach, with chef and staff included. You wake up, open the door, and you're on the sand. That literal.",
+    "capacidad_es": "9 huéspedes · 4 habitaciones · 5 baños · frente a la playa · staff completo (chef, limpieza)",
+    "capacidad_en": "9 guests · 4 bedrooms · 5 bathrooms · beachfront · full staff (chef, cleaning)",
+    "fotos": [
+      "assets/img/casa-mar-placeholder.svg"
+    ],
+    "seccion": "lujo"
+  },
+  {
+    "id": "brutal-verde",
+    "nombre": "Brutal Verde",
+    "tag_es": "2 albercas",
+    "tag_en": "2 pools",
+    "meta_es": "Dos albercas, vista al mar",
+    "meta_en": "Two pools, ocean view",
+    "descripcion_es": "Dos albercas, vista al mar y solo 2 habitaciones: la proporción más exagerada de Puerto, en el buen sentido.",
+    "descripcion_en": "Two pools, ocean views, and just 2 bedrooms: the most over-the-top ratio in Puerto, in the best way.",
+    "capacidad_es": "5 huéspedes · 2 habitaciones · 2 albercas · vista al mar",
+    "capacidad_en": "5 guests · 2 bedrooms · 2 pools · ocean view",
+    "fotos": [
+      "assets/img/casa-brutal-verde-placeholder.svg"
+    ],
+    "seccion": "parejas",
+    "draft": true
   }
 ]
