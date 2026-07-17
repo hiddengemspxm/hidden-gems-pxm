@@ -1,0 +1,142 @@
+[
+  {
+    "id": "aloha",
+    "nombre": "Casa Aloha Punta Vista",
+    "tag_es": "Suite dúplex",
+    "tag_en": "Duplex suite",
+    "meta_es": "Vistas abiertas a La Punta, ambiente surfero",
+    "meta_en": "Open views over La Punta, surfer vibe",
+    "descripcion_es": "Suite dúplex con vistas abiertas hacia La Punta, a un paso de las rompientes más buscadas por surfistas. Ambiente relajado, luz natural todo el día y una terraza inmejorable para ver el atardecer sobre el mar.",
+    "descripcion_en": "A duplex suite with open views over La Punta, steps from the breaks surfers travel for. Relaxed atmosphere, natural light all day, and an unbeatable terrace to watch the sunset over the ocean.",
+    "capacidad_es": "10 huéspedes · 4 habitaciones · 6 camas · 5 baños",
+    "capacidad_en": "10 guests · 4 bedrooms · 6 beds · 5 bathrooms",
+    "airbnb": "https://www.airbnb.com/rooms/881798100609424811",
+    "fotos": [
+      "assets/img/casa-aloha-foto-1.jpg",
+      "assets/img/casa-aloha-foto-2.jpg",
+      "assets/img/casa-aloha-foto-3.jpg",
+      "assets/img/casa-aloha-foto-4.jpg",
+      "assets/img/casa-aloha-foto-5.jpg"
+    ]
+  },
+  {
+    "id": "amara",
+    "nombre": "Casa Amara",
+    "tag_es": "Rooftop jacuzzi",
+    "tag_en": "Rooftop jacuzzi",
+    "meta_es": "Ideal para grupos, terraza con jacuzzi",
+    "meta_en": "Ideal for groups, rooftop with jacuzzi",
+    "descripcion_es": "Casa pensada para grupos, con rooftop y jacuzzi privado para cerrar el día viendo el atardecer. Espacios amplios para compartir y recámaras cómodas para descansar después de surfear.",
+    "descripcion_en": "Built for groups, with a rooftop and private jacuzzi to close out the day watching the sunset. Generous shared spaces and comfortable bedrooms to rest after a day in the water.",
+    "capacidad_es": "8 huéspedes · 3 habitaciones · 4 camas · 3.5 baños",
+    "capacidad_en": "8 guests · 3 bedrooms · 4 beds · 3.5 bathrooms",
+    "airbnb": "https://www.airbnb.com/rooms/986419020021217502",
+    "fotos": [
+      "assets/img/casa-amara-foto-1.jpg",
+      "assets/img/casa-amara-foto-2.jpg",
+      "assets/img/casa-amara-foto-3.jpg",
+      "assets/img/casa-amara-foto-4.jpg",
+      "assets/img/casa-amara-foto-5.jpg"
+    ]
+  },
+  {
+    "id": "palacio",
+    "nombre": "Casa Palacio Alegría",
+    "tag_es": "Casa amplia",
+    "tag_en": "Spacious home",
+    "meta_es": "Espacio generoso, perfecta para familias o grupos",
+    "meta_en": "Generous space, perfect for families or groups",
+    "descripcion_es": "Casa amplia y luminosa, ideal para familias o grupos grandes que quieren estar juntos sin perder espacio propio. Áreas comunes generosas para cocinar, convivir y descansar.",
+    "descripcion_en": "A spacious, light-filled home, ideal for families or larger groups who want to stay together without losing their own space. Generous common areas for cooking, gathering, and resting.",
+    "capacidad_es": "4 huéspedes · 2 habitaciones · 2 camas · 2.5 baños",
+    "capacidad_en": "4 guests · 2 bedrooms · 2 beds · 2.5 bathrooms",
+    "airbnb": "https://www.airbnb.com/rooms/44064536",
+    "fotos": [
+      "assets/img/casa-palacio-alegria-foto-1.jpg",
+      "assets/img/casa-palacio-alegria-foto-2.jpg",
+      "assets/img/casa-palacio-alegria-foto-3.jpg",
+      "assets/img/casa-palacio-alegria-foto-4.jpg",
+      "assets/img/casa-palacio-alegria-foto-5.jpg"
+    ]
+  },
+  {
+    "id": "alegria",
+    "nombre": "Casa Alegría",
+    "tag_es": "4 habitaciones",
+    "tag_en": "4 bedrooms",
+    "meta_es": "Hasta 10 huéspedes, ideal para grupos grandes",
+    "meta_en": "Up to 10 guests, ideal for large groups",
+    "descripcion_es": "Casa de estilo mediterráneo-mexicano construida en ladera con vista al mar, en La Punta a 10 minutos caminando de la playa. 4 recámaras (3 con cama king y 1 con 2 camas queen) para hasta 10 huéspedes — perfecta para grupos grandes o varias familias viajando juntas.",
+    "descripcion_en": "A Mediterranean-Mexican style home built into the hillside with ocean views, in La Punta just a 10-minute walk from the beach. 4 bedrooms (3 with king beds, 1 with two queen beds) for up to 10 guests — perfect for large groups or several families traveling together.",
+    "capacidad_es": "4 recámaras (3 con cama king, 1 con 2 camas queen) · 5.5 baños · hasta 10 huéspedes",
+    "capacidad_en": "4 bedrooms (3 king, 1 with two queens) · 5.5 bathrooms · up to 10 guests",
+    "airbnb": "https://www.airbnb.com/rooms/31112926",
+    "fotos": [
+      "assets/img/casa-alegria-foto-1.jpg",
+      "assets/img/casa-alegria-foto-2.jpg",
+      "assets/img/casa-alegria-foto-3.jpg",
+      "assets/img/casa-alegria-foto-4.jpg",
+      "assets/img/casa-alegria-foto-5.jpg"
+    ]
+  },
+  {
+    "id": "oasis",
+    "nombre": "Casa Oasis",
+    "tag_es": "Bungalós",
+    "tag_en": "Bungalows",
+    "meta_es": "3 bungalós privados, ambiente relajado",
+    "meta_en": "3 private bungalows, relaxed atmosphere",
+    "descripcion_es": "Tres bungalós privados alrededor de un jardín tropical, pensados para quienes buscan intimidad sin dejar de tener espacios comunes para convivir. Ambiente relajado, ideal para estancias largas.",
+    "descripcion_en": "Three private bungalows around a tropical garden, made for travelers who want privacy without giving up shared spaces to gather. Relaxed atmosphere, great for longer stays.",
+    "capacidad_es": "6 huéspedes · 3 habitaciones · 3 camas · 3 baños",
+    "capacidad_en": "6 guests · 3 bedrooms · 3 beds · 3 bathrooms",
+    "airbnb": "https://www.airbnb.com/rooms/797717022625481076",
+    "fotos": [
+      "assets/img/casa-oasis-foto-1.jpg",
+      "assets/img/casa-oasis-foto-2.jpg",
+      "assets/img/casa-oasis-foto-3.jpg",
+      "assets/img/casa-oasis-foto-4.jpg",
+      "assets/img/casa-oasis-foto-5.jpg"
+    ]
+  },
+  {
+    "id": "cali",
+    "nombre": "Casa Cali",
+    "tag_es": "Superhost",
+    "tag_en": "Superhost",
+    "meta_es": "Casa de diseño con vista al mar y alberca",
+    "meta_en": "Design home with ocean view and pool",
+    "descripcion_es": "Casa de diseño con vista al mar y alberca, operada por un Superhost de Airbnb. Arquitectura cuidada, acabados modernos y una de las mejores vistas de La Punta.",
+    "descripcion_en": "A design-forward home with ocean views and a pool, run by an Airbnb Superhost. Considered architecture, modern finishes, and one of the best views in La Punta.",
+    "capacidad_es": "9 huéspedes · 4 habitaciones · 5 camas · 5 baños",
+    "capacidad_en": "9 guests · 4 bedrooms · 5 beds · 5 bathrooms",
+    "airbnb": "https://www.airbnb.com/rooms/1139855209974233478",
+    "fotos": [
+      "assets/img/casa-cali-foto-1.jpg",
+      "assets/img/casa-cali-foto-2.jpg",
+      "assets/img/casa-cali-foto-3.jpg",
+      "assets/img/casa-cali-foto-4.jpg",
+      "assets/img/casa-cali-foto-5.jpg"
+    ]
+  },
+  {
+    "id": "ambar",
+    "nombre": "Casa Ámbar",
+    "tag_es": "Super-adobe",
+    "tag_en": "Super-adobe",
+    "meta_es": "Diseño en super-adobe, íntima y tranquila",
+    "meta_en": "Super-adobe design, intimate and quiet",
+    "descripcion_es": "Construcción en super-adobe, técnica que mantiene la casa fresca de forma natural todo el año. Espacio íntimo y tranquilo, ideal para parejas o viajeros que buscan desconectar.",
+    "descripcion_en": "Built with super-adobe construction, a technique that keeps the home naturally cool year-round. An intimate, quiet space, ideal for couples or travelers looking to disconnect.",
+    "capacidad_es": "4 huéspedes · 2 habitaciones · 2 camas · 2 baños",
+    "capacidad_en": "4 guests · 2 bedrooms · 2 beds · 2 bathrooms",
+    "airbnb": "https://www.airbnb.com/rooms/1623525408977443454",
+    "fotos": [
+      "assets/img/casa-ambar-foto-1.jpg",
+      "assets/img/casa-ambar-foto-2.jpg",
+      "assets/img/casa-ambar-foto-3.jpg",
+      "assets/img/casa-ambar-foto-4.jpg",
+      "assets/img/casa-ambar-foto-5.jpg"
+    ]
+  }
+]

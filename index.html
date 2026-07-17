@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hidden Gems Puerto Escondido — por Patty Hernández</title>
+<meta name="description" content="Reserva directo las casas de La Punta Zicatela, Puerto Escondido. Ahorra hasta 10% vs. Airbnb, disponibilidad en vivo y atención personal por WhatsApp.">
+
+<meta property="og:title" content="Hidden Gems Puerto Escondido — por Patty Hernández">
+<meta property="og:description" content="Las casas de La Punta, reservadas directo conmigo. Ahorra hasta 10% vs. Airbnb.">
+<meta property="og:image" content="assets/img/casa-cali-foto-1.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://quedatepuertoescondido.netlify.app/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,600;1,9..144,200;1,9..144,300&family=DM+Sans:wght@200;300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/estilos.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class='brand' href='/'><em>Hidden Gems</em> Puerto Escondido · Patty Hernández</a>
+    <nav class="site-nav">
+      <a href='/casas'><span data-es>Las casas</span><span data-en>Homes</span></a>
+      <a href='/paquetes'><span data-es>Paquetes</span><span data-en>Packages</span></a>
+      <a href="#como-funciona"><span data-es>Cómo funciona</span><span data-en>How it works</span></a>
+      <a href="#sobre-mi"><span data-es>Sobre mí</span><span data-en>About me</span></a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-toggle">
+        <button id="btn-es" class="active" onclick="setLang('es')">ES</button>
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+      </div>
+      <a class="wa-pill" href="https://wa.me/528661154305" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">La Punta Zicatela · Puerto Escondido · Oaxaca</div>
+  <h1>
+    <span data-es>Las casas que ya conoces de Airbnb, <em>reservadas directo conmigo.</em></span>
+    <span data-en>The homes you've seen on Airbnb, <em>booked directly with me.</em></span>
+  </h1>
+  <p class="lede">
+    <span data-es>Disponibilidad en vivo, el mejor precio y atención personal por WhatsApp — sin comisiones de plataforma escondidas en el checkout.</span>
+    <span data-en>Live availability, the best price, and personal attention over WhatsApp — no hidden platform fees at checkout.</span>
+  </p>
+
+  <form id="form-buscador" class="buscador">
+    <div class="campo">
+      <label data-es>Check-in</label><label data-en>Check-in</label>
+      <input type="date" name="checkin" required>
+    </div>
+    <div class="campo">
+      <label data-es>Check-out</label><label data-en>Check-out</label>
+      <input type="date" name="checkout" required>
+    </div>
+    <button type="submit" class="btn btn-primary">
+      <span data-es>Buscar disponibilidad</span><span data-en>Search availability</span>
+    </button>
+  </form>
+  <p id="buscador-msg" class="buscador-msg"></p>
+
+  <div class="hero-ctas">
+    <a class='btn btn-ghost' href='/casas'>
+      <span data-es>Ver las 7 casas →</span><span data-en>Browse all 7 homes →</span>
+    </a>
+  </div>
+</section>
+
+<div class="value-strip">
+  <div class="value-inner">
+    <span class="icon">💰</span>
+    <div>
+      <span data-es><strong>Reservando directo conmigo obtienes el mejor precio</strong> — hasta 10% menos que en Airbnb, sin comisiones de plataforma escondidas en el checkout.</span>
+      <span data-en><strong>Book directly with me and get the best price</strong> — up to 10% less than Airbnb, no hidden platform fees at checkout.</span>
+    </div>
+  </div>
+</div>
+
+<section id="casas">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-eyebrow"><span data-es>Inventario disponible</span><span data-en>Available inventory</span></div>
+      <h2><span data-es>Casas destacadas en La Punta</span><span data-en>Featured homes in La Punta</span></h2>
+      <p><span data-es>Busca tus fechas o escríbeme directo para apartar.</span><span data-en>Search your dates or message me directly to book.</span></p>
+    </div>
+    <div class="casas-grid" id="casas-grid-home"></div>
+  </div>
+</section>
+
+<section id="como-funciona" style="background:#fff;">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-eyebrow"><span data-es>El proceso</span><span data-en>The process</span></div>
+      <h2><span data-es>Cómo funciona</span><span data-en>How it works</span></h2>
+    </div>
+    <div class="pasos">
+      <div class="paso">
+        <div class="num">1</div>
+        <h3><span data-es>Elige tu casa o paquete</span><span data-en>Choose your home or package</span></h3>
+        <p><span data-es>Revisa disponibilidad en vivo para tus fechas.</span><span data-en>Check live availability for your dates.</span></p>
+      </div>
+      <div class="paso">
+        <div class="num">2</div>
+        <h3><span data-es>Cotiza por WhatsApp</span><span data-en>Get a quote on WhatsApp</span></h3>
+        <p><span data-es>Precio real, sin comisiones de plataforma.</span><span data-en>Real pricing, no platform fees.</span></p>
+      </div>
+      <div class="paso">
+        <div class="num">3</div>
+        <h3><span data-es>Aparta con tu anticipo</span><span data-en>Book with your deposit</span></h3>
+        <p><span data-es>Anticipo del 30–50% y el resto se liquida 7 días antes del check-in. Pagos seguros con Stripe y Mercado Pago.</span><span data-en>30–50% deposit, balance due 7 days before check-in. Secure payments with Stripe and Mercado Pago.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonios">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-eyebrow"><span data-es>Huéspedes reales</span><span data-en>Real guests</span></div>
+      <h2><span data-es>Lo que dicen quienes se quedaron</span><span data-en>What past guests say</span></h2>
+    </div>
+    <div class="testimonios-grid" id="testimonios-grid"></div>
+  </div>
+</section>
+
+<section id="sobre-mi" class="sobre-mi">
+  <div class="section-inner sobre-mi-inner">
+    <div class="sobre-mi-foto">
+      <img src="assets/img/patty-hernandez.jpg" alt="Patty Hernández en Puerto Escondido" loading="lazy">
+    </div>
+    <div class="sobre-mi-texto">
+      <div class="section-eyebrow" style="color:var(--ocre-suave)">
+        <span data-es>Quién te recibe</span><span data-en>Your host</span>
+      </div>
+      <h2>Patty Hernández</h2>
+      <p>
+        <span data-es>Soy egresada del Tec de Monterrey, y fue justo por eso que decidí emprender este negocio. Llegué a Puerto Escondido pensando quedarme solo 3 meses — pero la magia de este lugar me atrapó y decidí quedarme. Hoy manejo un grupo de casas en La Punta Zicatela y quiero compartir contigo lo que me enamoró de este lugar. Conozco cada propiedad de primera mano — y también la zona: dónde comer, surfear y ver el atardecer. Mi trabajo es que reserves con confianza y vivas Puerto como alguien de aquí.</span>
+        <span data-en>I'm a Tec de Monterrey graduate, and that's exactly what pushed me to start this business. I came to Puerto Escondido planning to stay just 3 months — but the magic of this place got to me and I decided to stay. Today I manage a group of homes in La Punta Zicatela and I want to share with you what made me fall in love with this place. I know every property firsthand — and the area too: where to eat, surf, and catch the sunset. My job is to make sure you book with confidence and experience Puerto like a local.</span>
+      </p>
+      <p class="firma">— Patty Hernández</p>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2><span data-es>¿Listo para reservar?</span><span data-en>Ready to book?</span></h2>
+      <p><span data-es>Escríbeme por WhatsApp con tus fechas y la casa que te interesa.</span><span data-en>Message me on WhatsApp with your dates and the home you like.</span></p>
+    </div>
+    <a class="btn btn-primary" href="https://wa.me/528661154305" target="_blank" rel="noopener">
+      💬 <span data-es>Escribir por WhatsApp</span><span data-en>Message on WhatsApp</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="brand-foot">Hidden Gems Puerto Escondido — por Patty Hernández</div>
+  La Punta Zicatela · Puerto Escondido · Oaxaca
+  <nav>
+    <a href='/'><span data-es>Inicio</span><span data-en>Home</span></a>
+    <a href='/casas'><span data-es>Casas</span><span data-en>Homes</span></a>
+    <a href='/paquetes'><span data-es>Paquetes</span><span data-en>Packages</span></a>
+  </nav>
+</footer>
+
+<a class="wa-float" href="https://wa.me/528661154305" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<!-- Modal casa (compartido) -->
+<div class="modal-overlay" id="modal-casa">
+  <div class="modal-box">
+    <button class="modal-cerrar" onclick="HGP.cerrarModal()" aria-label="Cerrar">✕</button>
+    <div class="modal-slideshow">
+      <button class="slideshow-arrow prev" onclick="HGP.moverSlide(-1)" aria-label="Foto anterior">‹</button>
+      <button class="slideshow-arrow next" onclick="HGP.moverSlide(1)" aria-label="Foto siguiente">›</button>
+    </div>
+    <div class="modal-body">
+      <span class="tag modal-tag"></span>
+      <h3 class="modal-nombre"></h3>
+      <p class="meta"><span data-es class="modal-meta-es"></span><span data-en class="modal-meta-en"></span></p>
+      <p class="capacidad"><span data-es class="modal-cap-es"></span><span data-en class="modal-cap-en"></span></p>
+      <p class="descripcion"><span data-es class="modal-desc-es"></span><span data-en class="modal-desc-en"></span></p>
+      <div class="modal-actions">
+        <a class="link-wa modal-wa" href="#" target="_blank" rel="noopener"><span data-es>Consultar disponibilidad y cotizar</span><span data-en>Check availability &amp; get a quote</span></a>
+        <a class="link-airbnb modal-airbnb" href="#" target="_blank" rel="noopener"><span data-es>Ver en Airbnb</span><span data-en>View on Airbnb</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/idioma.js"></script>
+<script src="assets/js/disponibilidad.js"></script>
+<script src="assets/js/principal.js"></script>
+<script>
+  var gridHome = document.getElementById('casas-grid-home');
+  HGP.cargarCasas().then(function (casas) {
+    HGP.renderCasasGrid(gridHome, casas.slice(0, 3));
+  });
+  HGP.cargarTestimonios().then(function (testimonios) {
+    HGP.renderTestimonios(document.getElementById('testimonios-grid'), testimonios);
+  });
+  HGP.wireBuscador(document.getElementById('form-buscador'), gridHome, document.getElementById('buscador-msg'));
+</script>
+</body>
+</html>

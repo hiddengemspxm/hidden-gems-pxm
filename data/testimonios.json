@@ -1,0 +1,38 @@
+[
+  {
+    "placeholder": true,
+    "nombre": "[PENDIENTE: nombre real]",
+    "pais": "Canadá",
+    "casa": "Casa Cali",
+    "texto_es": "[PENDIENTE: reemplazar con testimonio real] Ejemplo de testimonio — la casa superó nuestras expectativas, la vista y la alberca fueron el punto más alto del viaje.",
+    "texto_en": "[PENDING: replace with a real testimonial] Example testimonial — the house exceeded our expectations, the view and the pool were the highlight of the trip.",
+    "fecha": "2026-01"
+  },
+  {
+    "placeholder": true,
+    "nombre": "[PENDIENTE: nombre real]",
+    "pais": "Estados Unidos",
+    "casa": "Casa Alegría",
+    "texto_es": "[PENDIENTE: reemplazar con testimonio real] Ejemplo de testimonio — viajamos en grupo grande y la casa tuvo espacio de sobra para todos, además de una vista al mar espectacular.",
+    "texto_en": "[PENDING: replace with a real testimonial] Example testimonial — we traveled as a large group and the house had plenty of room for everyone, plus a spectacular ocean view.",
+    "fecha": "2025-12"
+  },
+  {
+    "placeholder": true,
+    "nombre": "[PENDIENTE: nombre real]",
+    "pais": "México",
+    "casa": "Casa Aloha Punta Vista",
+    "texto_es": "[PENDIENTE: reemplazar con testimonio real] Ejemplo de testimonio — reservar directo con Patty fue muy fácil, respondió rápido y todo salió tal como lo platicamos por WhatsApp.",
+    "texto_en": "[PENDING: replace with a real testimonial] Example testimonial — booking directly with Patty was easy, she replied fast and everything matched what we agreed over WhatsApp.",
+    "fecha": "2025-11"
+  },
+  {
+    "placeholder": true,
+    "nombre": "[PENDIENTE: nombre real]",
+    "pais": "Argentina",
+    "casa": "Casa Ámbar",
+    "texto_es": "[PENDIENTE: reemplazar con testimonio real] Ejemplo de testimonio — un espacio tranquilo e íntimo, justo lo que buscábamos para desconectar unos días.",
+    "texto_en": "[PENDING: replace with a real testimonial] Example testimonial — a quiet, intimate space, exactly what we were looking for to disconnect for a few days.",
+    "fecha": "2025-10"
+  }
+]
