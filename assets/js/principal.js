@@ -23,9 +23,16 @@
 
   function mensajeCasa(casa, checkin, checkout) {
     var l = lang();
-    var msg = l === 'es'
-      ? ('Hola Paty! Me interesa ' + casa.nombre + ' — ¿me compartes disponibilidad y tarifa?')
-      : ("Hi Paty! I'm interested in " + casa.nombre + ' — could you share availability and rates?');
+    var msg;
+    if (casa.tipo === 'complejo') {
+      msg = l === 'es'
+        ? ('Hola Paty! Me interesa ' + casa.nombre + ' — ¿cuántos huéspedes seríamos? Así me dices si conviene el complejo completo o una unidad, con disponibilidad y tarifa.')
+        : ("Hi Paty! I'm interested in " + casa.nombre + ' — how many guests would we be? Let me know if the full complex or a single unit makes more sense, with availability and rates.');
+    } else {
+      msg = l === 'es'
+        ? ('Hola Paty! Me interesa ' + casa.nombre + ' — ¿me compartes disponibilidad y tarifa?')
+        : ("Hi Paty! I'm interested in " + casa.nombre + ' — could you share availability and rates?');
+    }
     if (checkin && checkout) {
       msg += l === 'es'
         ? (' Fechas: ' + formatFecha(checkin) + ' al ' + formatFecha(checkout) + '.')
@@ -134,6 +141,26 @@
     overlay.querySelector('.modal-desc-en').textContent = casa.descripcion_en;
     overlay.querySelector('.modal-cap-es').textContent = casa.capacidad_es;
     overlay.querySelector('.modal-cap-en').textContent = casa.capacidad_en;
+
+    var unidadesEl = overlay.querySelector('.modal-unidades');
+    if (unidadesEl) {
+      if (casa.unidades && casa.unidades.length) {
+        unidadesEl.innerHTML =
+          '<p class="modal-unidades-label"><span data-es>Elige tu unidad, o renta el complejo completo:</span><span data-en>Choose your unit, or rent the full complex:</span></p>' +
+          casa.unidades.map(function (u) {
+            return (
+              '<div class="modal-unidad">' +
+                '<h4>' + u.nombre + '</h4>' +
+                '<p><span data-es>' + u.capacidad_es + '</span><span data-en>' + u.capacidad_en + '</span></p>' +
+              '</div>'
+            );
+          }).join('');
+        unidadesEl.classList.remove('oculto');
+      } else {
+        unidadesEl.innerHTML = '';
+        unidadesEl.classList.add('oculto');
+      }
+    }
 
     var slideshow = overlay.querySelector('.modal-slideshow');
     slideshow.querySelectorAll('img').forEach(function (im) { im.remove(); });

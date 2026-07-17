@@ -179,6 +179,40 @@
     "seccion": "grupos"
   },
   {
+    "id": "luwak",
+    "nombre": "Complejo Luwak",
+    "tipo": "complejo",
+    "tag_es": "Complejo completo · hasta 20 huéspedes",
+    "tag_en": "Full complex · up to 20 guests",
+    "meta_es": "Tres casas, dos albercas y un rooftop con atardecer",
+    "meta_en": "Three houses, two pools, and a sunset rooftop",
+    "descripcion_es": "Tres casas, dos albercas y un rooftop con atardecer. Réntalo completo para 20 o elige tu unidad. Chef disponible.",
+    "descripcion_en": "Three houses, two pools, and a sunset rooftop. Rent the whole complex for 20 or pick your own unit. Chef available.",
+    "capacidad_es": "Hasta 20 huéspedes en total · 3 unidades independientes",
+    "capacidad_en": "Up to 20 guests total · 3 independent units",
+    "fotos": [
+      "assets/img/casa-luwak-placeholder.svg"
+    ],
+    "seccion": "grupos",
+    "unidades": [
+      {
+        "nombre": "Casa Luwak",
+        "capacidad_es": "10 huéspedes · 5 habitaciones · 6 baños · 2 albercas · rooftop con vista al mar · servicio de chef",
+        "capacidad_en": "10 guests · 5 bedrooms · 6 bathrooms · 2 pools · rooftop with ocean view · chef service"
+      },
+      {
+        "nombre": "Casa Luwak 2",
+        "capacidad_es": "6 huéspedes · 3 habitaciones · 3 baños · vista al mar",
+        "capacidad_en": "6 guests · 3 bedrooms · 3 bathrooms · ocean view"
+      },
+      {
+        "nombre": "Casa Luwak 1",
+        "capacidad_es": "4 huéspedes · 2 habitaciones · 3 baños · vista al mar",
+        "capacidad_en": "4 guests · 2 bedrooms · 3 bathrooms · ocean view"
+      }
+    ]
+  },
+  {
     "id": "mochila",
     "nombre": "Casa Mochila",
     "tag_es": "Pet friendly",

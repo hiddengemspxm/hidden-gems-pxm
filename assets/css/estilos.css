@@ -239,6 +239,11 @@ section{padding:56px 24px;}
 .modal-body .meta{color:var(--gris);}
 .modal-body .capacidad{font-size:0.9rem; color:var(--musgo); font-weight:600;}
 .modal-body .descripcion{color:var(--gris); font-size:0.95rem;}
+.modal-unidades{display:flex; flex-direction:column; gap:10px; margin-top:4px;}
+.modal-unidades-label{font-size:0.85rem; color:var(--musgo); font-weight:600;}
+.modal-unidad{background:var(--lino); border-radius:10px; padding:12px 14px;}
+.modal-unidad h4{font-size:0.95rem; color:var(--musgo); font-weight:700; margin-bottom:4px;}
+.modal-unidad p{font-size:0.85rem; color:var(--gris);}
 .modal-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;}
 .modal-actions .link-wa{flex:1; min-width:160px; padding:12px 16px; font-size:0.9rem;}
 
