@@ -172,7 +172,18 @@
     "capacidad_es": "4 habitaciones · [PENDIENTE: huéspedes y baños]",
     "capacidad_en": "4 bedrooms · [PENDING: guests and bathrooms]",
     "fotos": [
-      "/assets/img/casa-yara-placeholder.svg"
+      "/assets/img/casa-yara-foto-1.webp",
+      "/assets/img/casa-yara-foto-2.webp",
+      "/assets/img/casa-yara-foto-3.webp",
+      "/assets/img/casa-yara-foto-4.webp",
+      "/assets/img/casa-yara-foto-5.webp",
+      "/assets/img/casa-yara-foto-6.webp",
+      "/assets/img/casa-yara-foto-7.webp",
+      "/assets/img/casa-yara-foto-8.webp",
+      "/assets/img/casa-yara-foto-9.webp",
+      "/assets/img/casa-yara-foto-10.webp",
+      "/assets/img/casa-yara-foto-11.webp",
+      "/assets/img/casa-yara-foto-12.webp"
     ],
     "seccion": "parejas",
     "huespedes": null,
