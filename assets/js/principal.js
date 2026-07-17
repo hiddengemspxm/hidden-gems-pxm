@@ -84,10 +84,28 @@
     return '<div class="casa-card-stats">' + piezas.join('') + '</div>';
   }
 
+  // Mini-carrusel deslizable de la card (3-5 fotos, scroll-snap nativo sin JS).
+  function casaCarruselHTML(casa) {
+    var fotos = casa.fotos.slice(0, 5);
+    var imgs = fotos.map(function (src, i) {
+      return '<img src="' + src + '" loading="lazy" alt="' + casa.nombre + ' foto ' + (i + 1) + '">';
+    }).join('');
+    var dots = fotos.length > 1
+      ? '<div class="carrusel-dots">' + fotos.map(function () { return '<span></span>'; }).join('') + '</div>'
+      : '';
+    return (
+      '<div class="casa-card-carrusel">' +
+        '<div class="carrusel-track">' + imgs + '</div>' +
+        dots +
+      '</div>'
+    );
+  }
+
   function casaCardHTML(casa) {
+    var tienePagina = !!casa.slug;
     return (
       '<div class="casa-card" data-id="' + casa.id + '">' +
-        '<img src="' + casa.fotos[0] + '" loading="lazy" alt="' + casa.nombre + '">' +
+        casaCarruselHTML(casa) +
         '<div class="casa-card-body">' +
           (casa.tipo === 'complejo' ? '<span class="tag">' +
             '<span data-es>' + casa.tag_es + '</span>' +
@@ -107,18 +125,29 @@
             '<a class="link-wa" href="' + buildWhatsAppLink(mensajeCasa(casa, ultimaBusqueda.checkin, ultimaBusqueda.checkout)) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">' +
               '<span data-es>Reservar por WhatsApp</span><span data-en>Book via WhatsApp</span>' +
             '</a>' +
+            (tienePagina ? '<a class="link-vermas" href="/casas/' + casa.slug + '" onclick="event.stopPropagation()">' +
+              '<span data-es>Ver más</span><span data-en>See more</span>' +
+            '</a>' : '') +
           '</div>' +
         '</div>' +
       '</div>'
     );
   }
 
+  // Si la casa ya tiene página de detalle (casa.slug), el click en la card
+  // navega ahí. Si no, se abre el modal de siempre (comportamiento sin cambios
+  // para las casas nuevas hasta que tengan su propia página).
   function wireCasaCards(container) {
     container.querySelectorAll('.casa-card').forEach(function (card) {
       card.addEventListener('click', function (e) {
         if (e.target.closest('.row-actions')) return;
         var casa = casasCache.find(function (c) { return c.id === card.getAttribute('data-id'); });
-        if (casa) abrirModal(casa);
+        if (!casa) return;
+        if (casa.slug) {
+          window.location.href = '/casas/' + casa.slug;
+        } else {
+          abrirModal(casa);
+        }
       });
     });
   }
@@ -218,6 +247,119 @@
     imgs[modalState.idx].classList.add('active');
   }
 
+  // ===== Página de detalle de casa (/casas/<slug>/) =====
+  function setMeta(name, content, isProperty) {
+    var attr = isProperty ? 'property' : 'name';
+    var el = document.querySelector('meta[' + attr + '="' + name + '"]');
+    if (el && content) el.setAttribute('content', content);
+  }
+
+  // Misma plantilla física para todas las casas: toma el slug del último
+  // segmento de la URL, busca esa casa en casas.json y pinta todo desde ahí.
+  // Si la casa no existe (o no tiene página todavía) muestra un mensaje y
+  // regresa al catálogo, en vez de dejar la página en blanco.
+  function renderDetalleCasa(container) {
+    var partes = window.location.pathname.split('/').filter(Boolean);
+    var slug = partes[partes.length - 1];
+
+    cargarCasas().then(function (casas) {
+      var casa = casas.find(function (c) { return c.slug === slug; });
+
+      if (!casa) {
+        container.innerHTML =
+          '<div class="detalle-cargando">' +
+            '<p><span data-es>No encontramos esta casa.</span><span data-en>We couldn\'t find this home.</span></p>' +
+            '<p><a href="/casas" style="text-decoration:underline"><span data-es>Ver todas las casas →</span><span data-en>Browse all homes →</span></a></p>' +
+          '</div>';
+        applyLangSafe();
+        return;
+      }
+
+      var waLink = buildWhatsAppLink(mensajeCasa(casa, null, null));
+      var tituloPagina = casa.nombre + ' — Hidden Gems Puerto Escondido';
+
+      document.title = tituloPagina;
+      setMeta('description', lang() === 'es' ? casa.meta_es : casa.meta_en);
+      setMeta('og:title', tituloPagina, true);
+      setMeta('og:description', lang() === 'es' ? casa.meta_es : casa.meta_en, true);
+      setMeta('og:image', window.location.origin + casa.fotos[0], true);
+
+      var specs = [];
+      if (casa.huespedes != null) {
+        specs.push(
+          '<span class="stat"><span aria-hidden="true">👥</span> ' +
+            '<span data-es>' + casa.huespedes + ' personas</span>' +
+            '<span data-en>' + casa.huespedes + ' guests</span>' +
+          '</span>'
+        );
+      }
+      if (casa.habitaciones != null) {
+        specs.push(
+          '<span class="stat"><span aria-hidden="true">🛏</span> ' +
+            '<span data-es>' + casa.habitaciones + ' habitaciones</span>' +
+            '<span data-en>' + casa.habitaciones + ' bedrooms</span>' +
+          '</span>'
+        );
+      }
+      if (casa.banos != null) {
+        specs.push(
+          '<span class="stat"><span aria-hidden="true">🚿</span> ' +
+            '<span data-es>' + casa.banos + ' baños</span>' +
+            '<span data-en>' + casa.banos + ' bathrooms</span>' +
+          '</span>'
+        );
+      }
+
+      var amenidadesHTML = '';
+      if (casa.amenidades_es && casa.amenidades_es.length) {
+        amenidadesHTML =
+          '<div class="detalle-amenidades">' +
+            '<h2><span data-es>Amenidades</span><span data-en>Amenities</span></h2>' +
+            '<ul>' +
+              casa.amenidades_es.map(function (a, i) {
+                var en = (casa.amenidades_en && casa.amenidades_en[i]) || a;
+                return '<li><span data-es>' + a + '</span><span data-en>' + en + '</span></li>';
+              }).join('') +
+            '</ul>' +
+          '</div>';
+      }
+
+      // Galería modo portafolio: todas las fotos en columna, tamaño natural
+      // (sin recortes), con lazy loading en cada una para que cargue rápido.
+      var galeriaHTML =
+        '<div class="detalle-galeria-titulo"><span data-es>Fotos</span><span data-en>Photos</span></div>' +
+        '<div class="detalle-galeria">' +
+          casa.fotos.map(function (src, i) {
+            return '<img src="' + src + '" loading="lazy" alt="' + casa.nombre + ' foto ' + (i + 1) + '">';
+          }).join('') +
+        '</div>';
+
+      container.innerHTML =
+        '<div class="detalle-header">' +
+          (casa.zona_es ? '<p class="detalle-zona"><span data-es>' + casa.zona_es + '</span><span data-en>' + casa.zona_en + '</span></p>' : '') +
+          '<h1>' + casa.nombre + '</h1>' +
+          '<div class="detalle-specs">' + specs.join('') + '</div>' +
+          '<a class="btn btn-primary detalle-wa" href="' + waLink + '" target="_blank" rel="noopener">' +
+            '💬 <span data-es>Reservar por WhatsApp</span><span data-en>Book via WhatsApp</span>' +
+          '</a>' +
+        '</div>' +
+        '<div class="detalle-descripcion"><p>' +
+          '<span data-es>' + casa.descripcion_es + '</span><span data-en>' + casa.descripcion_en + '</span>' +
+        '</p></div>' +
+        amenidadesHTML +
+        galeriaHTML;
+
+      // Botón fijo de WhatsApp (visible siempre al hacer scroll en móvil, vía CSS)
+      var stickyBtn = document.getElementById('wa-sticky');
+      if (stickyBtn) {
+        stickyBtn.href = waLink;
+        stickyBtn.classList.remove('oculto');
+      }
+
+      applyLangSafe();
+    });
+  }
+
   // ===== Buscador de fechas =====
   function renderMensajeBuscador(el, tipo, texto) {
     el.className = 'buscador-msg' + (tipo ? ' ' + tipo : '');
@@ -303,6 +445,7 @@
     cargarTestimonios: cargarTestimonios,
     renderCasasGrid: renderCasasGrid,
     renderCasasPorSeccion: renderCasasPorSeccion,
+    renderDetalleCasa: renderDetalleCasa,
     renderTestimonios: renderTestimonios,
     wireBuscador: wireBuscador,
     abrirModal: abrirModal,

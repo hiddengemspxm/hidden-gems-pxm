@@ -20,7 +20,23 @@
     "seccion": "parejas",
     "exAirbnb": true,
     "huespedes": 10,
-    "habitaciones": 4
+    "habitaciones": 4,
+    "slug": "casa-aloha-punta-vista",
+    "banos": 5,
+    "zona_es": "La Punta",
+    "zona_en": "La Punta",
+    "amenidades_es": [
+      "Vista a La Punta",
+      "Terraza",
+      "Suite dúplex",
+      "A pasos de las rompientes de surf"
+    ],
+    "amenidades_en": [
+      "View over La Punta",
+      "Terrace",
+      "Duplex suite",
+      "Steps from the surf breaks"
+    ]
   },
   {
     "id": "amara",
@@ -43,7 +59,21 @@
     "seccion": "parejas",
     "exAirbnb": true,
     "huespedes": 8,
-    "habitaciones": 3
+    "habitaciones": 3,
+    "slug": "casa-amara",
+    "banos": 3.5,
+    "zona_es": "La Punta",
+    "zona_en": "La Punta",
+    "amenidades_es": [
+      "Rooftop",
+      "Jacuzzi privado",
+      "Espacios amplios para grupos"
+    ],
+    "amenidades_en": [
+      "Rooftop",
+      "Private jacuzzi",
+      "Spacious for groups"
+    ]
   },
   {
     "id": "palacio",
@@ -66,7 +96,21 @@
     "seccion": "parejas",
     "exAirbnb": true,
     "huespedes": 4,
-    "habitaciones": 2
+    "habitaciones": 2,
+    "slug": "casa-palacio-alegria",
+    "banos": 2.5,
+    "zona_es": "La Punta",
+    "zona_en": "La Punta",
+    "amenidades_es": [
+      "Áreas comunes amplias",
+      "Cocina equipada",
+      "Ideal para familias"
+    ],
+    "amenidades_en": [
+      "Spacious common areas",
+      "Equipped kitchen",
+      "Great for families"
+    ]
   },
   {
     "id": "alegria",
@@ -89,7 +133,21 @@
     "seccion": "parejas",
     "exAirbnb": true,
     "huespedes": 10,
-    "habitaciones": 4
+    "habitaciones": 4,
+    "slug": "casa-alegria",
+    "banos": 5.5,
+    "zona_es": "La Punta",
+    "zona_en": "La Punta",
+    "amenidades_es": [
+      "Vista al mar",
+      "10 min caminando a la playa",
+      "Recámaras con cama king"
+    ],
+    "amenidades_en": [
+      "Ocean view",
+      "10-minute walk to the beach",
+      "King bed bedrooms"
+    ]
   },
   {
     "id": "oasis",
@@ -112,7 +170,21 @@
     "seccion": "parejas",
     "exAirbnb": true,
     "huespedes": 6,
-    "habitaciones": 3
+    "habitaciones": 3,
+    "slug": "casa-oasis",
+    "banos": 3,
+    "zona_es": "La Punta",
+    "zona_en": "La Punta",
+    "amenidades_es": [
+      "3 bungalós privados",
+      "Jardín tropical",
+      "Espacios comunes para convivir"
+    ],
+    "amenidades_en": [
+      "3 private bungalows",
+      "Tropical garden",
+      "Shared spaces to gather"
+    ]
   },
   {
     "id": "cali",
@@ -135,7 +207,21 @@
     "seccion": "parejas",
     "exAirbnb": true,
     "huespedes": 9,
-    "habitaciones": 4
+    "habitaciones": 4,
+    "slug": "casa-cali",
+    "banos": 5,
+    "zona_es": "La Punta",
+    "zona_en": "La Punta",
+    "amenidades_es": [
+      "Alberca",
+      "Vista al mar",
+      "Arquitectura de autor"
+    ],
+    "amenidades_en": [
+      "Pool",
+      "Ocean view",
+      "Design-forward architecture"
+    ]
   },
   {
     "id": "ambar",
@@ -158,7 +244,21 @@
     "seccion": "parejas",
     "exAirbnb": true,
     "huespedes": 4,
-    "habitaciones": 2
+    "habitaciones": 2,
+    "slug": "casa-ambar",
+    "banos": 2,
+    "zona_es": "La Punta",
+    "zona_en": "La Punta",
+    "amenidades_es": [
+      "Construcción en super-adobe",
+      "Fresca todo el año",
+      "Espacio íntimo"
+    ],
+    "amenidades_en": [
+      "Super-adobe construction",
+      "Naturally cool year-round",
+      "Intimate space"
+    ]
   },
   {
     "id": "yara",

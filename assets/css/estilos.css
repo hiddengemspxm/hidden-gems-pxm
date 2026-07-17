@@ -185,7 +185,23 @@ section{padding:56px 24px;}
 }
 .casa-card:hover{transform:translateY(-4px); box-shadow:0 14px 30px rgba(30,26,20,0.1);}
 .casa-card-body{padding:14px 18px 0; display:flex; flex-direction:column; gap:8px; flex:1;}
-.casa-card img{width:100%; height:200px; object-fit:cover; background:var(--lino);}
+
+/* Mini-carrusel deslizable (scroll-snap nativo, sin JS) */
+.casa-card-carrusel{position:relative;}
+.carrusel-track{
+  display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.carrusel-track::-webkit-scrollbar{display:none;}
+.carrusel-track img{
+  flex:0 0 100%; width:100%; height:200px; object-fit:cover; background:var(--lino);
+  scroll-snap-align:start;
+}
+.carrusel-dots{
+  position:absolute; bottom:8px; left:0; right:0; display:flex; gap:5px; justify-content:center;
+  pointer-events:none;
+}
+.carrusel-dots span{width:5px; height:5px; border-radius:50%; background:rgba(255,255,255,0.7); box-shadow:0 0 3px rgba(0,0,0,0.3);}
 .casa-card .tag{
   align-self:flex-start; background:var(--lino); color:var(--musgo);
   font-size:0.7rem; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
@@ -197,11 +213,17 @@ section{padding:56px 24px;}
 .casa-card h3{font-size:1.15rem; color:var(--ink); font-weight:200; margin-top:2px;}
 .casa-card .meta{font-size:0.86rem; color:var(--gris);}
 .casa-card .ahorro{font-size:0.78rem; color:var(--vino); font-weight:600;}
-.casa-card .row-actions{margin-top:auto; display:flex; gap:8px; flex-wrap:wrap; padding-top:8px;}
+.casa-card .row-actions{margin-top:auto; display:flex; flex-direction:column; gap:8px; padding-top:8px;}
 .link-wa{
   flex:1; text-align:center; background:var(--musgo); color:#fff;
   border-radius:999px; padding:9px 12px; font-size:0.82rem; font-weight:600;
 }
+.link-vermas{
+  flex:1; text-align:center; border:0.5px solid var(--musgo); color:var(--musgo);
+  border-radius:999px; padding:9px 12px; font-size:0.82rem; font-weight:600;
+  transition:background .15s, color .15s;
+}
+.link-vermas:hover{background:var(--musgo); color:#fff;}
 .badge-ahorro{
   display:inline-block; background:rgba(158,74,58,0.08); color:var(--vino);
   font-size:0.76rem; font-weight:600; padding:5px 12px; border-radius:999px;
@@ -337,6 +359,51 @@ footer .brand-foot{
 footer nav{display:flex; gap:16px; justify-content:center; margin-top:10px; flex-wrap:wrap;}
 footer nav a{color:rgba(243,236,221,0.6);}
 footer nav a:hover{color:var(--ocre-suave);}
+
+/* ===== Página de detalle de casa ===== */
+.btn-volver{
+  display:inline-block; margin:16px 24px 0; font-size:0.85rem; color:var(--gris);
+  transition:color .15s;
+}
+.btn-volver:hover{color:var(--musgo);}
+#detalle-main{max-width:760px; margin:0 auto; padding:24px 24px 80px;}
+.detalle-cargando{text-align:center; padding:80px 24px; color:var(--gris);}
+.detalle-zona{
+  color:var(--musgo); letter-spacing:0.1em; text-transform:uppercase;
+  font-size:0.75rem; font-weight:700; margin-bottom:6px;
+}
+.detalle-header h1{font-size:clamp(1.8rem,4.5vw,2.4rem); color:var(--ink); margin-bottom:14px;}
+.detalle-specs{display:flex; gap:18px; flex-wrap:wrap; margin-bottom:18px;}
+.detalle-specs .stat{font-size:0.92rem; color:var(--musgo); font-weight:600;}
+.detalle-specs .stat [aria-hidden]{margin-right:5px;}
+.detalle-wa{margin-bottom:8px;}
+.detalle-descripcion{margin:28px 0; font-size:1rem; color:var(--gris); line-height:1.7;}
+.detalle-amenidades{margin-bottom:32px;}
+.detalle-amenidades h2{font-size:1.15rem; color:var(--ink); margin-bottom:12px; font-weight:300;}
+.detalle-amenidades ul{list-style:none; display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:10px;}
+.detalle-amenidades li{
+  font-size:0.9rem; color:var(--ink); padding-left:22px; position:relative;
+}
+.detalle-amenidades li::before{
+  content:"✓"; position:absolute; left:0; color:var(--musgo); font-weight:700;
+}
+.detalle-galeria-titulo{font-size:1.15rem; color:var(--ink); margin-bottom:14px; font-weight:300;}
+.detalle-galeria{display:flex; flex-direction:column; gap:14px;}
+.detalle-galeria img{
+  width:100%; height:auto; display:block; border-radius:12px; background:var(--lino);
+}
+
+/* Botón fijo de WhatsApp: siempre visible al hacer scroll en móvil */
+.wa-sticky{
+  display:none; position:fixed; left:0; right:0; bottom:0; z-index:90;
+  background:var(--musgo); color:#fff; text-align:center;
+  padding:14px 24px; font-weight:600; font-size:0.95rem;
+  box-shadow:0 -6px 20px rgba(30,26,20,0.18);
+}
+@media(max-width:860px){
+  .wa-sticky:not(.oculto){display:block;}
+  #detalle-main{padding-bottom:96px;}
+}
 
 /* ===== Gracias ===== */
 .gracias{text-align:center; padding:90px 24px;}
