@@ -168,6 +168,12 @@ section{padding:56px 24px;}
 .section-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem); color:var(--ink); margin-bottom:10px;}
 .section-head p{color:var(--gris); max-width:480px; margin:0 auto;}
 
+/* ===== Catálogo por sección (parejas / grupos / lujo) ===== */
+.catalogo-seccion{margin-bottom:48px;}
+.catalogo-seccion:last-child{margin-bottom:0;}
+.catalogo-seccion-head{margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid rgba(45,74,53,0.12);}
+.catalogo-seccion-head h2{font-size:clamp(1.3rem,2.6vw,1.7rem); color:var(--ink); font-weight:300;}
+
 /* ===== Casas grid ===== */
 .casas-grid{
   display:grid; grid-template-columns:repeat(auto-fill, minmax(240px, 1fr)); gap:18px;

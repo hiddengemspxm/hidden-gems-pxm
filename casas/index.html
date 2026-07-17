@@ -65,7 +65,7 @@
 
 <section id="casas" style="padding-top:0;">
   <div class="section-inner">
-    <div class="casas-grid" id="casas-grid-full"></div>
+    <div id="casas-grid-full"></div>
   </div>
 </section>
 
@@ -108,7 +108,7 @@
 <script>
   var gridFull = document.getElementById('casas-grid-full');
   HGP.cargarCasas().then(function (casas) {
-    HGP.renderCasasGrid(gridFull, casas);
+    HGP.renderCasasPorSeccion(gridFull, casas);
   });
   HGP.wireBuscador(document.getElementById('form-buscador'), gridFull, document.getElementById('buscador-msg'));
 </script>

@@ -16,7 +16,8 @@
       "assets/img/casa-aloha-foto-3.jpg",
       "assets/img/casa-aloha-foto-4.jpg",
       "assets/img/casa-aloha-foto-5.jpg"
-    ]
+    ],
+    "seccion": "parejas"
   },
   {
     "id": "amara",
@@ -35,7 +36,8 @@
       "assets/img/casa-amara-foto-3.jpg",
       "assets/img/casa-amara-foto-4.jpg",
       "assets/img/casa-amara-foto-5.jpg"
-    ]
+    ],
+    "seccion": "parejas"
   },
   {
     "id": "palacio",
@@ -54,7 +56,8 @@
       "assets/img/casa-palacio-alegria-foto-3.jpg",
       "assets/img/casa-palacio-alegria-foto-4.jpg",
       "assets/img/casa-palacio-alegria-foto-5.jpg"
-    ]
+    ],
+    "seccion": "parejas"
   },
   {
     "id": "alegria",
@@ -73,7 +76,8 @@
       "assets/img/casa-alegria-foto-3.jpg",
       "assets/img/casa-alegria-foto-4.jpg",
       "assets/img/casa-alegria-foto-5.jpg"
-    ]
+    ],
+    "seccion": "parejas"
   },
   {
     "id": "oasis",
@@ -92,7 +96,8 @@
       "assets/img/casa-oasis-foto-3.jpg",
       "assets/img/casa-oasis-foto-4.jpg",
       "assets/img/casa-oasis-foto-5.jpg"
-    ]
+    ],
+    "seccion": "parejas"
   },
   {
     "id": "cali",
@@ -111,7 +116,8 @@
       "assets/img/casa-cali-foto-3.jpg",
       "assets/img/casa-cali-foto-4.jpg",
       "assets/img/casa-cali-foto-5.jpg"
-    ]
+    ],
+    "seccion": "parejas"
   },
   {
     "id": "ambar",
@@ -130,6 +136,7 @@
       "assets/img/casa-ambar-foto-3.jpg",
       "assets/img/casa-ambar-foto-4.jpg",
       "assets/img/casa-ambar-foto-5.jpg"
-    ]
+    ],
+    "seccion": "parejas"
   }
 ]

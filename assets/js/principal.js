@@ -44,6 +44,13 @@
     return fetch('data/testimonios.json').then(function (res) { return res.json(); });
   }
 
+  // ===== Secciones del catálogo =====
+  var SECCIONES = [
+    { id: 'parejas', es: 'Parejas y amigos en La Punta', en: 'Couples & friends in La Punta' },
+    { id: 'grupos', es: 'Grupos y celebraciones', en: 'Groups & celebrations' },
+    { id: 'lujo', es: 'Lujo frente al mar', en: 'Beachfront luxury' }
+  ];
+
   // ===== Tarjetas de casas =====
   function casaCardHTML(casa) {
     return (
@@ -73,8 +80,7 @@
     );
   }
 
-  function renderCasasGrid(container, casas) {
-    container.innerHTML = casas.map(casaCardHTML).join('');
+  function wireCasaCards(container) {
     container.querySelectorAll('.casa-card').forEach(function (card) {
       card.addEventListener('click', function (e) {
         if (e.target.closest('.row-actions')) return;
@@ -82,6 +88,31 @@
         if (casa) abrirModal(casa);
       });
     });
+  }
+
+  function renderCasasGrid(container, casas) {
+    container.innerHTML = '<div class="casas-grid">' + casas.map(casaCardHTML).join('') + '</div>';
+    wireCasaCards(container);
+    applyLangSafe();
+  }
+
+  // Vista del catálogo completo: agrupa por sección de viaje (parejas/grupos/lujo),
+  // en el orden fijo de SECCIONES; una sección sin casas simplemente no se imprime.
+  function renderCasasPorSeccion(container, casas) {
+    var html = SECCIONES.map(function (sec) {
+      var casasSeccion = casas.filter(function (c) { return c.seccion === sec.id; });
+      if (!casasSeccion.length) return '';
+      return (
+        '<div class="catalogo-seccion">' +
+          '<div class="catalogo-seccion-head">' +
+            '<h2><span data-es>' + sec.es + '</span><span data-en>' + sec.en + '</span></h2>' +
+          '</div>' +
+          '<div class="casas-grid">' + casasSeccion.map(casaCardHTML).join('') + '</div>' +
+        '</div>'
+      );
+    }).join('');
+    container.innerHTML = html;
+    wireCasaCards(container);
     applyLangSafe();
   }
 
@@ -218,6 +249,7 @@
     cargarCasas: cargarCasas,
     cargarTestimonios: cargarTestimonios,
     renderCasasGrid: renderCasasGrid,
+    renderCasasPorSeccion: renderCasasPorSeccion,
     renderTestimonios: renderTestimonios,
     wireBuscador: wireBuscador,
     abrirModal: abrirModal,
