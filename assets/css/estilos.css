@@ -295,6 +295,14 @@ section{padding:56px 24px;}
   font-size:1.15rem; margin-top:10px;
 }
 
+/* ===== Sección de confianza ===== */
+.confianza-bloque{margin-bottom:52px;}
+.confianza-bloque:last-child{margin-bottom:0;}
+.confianza-subtitulo{text-align:center; margin-bottom:24px; font-size:1.2rem; color:var(--ink); font-weight:300;}
+.confianza-enfasis{
+  text-align:center; margin-top:22px; font-weight:700; color:var(--vino); font-size:1rem;
+}
+
 /* ===== Paquetes ===== */
 .paquetes-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:22px;}
 .paquete-card{

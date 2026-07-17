@@ -159,6 +159,58 @@
   </div>
 </section>
 
+<section id="confianza" style="background:#fff;">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-eyebrow"><span data-es>Antes de escribirme</span><span data-en>Before you message me</span></div>
+      <h2><span data-es>Reserva con confianza</span><span data-en>Book with confidence</span></h2>
+    </div>
+
+    <div class="confianza-bloque">
+      <div class="sobre-mi-inner">
+        <div class="sobre-mi-foto">
+          <img src="assets/img/patty-hernandez.jpg" alt="Patty Hernández en Puerto Escondido" loading="lazy">
+        </div>
+        <div class="sobre-mi-texto">
+          <h3><span data-es>Quién está detrás</span><span data-en>Who's behind this</span></h3>
+          <p>
+            <span data-es>Soy Paty. Vivo en La Punta y visité, recorrí y fotografié personalmente cada casa de este catálogo. Me escribes y te respondo yo, no un call center.</span>
+            <span data-en>I'm Paty. I live in La Punta, and I personally visited, toured, and photographed every home in this catalog. You message me and I'm the one who answers — not a call center.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="confianza-bloque">
+      <h3 class="confianza-subtitulo"><span data-es>Cómo se reserva</span><span data-en>How to book</span></h3>
+      <div class="pasos">
+        <div class="paso">
+          <div class="num">1</div>
+          <h3><span data-es>Me escribes por WhatsApp</span><span data-en>You message me on WhatsApp</span></h3>
+        </div>
+        <div class="paso">
+          <div class="num">2</div>
+          <h3><span data-es>Apartas tus fechas con 30% de anticipo</span><span data-en>You lock in your dates with a 30% deposit</span></h3>
+          <p><span data-es>Stripe, Mercado Pago, SPEI o Zelle</span><span data-en>Stripe, Mercado Pago, SPEI, or Zelle</span></p>
+        </div>
+        <div class="paso">
+          <div class="num">3</div>
+          <h3><span data-es>El resto lo pagas antes de tu llegada</span><span data-en>You pay the rest before you arrive</span></h3>
+        </div>
+      </div>
+      <p class="confianza-enfasis">
+        <span data-es>No pagas el 100% por adelantado.</span>
+        <span data-en>You don't pay 100% upfront.</span>
+      </p>
+    </div>
+
+    <div class="confianza-bloque">
+      <h3 class="confianza-subtitulo"><span data-es>Lo que dicen los huéspedes</span><span data-en>What guests say</span></h3>
+      <div class="testimonios-grid" id="testimonios-grid-confianza"></div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="brand-foot">Hidden Gems Puerto Escondido — por Patty Hernández</div>
   La Punta Zicatela · Puerto Escondido · Oaxaca
@@ -203,6 +255,7 @@
   });
   HGP.cargarTestimonios().then(function (testimonios) {
     HGP.renderTestimonios(document.getElementById('testimonios-grid'), testimonios);
+    HGP.renderTestimonios(document.getElementById('testimonios-grid-confianza'), testimonios);
   });
   HGP.wireBuscador(document.getElementById('form-buscador'), gridHome, document.getElementById('buscador-msg'));
 </script>
