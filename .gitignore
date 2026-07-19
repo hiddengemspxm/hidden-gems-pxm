@@ -1,2 +1,6 @@
 .claude/
 .DS_Store
+
+# Carpetas de fotos originales sin optimizar (subidas para procesar, no para
+# servir). Las versiones optimizadas viven en assets/img/casa-<id>-NN.jpg.
+assets/img/Oasis Hg/

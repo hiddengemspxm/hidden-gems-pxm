@@ -154,18 +154,37 @@
     "nombre": "Casa Oasis",
     "tag_es": "Bungalós",
     "tag_en": "Bungalows",
-    "meta_es": "3 bungalós privados, ambiente relajado",
-    "meta_en": "3 private bungalows, relaxed atmosphere",
-    "descripcion_es": "Tres bungalós privados alrededor de un jardín tropical, pensados para quienes buscan intimidad sin dejar de tener espacios comunes para convivir. Ambiente relajado, ideal para estancias largas.",
-    "descripcion_en": "Three private bungalows around a tropical garden, made for travelers who want privacy without giving up shared spaces to gather. Relaxed atmosphere, great for longer stays.",
+    "meta_es": "Tres bungalós privados alrededor de un jardín tropical. Cada quien su espacio, todos el mismo jardín — para viajar juntos sin encimarse.",
+    "meta_en": "Three private bungalows around a tropical garden. Everyone gets their own space, everyone shares the garden — travel together without being on top of each other.",
+    "descripcion_es": "Casa Oasis no es una casa: son tres bungalós privados que comparten un jardín tropical. Cada pareja o viajero tiene su habitación y baño propios, con puerta a un espacio verde donde la convivencia sucede sola — un café en la mañana, una sobremesa larga en la noche. El ambiente es relajado por diseño, y por eso es la favorita para estancias largas: trabajar unas semanas desde Puerto, o simplemente quedarse más de lo planeado.",
+    "descripcion_en": "Casa Oasis isn't one house — it's three private bungalows sharing a tropical garden. Every couple or traveler gets their own bedroom and bathroom, with a door out into a green space where togetherness just happens — coffee in the morning, a long conversation after dinner. The vibe is relaxed by design, which is exactly why it's the favorite for longer stays: working a few weeks from Puerto, or simply staying longer than planned.",
     "capacidad_es": "6 huéspedes · 3 habitaciones · 3 camas · 3 baños",
     "capacidad_en": "6 guests · 3 bedrooms · 3 beds · 3 bathrooms",
     "fotos": [
-      "/assets/img/casa-oasis-foto-1.jpg",
-      "/assets/img/casa-oasis-foto-2.jpg",
-      "/assets/img/casa-oasis-foto-3.jpg",
-      "/assets/img/casa-oasis-foto-4.jpg",
-      "/assets/img/casa-oasis-foto-5.jpg"
+      "/assets/img/casa-oasis-01.jpg",
+      "/assets/img/casa-oasis-02.jpg",
+      "/assets/img/casa-oasis-03.jpg",
+      "/assets/img/casa-oasis-04.jpg",
+      "/assets/img/casa-oasis-05.jpg",
+      "/assets/img/casa-oasis-06.jpg",
+      "/assets/img/casa-oasis-07.jpg",
+      "/assets/img/casa-oasis-08.jpg",
+      "/assets/img/casa-oasis-09.jpg",
+      "/assets/img/casa-oasis-10.jpg",
+      "/assets/img/casa-oasis-11.jpg",
+      "/assets/img/casa-oasis-12.jpg",
+      "/assets/img/casa-oasis-13.jpg",
+      "/assets/img/casa-oasis-14.jpg",
+      "/assets/img/casa-oasis-15.jpg",
+      "/assets/img/casa-oasis-16.jpg",
+      "/assets/img/casa-oasis-17.jpg",
+      "/assets/img/casa-oasis-18.jpg",
+      "/assets/img/casa-oasis-19.jpg",
+      "/assets/img/casa-oasis-20.jpg",
+      "/assets/img/casa-oasis-21.jpg",
+      "/assets/img/casa-oasis-22.jpg",
+      "/assets/img/casa-oasis-23.jpg",
+      "/assets/img/casa-oasis-24.jpg"
     ],
     "seccion": "parejas",
     "exAirbnb": true,
@@ -178,12 +197,12 @@
     "amenidades_es": [
       "3 bungalós privados",
       "Jardín tropical",
-      "Espacios comunes para convivir"
+      "Espacios comunes"
     ],
     "amenidades_en": [
       "3 private bungalows",
       "Tropical garden",
-      "Shared spaces to gather"
+      "Shared common spaces"
     ]
   },
   {
