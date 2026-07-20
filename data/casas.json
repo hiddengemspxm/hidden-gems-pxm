@@ -207,13 +207,13 @@
   },
   {
     "id": "punta-vista",
-    "nombre": "Punta Vista",
+    "nombre": "Casa Punta Vista",
     "tag_es": "Alberca en terraza",
     "tag_en": "Rooftop pool",
     "meta_es": "Alberca en terraza, vista panorámica y jacuzzi",
     "meta_en": "Rooftop pool, panoramic view, and jacuzzi",
-    "descripcion_es": "Una alberca en la terraza con vista panorámica al horizonte, recámaras con techo de palapa que se abren al mar, y un jacuzzi para cerrar el día. Punta Vista es la casa para grupos que quieren despertar con la vista completa de Puerto Escondido.",
-    "descripcion_en": "A rooftop pool with a panoramic view of the horizon, palapa-roofed bedrooms that open to the ocean, and a jacuzzi to close out the day. Punta Vista is the house for groups who want to wake up to the full view of Puerto Escondido.",
+    "descripcion_es": "Una alberca en la terraza con vista panorámica al horizonte, recámaras con techo de palapa que se abren al mar, y un jacuzzi para cerrar el día. Casa Punta Vista es la casa para grupos que quieren despertar con la vista completa de Puerto Escondido.",
+    "descripcion_en": "A rooftop pool with a panoramic view of the horizon, palapa-roofed bedrooms that open to the ocean, and a jacuzzi to close out the day. Casa Punta Vista is the house for groups who want to wake up to the full view of Puerto Escondido.",
     "capacidad_es": "10 huéspedes · 4 habitaciones · 6 camas · 5 baños",
     "capacidad_en": "10 guests · 4 bedrooms · 6 beds · 5 bathrooms",
     "fotos": [
@@ -250,19 +250,25 @@
     "seccion": "parejas",
     "huespedes": 10,
     "habitaciones": 4,
-    "slug": "punta-vista",
+    "slug": "casa-punta-vista",
     "banos": 5,
     "zona_es": "La Punta",
     "zona_en": "La Punta",
     "amenidades_es": [
-      "Alberca en terraza",
-      "Vista panorámica",
-      "Jacuzzi"
+      "Alberca privada y jacuzzi",
+      "Estacionamiento gratuito",
+      "Internet Starlink de alta velocidad",
+      "Servicio de limpieza durante tu estancia",
+      "Cocina totalmente equipada",
+      "10 min caminando a la playa"
     ],
     "amenidades_en": [
-      "Rooftop pool",
-      "Panoramic view",
-      "Jacuzzi"
+      "Private pool and jacuzzi",
+      "Free parking",
+      "Starlink high-speed internet",
+      "Cleaning service during your stay",
+      "Fully equipped kitchen",
+      "10-minute walk to the beach"
     ]
   },
   {
