@@ -545,7 +545,19 @@
     "slug": "casa-aloha-punta",
     "banos": 5,
     "zona_es": "La Punta",
-    "zona_en": "La Punta"
+    "zona_en": "La Punta",
+    "amenidades_es": [
+      "Alberca privada",
+      "Rooftop con palapa",
+      "Cocina totalmente equipada",
+      "Terraza/hamacas"
+    ],
+    "amenidades_en": [
+      "Private pool",
+      "Palapa rooftop",
+      "Fully equipped kitchen",
+      "Terrace with hammocks"
+    ]
   },
   {
     "id": "mar",
