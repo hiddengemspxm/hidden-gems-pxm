@@ -1,44 +1,5 @@
 [
   {
-    "id": "aloha",
-    "nombre": "Casa Aloha Punta Vista",
-    "tag_es": "Suite dúplex",
-    "tag_en": "Duplex suite",
-    "meta_es": "Vistas abiertas a La Punta, ambiente surfero",
-    "meta_en": "Open views over La Punta, surfer vibe",
-    "descripcion_es": "Suite dúplex con vistas abiertas hacia La Punta, a un paso de las rompientes más buscadas por surfistas. Ambiente relajado, luz natural todo el día y una terraza inmejorable para ver el atardecer sobre el mar.",
-    "descripcion_en": "A duplex suite with open views over La Punta, steps from the breaks surfers travel for. Relaxed atmosphere, natural light all day, and an unbeatable terrace to watch the sunset over the ocean.",
-    "capacidad_es": "10 huéspedes · 4 habitaciones · 6 camas · 5 baños",
-    "capacidad_en": "10 guests · 4 bedrooms · 6 beds · 5 bathrooms",
-    "fotos": [
-      "/assets/img/casa-aloha-foto-1.jpg",
-      "/assets/img/casa-aloha-foto-2.jpg",
-      "/assets/img/casa-aloha-foto-3.jpg",
-      "/assets/img/casa-aloha-foto-4.jpg",
-      "/assets/img/casa-aloha-foto-5.jpg"
-    ],
-    "seccion": "parejas",
-    "exAirbnb": true,
-    "huespedes": 10,
-    "habitaciones": 4,
-    "slug": "casa-aloha-punta-vista",
-    "banos": 5,
-    "zona_es": "La Punta",
-    "zona_en": "La Punta",
-    "amenidades_es": [
-      "Vista a La Punta",
-      "Terraza",
-      "Suite dúplex",
-      "A pasos de las rompientes de surf"
-    ],
-    "amenidades_en": [
-      "View over La Punta",
-      "Terrace",
-      "Duplex suite",
-      "Steps from the surf breaks"
-    ]
-  },
-  {
     "id": "amara",
     "nombre": "Casa Amara",
     "tag_es": "Rooftop jacuzzi",
@@ -498,6 +459,43 @@
     "habitaciones": 6
   },
   {
+    "id": "mar",
+    "nombre": "Casa Mar",
+    "tag_es": "Frente al mar",
+    "tag_en": "Beachfront",
+    "meta_es": "Frente a la playa, chef y staff incluidos",
+    "meta_en": "Beachfront, chef and staff included",
+    "descripcion_es": "Frente a la playa, con chef y staff incluidos. Despiertas, abres la puerta y estás en la arena. Así de literal.",
+    "descripcion_en": "Right on the beach, with chef and staff included. You wake up, open the door, and you're on the sand. That literal.",
+    "capacidad_es": "9 huéspedes · 4 habitaciones · 5 baños · frente a la playa · staff completo (chef, limpieza)",
+    "capacidad_en": "9 guests · 4 bedrooms · 5 bathrooms · beachfront · full staff (chef, cleaning)",
+    "fotos": [
+      "/assets/img/casa-mar-placeholder.svg"
+    ],
+    "seccion": "lujo",
+    "huespedes": 9,
+    "habitaciones": 4
+  },
+  {
+    "id": "brutal-verde",
+    "nombre": "Brutal Verde",
+    "tag_es": "2 albercas",
+    "tag_en": "2 pools",
+    "meta_es": "Dos albercas, vista al mar",
+    "meta_en": "Two pools, ocean view",
+    "descripcion_es": "Dos albercas, vista al mar y solo 2 habitaciones: la proporción más exagerada de Puerto, en el buen sentido.",
+    "descripcion_en": "Two pools, ocean views, and just 2 bedrooms: the most over-the-top ratio in Puerto, in the best way.",
+    "capacidad_es": "5 huéspedes · 2 habitaciones · 2 albercas · vista al mar",
+    "capacidad_en": "5 guests · 2 bedrooms · 2 pools · ocean view",
+    "fotos": [
+      "/assets/img/casa-brutal-verde-placeholder.svg"
+    ],
+    "seccion": "parejas",
+    "draft": true,
+    "huespedes": 5,
+    "habitaciones": 2
+  },
+  {
     "id": "aloha-punta",
     "nombre": "Casa Aloha Punta",
     "tag_es": "5 baños",
@@ -539,7 +537,7 @@
       "/assets/img/casa-aloha-punta-28.jpg",
       "/assets/img/casa-aloha-punta-29.jpg"
     ],
-    "seccion": "grupos",
+    "seccion": "parejas",
     "huespedes": 10,
     "habitaciones": 4,
     "slug": "casa-aloha-punta",
@@ -558,42 +556,5 @@
       "Fully equipped kitchen",
       "Terrace with hammocks"
     ]
-  },
-  {
-    "id": "mar",
-    "nombre": "Casa Mar",
-    "tag_es": "Frente al mar",
-    "tag_en": "Beachfront",
-    "meta_es": "Frente a la playa, chef y staff incluidos",
-    "meta_en": "Beachfront, chef and staff included",
-    "descripcion_es": "Frente a la playa, con chef y staff incluidos. Despiertas, abres la puerta y estás en la arena. Así de literal.",
-    "descripcion_en": "Right on the beach, with chef and staff included. You wake up, open the door, and you're on the sand. That literal.",
-    "capacidad_es": "9 huéspedes · 4 habitaciones · 5 baños · frente a la playa · staff completo (chef, limpieza)",
-    "capacidad_en": "9 guests · 4 bedrooms · 5 bathrooms · beachfront · full staff (chef, cleaning)",
-    "fotos": [
-      "/assets/img/casa-mar-placeholder.svg"
-    ],
-    "seccion": "lujo",
-    "huespedes": 9,
-    "habitaciones": 4
-  },
-  {
-    "id": "brutal-verde",
-    "nombre": "Brutal Verde",
-    "tag_es": "2 albercas",
-    "tag_en": "2 pools",
-    "meta_es": "Dos albercas, vista al mar",
-    "meta_en": "Two pools, ocean view",
-    "descripcion_es": "Dos albercas, vista al mar y solo 2 habitaciones: la proporción más exagerada de Puerto, en el buen sentido.",
-    "descripcion_en": "Two pools, ocean views, and just 2 bedrooms: the most over-the-top ratio in Puerto, in the best way.",
-    "capacidad_es": "5 huéspedes · 2 habitaciones · 2 albercas · vista al mar",
-    "capacidad_en": "5 guests · 2 bedrooms · 2 pools · ocean view",
-    "fotos": [
-      "/assets/img/casa-brutal-verde-placeholder.svg"
-    ],
-    "seccion": "parejas",
-    "draft": true,
-    "huespedes": 5,
-    "habitaciones": 2
   }
 ]
