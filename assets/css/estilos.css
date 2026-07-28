@@ -398,6 +398,7 @@ footer nav a:hover{color:var(--ocre-suave);}
 }
 .detalle-header h1{font-size:clamp(1.8rem,4.5vw,2.4rem); color:var(--ink); margin-bottom:14px;}
 .detalle-specs{display:flex; gap:18px; flex-wrap:wrap; margin-bottom:18px;}
+.detalle-nota-capacidad{font-size:0.82rem; color:var(--gris); margin:-8px 0 18px; font-style:italic;}
 .detalle-specs .stat{font-size:0.92rem; color:var(--musgo); font-weight:600;}
 .detalle-specs .stat [aria-hidden]{margin-right:5px;}
 .detalle-wa{margin-bottom:8px;}

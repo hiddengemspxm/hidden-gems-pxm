@@ -346,6 +346,7 @@
           (casa.zona_es ? '<p class="detalle-zona"><span data-es>' + casa.zona_es + '</span><span data-en>' + casa.zona_en + '</span></p>' : '') +
           '<h1>' + casa.nombre + '</h1>' +
           '<div class="detalle-specs">' + specs.join('') + '</div>' +
+          (casa.notaCapacidad_es ? '<p class="detalle-nota-capacidad"><span data-es>' + casa.notaCapacidad_es + '</span><span data-en>' + casa.notaCapacidad_en + '</span></p>' : '') +
           '<a class="btn btn-primary detalle-wa" href="' + waLink + '" target="_blank" rel="noopener">' +
             '💬 <span data-es>Reservar por WhatsApp</span><span data-en>Book via WhatsApp</span>' +
           '</a>' +
