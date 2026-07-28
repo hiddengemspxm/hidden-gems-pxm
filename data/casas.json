@@ -383,7 +383,8 @@
     ],
     "seccion": "grupos",
     "huespedes": 20,
-    "habitaciones": 9
+    "habitaciones": 9,
+    "draft": true
   },
   {
     "id": "luwak",
@@ -419,7 +420,8 @@
       }
     ],
     "huespedes": 20,
-    "habitaciones": 10
+    "habitaciones": 10,
+    "draft": true
   },
   {
     "id": "mochila",
@@ -437,7 +439,8 @@
     ],
     "seccion": "grupos",
     "huespedes": 14,
-    "habitaciones": 6
+    "habitaciones": 6,
+    "draft": true
   },
   {
     "id": "cambria",
@@ -454,7 +457,7 @@
       "/assets/img/casa-cambria-placeholder.svg"
     ],
     "seccion": "grupos",
-    "draft": false,
+    "draft": true,
     "huespedes": 12,
     "habitaciones": 6
   },
@@ -474,7 +477,8 @@
     ],
     "seccion": "lujo",
     "huespedes": 9,
-    "habitaciones": 4
+    "habitaciones": 4,
+    "draft": true
   },
   {
     "id": "brutal-verde",
