@@ -55,7 +55,7 @@
 
   // ===== Secciones del catálogo =====
   var SECCIONES = [
-    { id: 'parejas', es: 'Parejas y amigos en La Punta', en: 'Couples & friends in La Punta' },
+    { id: 'parejas', es: 'Parejas y amigos', en: 'Couples & friends' },
     { id: 'grupos', es: 'Grupos y celebraciones', en: 'Groups & celebrations' },
     { id: 'lujo', es: 'Lujo frente al mar', en: 'Beachfront luxury' }
   ];
@@ -85,6 +85,9 @@
   }
 
   // Mini-carrusel deslizable de la card (3-5 fotos, scroll-snap nativo sin JS).
+  // Si la casa tiene zona_es/en, se muestra un tag pequeño sobre la foto para
+  // ubicar de un vistazo (La Punta, Zicatela, etc.). Si no hay zona registrada
+  // todavía, simplemente no se imprime nada -- no se inventa ubicación.
   function casaCarruselHTML(casa) {
     var fotos = casa.fotos.slice(0, 5);
     var imgs = fotos.map(function (src, i) {
@@ -93,8 +96,12 @@
     var dots = fotos.length > 1
       ? '<div class="carrusel-dots">' + fotos.map(function () { return '<span></span>'; }).join('') + '</div>'
       : '';
+    var zonaTag = casa.zona_es
+      ? '<span class="tag-zona"><span data-es>' + casa.zona_es + '</span><span data-en>' + casa.zona_en + '</span></span>'
+      : '';
     return (
       '<div class="casa-card-carrusel">' +
+        zonaTag +
         '<div class="carrusel-track">' + imgs + '</div>' +
         dots +
       '</div>'
