@@ -331,6 +331,22 @@
           '</div>';
       }
 
+      // Bloque discreto "Bueno saber" (reglas de la casa, seguridad, etc.) --
+      // opcional, solo se imprime si la casa trae buenoSaber_es/en.
+      var buenoSaberHTML = '';
+      if (casa.buenoSaber_es && casa.buenoSaber_es.length) {
+        buenoSaberHTML =
+          '<div class="detalle-bueno-saber">' +
+            '<h2><span data-es>Bueno saber</span><span data-en>Good to know</span></h2>' +
+            '<ul>' +
+              casa.buenoSaber_es.map(function (a, i) {
+                var en = (casa.buenoSaber_en && casa.buenoSaber_en[i]) || a;
+                return '<li><span data-es>' + a + '</span><span data-en>' + en + '</span></li>';
+              }).join('') +
+            '</ul>' +
+          '</div>';
+      }
+
       // Galería modo portafolio: todas las fotos en columna, tamaño natural
       // (sin recortes), con lazy loading en cada una para que cargue rápido.
       var galeriaHTML =
@@ -355,6 +371,7 @@
           '<span data-es>' + casa.descripcion_es + '</span><span data-en>' + casa.descripcion_en + '</span>' +
         '</p></div>' +
         amenidadesHTML +
+        buenoSaberHTML +
         galeriaHTML;
 
       // Botón fijo de WhatsApp (visible siempre al hacer scroll en móvil, vía CSS)

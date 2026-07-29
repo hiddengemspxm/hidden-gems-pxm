@@ -412,6 +412,13 @@ footer nav a:hover{color:var(--ocre-suave);}
 .detalle-amenidades li::before{
   content:"✓"; position:absolute; left:0; color:var(--musgo); font-weight:700;
 }
+.detalle-bueno-saber{
+  margin-bottom:32px; background:var(--lino); border-radius:12px; padding:18px 20px;
+}
+.detalle-bueno-saber h2{font-size:0.95rem; color:var(--musgo); margin-bottom:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.03em;}
+.detalle-bueno-saber ul{list-style:none; display:flex; flex-direction:column; gap:8px;}
+.detalle-bueno-saber li{font-size:0.85rem; color:var(--gris); padding-left:16px; position:relative; line-height:1.5;}
+.detalle-bueno-saber li::before{content:"—"; position:absolute; left:0; color:var(--gris-suave);}
 .detalle-galeria-titulo{font-size:1.15rem; color:var(--ink); margin-bottom:14px; font-weight:300;}
 .detalle-galeria{display:flex; flex-direction:column; gap:14px;}
 .detalle-galeria img{
