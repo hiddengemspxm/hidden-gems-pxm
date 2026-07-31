@@ -1,38 +1,29 @@
 [
   {
     "placeholder": true,
-    "nombre": "[PENDIENTE: nombre real]",
-    "pais": "Canadá",
-    "casa": "Casa Cali",
-    "texto_es": "[PENDIENTE: reemplazar con testimonio real] Ejemplo de testimonio — la casa superó nuestras expectativas, la vista y la alberca fueron el punto más alto del viaje.",
-    "texto_en": "[PENDING: replace with a real testimonial] Example testimonial — the house exceeded our expectations, the view and the pool were the highlight of the trip.",
+    "nombre": "[EJEMPLO: Nombre del viajero]",
+    "pais": "[País de origen]",
+    "actividad": "tour",
+    "texto_es": "[EJEMPLO] Llevé a esta persona a un tour privado a Mazunte — avistamiento de iguanas, playa virgen, y las mejores enchiladas de la región. Alguien que conoce el lugar hace toda la diferencia.",
+    "texto_en": "[EXAMPLE] I took this person on a private tour to Mazunte — iguana sightings, pristine beach, and the best enchiladas in the region. Someone who knows the place makes all the difference.",
     "fecha": "2026-01"
   },
   {
     "placeholder": true,
-    "nombre": "[PENDIENTE: nombre real]",
-    "pais": "Estados Unidos",
-    "casa": "Casa Alegría",
-    "texto_es": "[PENDIENTE: reemplazar con testimonio real] Ejemplo de testimonio — viajamos en grupo grande y la casa tuvo espacio de sobra para todos, además de una vista al mar espectacular.",
-    "texto_en": "[PENDING: replace with a real testimonial] Example testimonial — we traveled as a large group and the house had plenty of room for everyone, plus a spectacular ocean view.",
+    "nombre": "[EJEMPLO: Nombre del viajero]",
+    "pais": "[País de origen]",
+    "actividad": "surf",
+    "texto_es": "[EJEMPLO] Conecté a este grupo con un instructor de surf local que conocía en La Punta — sesión privada en la mejor hora del día, tips de spots según el swell. Eso no se compra en Airbnb.",
+    "texto_en": "[EXAMPLE] I connected this group with a local surf instructor I knew in La Punta — private session at the best time of day, tips on spots depending on swell. You can't get that on Airbnb.",
     "fecha": "2025-12"
   },
   {
     "placeholder": true,
-    "nombre": "[PENDIENTE: nombre real]",
-    "pais": "México",
-    "casa": "Casa Amara",
-    "texto_es": "[PENDIENTE: reemplazar con testimonio real] Ejemplo de testimonio — reservar directo con Patty fue muy fácil, respondió rápido y todo salió tal como lo platicamos por WhatsApp.",
-    "texto_en": "[PENDING: replace with a real testimonial] Example testimonial — booking directly with Patty was easy, she replied fast and everything matched what we agreed over WhatsApp.",
+    "nombre": "[EJEMPLO: Nombre del viajero]",
+    "pais": "[País de origen]",
+    "actividad": "recomendaciones",
+    "texto_es": "[EJEMPLO] Cada viajero recibe mi lista de spots locales — dónde desayunar sin turistas, qué restaurante abrir a las 6 AM porque el chef es colega, cuál es la playa de verdad. 15 años aquí no se improvisan.",
+    "texto_en": "[EXAMPLE] Every traveler gets my list of local spots — where to eat breakfast away from tourists, which restaurant opens at 6 AM because the chef is a friend, which beach is the real deal. 15 years here can't be faked.",
     "fecha": "2025-11"
-  },
-  {
-    "placeholder": true,
-    "nombre": "[PENDIENTE: nombre real]",
-    "pais": "Argentina",
-    "casa": "Casa Ámbar",
-    "texto_es": "[PENDIENTE: reemplazar con testimonio real] Ejemplo de testimonio — un espacio tranquilo e íntimo, justo lo que buscábamos para desconectar unos días.",
-    "texto_en": "[PENDING: replace with a real testimonial] Example testimonial — a quiet, intimate space, exactly what we were looking for to disconnect for a few days.",
-    "fecha": "2025-10"
   }
 ]
