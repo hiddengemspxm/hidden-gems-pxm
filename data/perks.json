@@ -1,0 +1,28 @@
+[
+  {
+    "id": "ejemplo-restaurante",
+    "nombre": "La Ola Cevichería",
+    "categoria": "restaurante",
+    "categoria_es": "Restaurante",
+    "categoria_en": "Restaurant",
+    "beneficio_es": "15% de descuento en tu cena",
+    "beneficio_en": "15% off your dinner",
+    "como_canjear_es": "Menciona que vienes de Hidden Gems al hacer la reserva",
+    "como_canjear_en": "Mention you're from Hidden Gems when booking",
+    "emoji": "🍽️",
+    "draft": true
+  },
+  {
+    "id": "yoga-zen",
+    "nombre": "Zen Yoga Studio",
+    "categoria": "bienestar",
+    "categoria_es": "Bienestar",
+    "categoria_en": "Wellness",
+    "beneficio_es": "Primera clase de yoga de cortesía",
+    "beneficio_en": "Complimentary first yoga class",
+    "como_canjear_es": "Menciona tu reserva de Hidden Gems al llegar",
+    "como_canjear_en": "Mention your Hidden Gems booking when you arrive",
+    "emoji": "🧘",
+    "draft": false
+  }
+]
