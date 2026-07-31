@@ -388,8 +388,8 @@
     "meta_en": "New, 5 min from La Punta",
     "descripcion_es": "A 5 minutos de La Punta, nueva y impecable. Cuatro habitaciones para un grupo que quiere la escena cerca pero dormir en silencio.",
     "descripcion_en": "5 minutes from La Punta, new and spotless. Four bedrooms for a group that wants the scene close by but wants to sleep in silence.",
-    "capacidad_es": "4 habitaciones · [PENDIENTE: huéspedes y baños]",
-    "capacidad_en": "4 bedrooms · [PENDING: guests and bathrooms]",
+    "capacidad_es": "8 huéspedes · 4 habitaciones · 4 camas · 4.5 baños",
+    "capacidad_en": "8 guests · 4 bedrooms · 4 beds · 4.5 bathrooms",
     "fotos": [
       "/assets/img/casa-yara-foto-1.webp",
       "/assets/img/casa-yara-foto-2.webp",
@@ -405,8 +405,12 @@
       "/assets/img/casa-yara-foto-12.webp"
     ],
     "seccion": "parejas",
-    "huespedes": null,
-    "habitaciones": 4
+    "huespedes": 8,
+    "habitaciones": 4,
+    "slug": "casa-yara",
+    "banos": 4.5,
+    "zona_es": "La Punta",
+    "zona_en": "La Punta"
   },
   {
     "id": "aixha",
