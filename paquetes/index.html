@@ -163,6 +163,16 @@
     </div>
   </div>
 </section>
+<!-- Sección de Perks / Ventajas -->
+<section class="perks-seccion">
+  <div class="section-inner">
+    <h2>
+      <span data-es>Ventajas de reservar conmigo</span>
+      <span data-en>Perks of booking with me</span>
+    </h2>
+    <div class="perks-grid" id="perks-grid"></div>
+  </div>
+</section>
 
 <section id="testimonios" style="background:#fff;">
   <div class="section-inner">
@@ -189,6 +199,7 @@
 <script src="/assets/js/idioma.js"></script>
 <script src="/assets/js/principal.js"></script>
 <script>
+  HGP.renderPerks(document.getElementById('perks-grid'));
   HGP.cargarTestimonios().then(function (testimonios) {
     HGP.renderTestimonios(document.getElementById('testimonios-grid'), testimonios);
   });

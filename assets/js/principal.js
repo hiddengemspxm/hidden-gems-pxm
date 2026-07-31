@@ -53,6 +53,46 @@
     return fetch('/data/testimonios.json').then(function (res) { return res.json(); });
   }
 
+  function cargarPerks() {
+    return fetch('/data/perks.json').then(function (res) { return res.json(); }).then(function (data) {
+      return data.filter(function (p) { return !p.draft; });
+    });
+  }
+
+  function renderPerks(container) {
+    cargarPerks().then(function (perks) {
+      if (!perks.length) {
+        container.innerHTML = '';
+        return;
+      }
+      
+      var html = perks.map(function (perk) {
+        return (
+          '<div class="perk-card' + (perk.draft ? ' draft' : '') + '">' +
+            '<span class="perk-emoji">' + (perk.emoji || '✨') + '</span>' +
+            '<div class="perk-categoria">' +
+              '<span data-es>' + perk.categoria_es + '</span>' +
+              '<span data-en>' + perk.categoria_en + '</span>' +
+            '</div>' +
+            '<div class="perk-nombre">' + perk.nombre + '</div>' +
+            '<div class="perk-beneficio">' +
+              '<span data-es>' + perk.beneficio_es + '</span>' +
+              '<span data-en>' + perk.beneficio_en + '</span>' +
+            '</div>' +
+            '<div class="perk-canjear">' +
+              '<span data-es>' + perk.como_canjear_es + '</span>' +
+              '<span data-en>' + perk.como_canjear_en + '</span>' +
+            '</div>' +
+          '</div>'
+        );
+      }).join('');
+      
+      container.innerHTML = html;
+      applyLangSafe();
+    });
+  }
+
+
   // ===== Secciones del catálogo =====
   var SECCIONES = [
     { id: 'parejas', es: 'Parejas y amigos', en: 'Couples & friends' },
@@ -494,6 +534,7 @@
     renderCasasGrid: renderCasasGrid,
     renderCasasPorSeccion: renderCasasPorSeccion,
     renderDetalleCasa: renderDetalleCasa,
+    renderPerks: renderPerks,
     renderTestimonios: renderTestimonios,
     wireBuscador: wireBuscador,
     abrirModal: abrirModal,
