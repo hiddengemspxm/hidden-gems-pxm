@@ -124,10 +124,12 @@
             '<span data-es>' + casa.meta_es + '</span>' +
             '<span data-en>' + casa.meta_en + '</span>' +
           '</p>' +
-          (casa.exAirbnb ? '<p class="ahorro">' +
-            '<span data-es>Reservando directo ahorras hasta 10% vs. Airbnb</span>' +
-            '<span data-en>Book direct and save up to 10% vs. Airbnb</span>' +
-          '</p>' : '') +
+          // Ahorro ahora se muestra solo en el banner entre secciones
+          // (casa.exAirbnb ? '<p class="ahorro">' +
+          //   '<span data-es>Reservando directo ahorras hasta 10% vs. Airbnb</span>' +
+          //   '<span data-en>Book direct and save up to 10% vs. Airbnb</span>' +
+          // '</p>' : '') +
+          '' +
           '<div class="row-actions">' +
             '<a class="link-wa" href="' + buildWhatsAppLink(mensajeCasa(casa, ultimaBusqueda.checkin, ultimaBusqueda.checkout)) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">' +
               '<span data-es>Reservar por WhatsApp</span><span data-en>Book via WhatsApp</span>' +
