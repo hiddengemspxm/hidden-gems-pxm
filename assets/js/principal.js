@@ -165,13 +165,29 @@
     applyLangSafe();
   }
 
-  // Vista del catálogo completo: agrupa por sección de viaje (parejas/grupos/lujo),
+
+  function bannerConfianzaHTML() {
+    return (
+      '<div class="banner-confianza">' +
+        '<div class="banner-confianza-titulo">' +
+          '<span data-es>Reservando directo ahorras hasta 10% vs. Airbnb</span>' +
+          '<span data-en>Book direct and save up to 10% vs. Airbnb</span>' +
+        '</div>' +
+        '<div class="banner-confianza-subtitulo">' +
+          '<span data-es>Sin comisión de plataforma, mismo dueño, misma casa.</span>' +
+          '<span data-en>No platform fees, same owner, same home.</span>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+    // Vista del catálogo completo: agrupa por sección de viaje (parejas/grupos/lujo),
   // en el orden fijo de SECCIONES; una sección sin casas simplemente no se imprime.
   function renderCasasPorSeccion(container, casas) {
-    var html = SECCIONES.map(function (sec) {
+    var html = SECCIONES.map(function (sec, secIdx) {
       var casasSeccion = casas.filter(function (c) { return c.seccion === sec.id; });
       if (!casasSeccion.length) return '';
-      return (
+      var htmlSeccion = (
         '<div class="catalogo-seccion">' +
           '<div class="catalogo-seccion-head">' +
             '<h2><span data-es>' + sec.es + '</span><span data-en>' + sec.en + '</span></h2>' +
@@ -179,6 +195,11 @@
           '<div class="casas-grid">' + casasSeccion.map(casaCardHTML).join('') + '</div>' +
         '</div>'
       );
+      // Insertar banner después de la primera sección (parejas)
+      if (secIdx === 0) {
+        htmlSeccion += bannerConfianzaHTML();
+      }
+      return htmlSeccion;
     }).join('');
     container.innerHTML = html;
     wireCasaCards(container);
