@@ -223,6 +223,74 @@
     );
   }
 
+  // ===== Carrusel Rotativo =====
+  var carouselState = {
+    allCasas: [],
+    currentIndex: 0,
+    isPaused: false,
+    rotationInterval: null,
+    cardsPerPage: 3
+  };
+
+  function initCarousel(casas) {
+    carouselState.allCasas = casas;
+    carouselState.currentIndex = 0;
+    renderCarouselCasas();
+    carouselState.rotationInterval = setInterval(rotateCarousel, 7000);
+  }
+
+  function getNextCarouselCasas() {
+    var casas = [];
+    for (var i = 0; i < carouselState.cardsPerPage; i++) {
+      casas.push(carouselState.allCasas[(carouselState.currentIndex + i) % carouselState.allCasas.length]);
+    }
+    carouselState.currentIndex = (carouselState.currentIndex + carouselState.cardsPerPage) % carouselState.allCasas.length;
+    return casas;
+  }
+
+  function renderCarouselCasas() {
+    var casas = getNextCarouselCasas();
+    var container = document.getElementById('casas-grid-home');
+    if (!container) return;
+    
+    container.classList.add('carousel-fade-out');
+    setTimeout(function() {
+      container.innerHTML = '<div class="casas-grid">' + casas.map(casaCardHTML).join('') + '</div>';
+      container.classList.remove('carousel-fade-out');
+      wireCasaCards(container);
+      applyLangSafe();
+      attachCarouselInteractions(container);
+    }, 300);
+  }
+
+  function rotateCarousel() {
+    if (!carouselState.isPaused) {
+      renderCarouselCasas();
+    }
+  }
+
+  function pauseCarousel(container) {
+    carouselState.isPaused = true;
+    clearInterval(carouselState.rotationInterval);
+    container.classList.add('carousel-paused');
+  }
+
+  function resumeCarousel(container) {
+    carouselState.isPaused = false;
+    container.classList.remove('carousel-paused');
+    carouselState.rotationInterval = setInterval(rotateCarousel, 7000);
+  }
+
+  function attachCarouselInteractions(container) {
+    container.querySelectorAll('.casa-card').forEach(function(card) {
+      card.addEventListener('mouseenter', function() { pauseCarousel(container); });
+      card.addEventListener('mouseleave', function() { resumeCarousel(container); });
+      card.addEventListener('touchstart', function() { pauseCarousel(container); });
+      card.addEventListener('touchend', function() { resumeCarousel(container); });
+    });
+  }
+
+
     // Vista del catálogo completo: agrupa por sección de viaje (parejas/grupos/lujo),
   // en el orden fijo de SECCIONES; una sección sin casas simplemente no se imprime.
   function renderCasasPorSeccion(container, casas) {
@@ -535,6 +603,7 @@
     renderCasasPorSeccion: renderCasasPorSeccion,
     renderDetalleCasa: renderDetalleCasa,
     renderPerks: renderPerks,
+    initCarousel: initCarousel,
     renderTestimonios: renderTestimonios,
     wireBuscador: wireBuscador,
     abrirModal: abrirModal,

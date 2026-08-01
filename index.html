@@ -85,7 +85,7 @@
   <div class="section-inner">
     <div class="section-head">
       <div class="section-eyebrow"><span data-es>Inventario disponible</span><span data-en>Available inventory</span></div>
-      <h2><span data-es>Casas destacadas en Puerto Escondido</span><span data-en>Featured homes in Puerto Escondido</span></h2>
+      <h2><span data-es>Puerto Escondido tiene más casas de las que crees</span><span data-en>Puerto Escondido has more homes than you think</span></h2>
       <p><span data-es>Busca tus fechas o escríbeme directo para apartar.</span><span data-en>Search your dates or message me directly to book.</span></p>
     </div>
     <div id="casas-grid-home"></div>
@@ -221,7 +221,7 @@
 <script>
   var gridHome = document.getElementById('casas-grid-home');
   HGP.cargarCasas().then(function (casas) {
-    HGP.renderCasasGrid(gridHome, casas.slice(0, 3));
+    HGP.initCarousel(casas);
   });
   HGP.cargarTestimonios().then(function (testimonios) {
     HGP.renderTestimonios(document.getElementById('testimonios-grid'), testimonios);
