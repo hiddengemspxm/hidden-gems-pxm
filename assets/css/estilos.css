@@ -113,7 +113,7 @@ nav.site-nav a:hover, nav.site-nav a.active{color:var(--ink);}
 .hero-home{
   position:relative;
   background:linear-gradient(135deg, rgba(30,26,20,0.52) 0%, rgba(30,26,20,0.48) 100%),
-              url('/assets/img/hero-home.jpg') center/cover no-repeat;
+              url('/assets/img/hero-home.jpeg') center/cover no-repeat;
   background-attachment:fixed;
   color:#fff;
   text-align:center;
