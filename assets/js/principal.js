@@ -596,14 +596,13 @@
     }
   }
 
-  // Carrusel de fotos sin tarjetas de información
+  // Carrusel de fotos deslizante automático
   var photoCarouselState = {
     allPhotos: [],
-    currentPhotos: [],
     allCasas: [],
-    rotationInterval: null,
+    scrollInterval: null,
     isPaused: false,
-    usedIndices: new Set()
+    carouselElement: null
   };
 
   function initPhotoCarousel(casas) {
@@ -625,63 +624,59 @@
     });
 
     renderPhotoCarousel();
-    photoCarouselState.rotationInterval = setInterval(rotatePhotoCarousel, 6000);
-  }
-
-  function getRandomPhotos(count) {
-    var selected = [];
-    var available = [];
-
-    for (var i = 0; i < photoCarouselState.allPhotos.length; i++) {
-      available.push(i);
-    }
-
-    for (var j = 0; j < count && available.length > 0; j++) {
-      var randomIdx = Math.floor(Math.random() * available.length);
-      var photoIdx = available[randomIdx];
-      selected.push(photoCarouselState.allPhotos[photoIdx]);
-      available.splice(randomIdx, 1);
-    }
-
-    return selected;
   }
 
   function renderPhotoCarousel() {
-    photoCarouselState.currentPhotos = getRandomPhotos(3);
     var container = document.getElementById('casas-grid-home');
     if (!container) return;
 
-    container.classList.add('carousel-fade-out');
-    setTimeout(function() {
-      var html = '<div class="casas-photo-grid">' +
-        photoCarouselState.currentPhotos.map(function(photo) {
-          var clickUrl = photo.casaSlug ? '/casas/' + photo.casaSlug : '#';
-          return '<div class="casa-photo-card" onclick="' + (photo.casaSlug ? 'window.location.href=\'' + clickUrl + '\'' : '') + '; return false;" style="cursor:' + (photo.casaSlug ? 'pointer' : 'default') + '">' +
-            '<img src="' + photo.src + '" alt="' + photo.casaNombre + '" style="width:100%;height:100%;object-fit:cover;display:block;">' +
-          '</div>';
-        }).join('') +
-      '</div>';
+    var html = '<div class="casas-photo-grid" id="photo-carousel">' +
+      photoCarouselState.allPhotos.map(function(photo) {
+        var clickUrl = photo.casaSlug ? '/casas/' + photo.casaSlug : '#';
+        return '<div class="casa-photo-card" onclick="' + (photo.casaSlug ? 'window.location.href=\'' + clickUrl + '\'' : '') + '; return false;" style="cursor:' + (photo.casaSlug ? 'pointer' : 'default') + '">' +
+          '<img src="' + photo.src + '" alt="' + photo.casaNombre + '" style="width:100%;height:100%;object-fit:cover;display:block;">' +
+        '</div>';
+      }).join('') +
+    '</div>';
 
-      container.innerHTML = html;
-      container.classList.remove('carousel-fade-out');
-      applyLangSafe();
-    }, 300);
-  }
+    container.innerHTML = html;
+    photoCarouselState.carouselElement = document.getElementById('photo-carousel');
+    applyLangSafe();
 
-  function rotatePhotoCarousel() {
-    if (!photoCarouselState.isPaused) {
-      renderPhotoCarousel();
+    // Iniciar scroll automático
+    startAutoScroll();
+
+    // Pausar en hover/touch
+    if (photoCarouselState.carouselElement) {
+      photoCarouselState.carouselElement.addEventListener('mouseenter', pauseAutoScroll);
+      photoCarouselState.carouselElement.addEventListener('mouseleave', resumeAutoScroll);
+      photoCarouselState.carouselElement.addEventListener('touchstart', pauseAutoScroll);
+      photoCarouselState.carouselElement.addEventListener('touchend', resumeAutoScroll);
     }
   }
 
-  function pausePhotoCarousel(container) {
-    photoCarouselState.isPaused = true;
-    clearInterval(photoCarouselState.rotationInterval);
+  function startAutoScroll() {
+    if (photoCarouselState.scrollInterval) clearInterval(photoCarouselState.scrollInterval);
+
+    photoCarouselState.scrollInterval = setInterval(function() {
+      if (!photoCarouselState.isPaused && photoCarouselState.carouselElement) {
+        var carousel = photoCarouselState.carouselElement;
+        var cardWidth = carousel.querySelector('.casa-photo-card').offsetWidth;
+        var gap = 16; // gap en CSS
+        carousel.scrollBy({
+          left: cardWidth + gap,
+          behavior: 'smooth'
+        });
+      }
+    }, 5000);
   }
 
-  function resumePhotoCarousel() {
+  function pauseAutoScroll() {
+    photoCarouselState.isPaused = true;
+  }
+
+  function resumeAutoScroll() {
     photoCarouselState.isPaused = false;
-    photoCarouselState.rotationInterval = setInterval(rotatePhotoCarousel, 6000);
   }
 
   window.HGP = {
