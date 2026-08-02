@@ -411,7 +411,8 @@
 
   var gridHome = document.getElementById('casas-grid-home');
   HGP.cargarCasas().then(function (casas) {
-    HGP.initPhotoCarousel(casas);
+    HGP.photoCarouselState.allCasas = casas;
+    HGP.initHeroCarousel();
   });
   HGP.cargarTestimonios().then(function (testimonios) {
     HGP.renderTestimonios(document.getElementById('testimonios-grid'), testimonios);

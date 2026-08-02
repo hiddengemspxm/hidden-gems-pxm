@@ -1,0 +1,200 @@
+[
+  {
+    "foto": "/assets/img/hero-puerto-escondido/01-amara.jpg",
+    "casaId": "amara",
+    "casaNombre": "Casa Amara",
+    "casaSlug": "casa-amara"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/02-amara.jpg",
+    "casaId": "amara",
+    "casaNombre": "Casa Amara",
+    "casaSlug": "casa-amara"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/03-amara.jpg",
+    "casaId": "amara",
+    "casaNombre": "Casa Amara",
+    "casaSlug": "casa-amara"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/04-palacio.jpg",
+    "casaId": "palacio",
+    "casaNombre": "Casa Palacio",
+    "casaSlug": "casa-palacio"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/05-palacio.jpg",
+    "casaId": "palacio",
+    "casaNombre": "Casa Palacio",
+    "casaSlug": "casa-palacio"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/06-palacio.jpg",
+    "casaId": "palacio",
+    "casaNombre": "Casa Palacio",
+    "casaSlug": "casa-palacio"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/07-alegria.jpg",
+    "casaId": "alegria",
+    "casaNombre": "Casa Alegría",
+    "casaSlug": "casa-alegria"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/08-alegria.jpg",
+    "casaId": "alegria",
+    "casaNombre": "Casa Alegría",
+    "casaSlug": "casa-alegria"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/09-alegria.jpg",
+    "casaId": "alegria",
+    "casaNombre": "Casa Alegría",
+    "casaSlug": "casa-alegria"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/10-oasis.jpg",
+    "casaId": "oasis",
+    "casaNombre": "Casa Oasis",
+    "casaSlug": "casa-oasis"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/11-oasis.jpg",
+    "casaId": "oasis",
+    "casaNombre": "Casa Oasis",
+    "casaSlug": "casa-oasis"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/12-oasis.jpg",
+    "casaId": "oasis",
+    "casaNombre": "Casa Oasis",
+    "casaSlug": "casa-oasis"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/13-punta-vista.jpg",
+    "casaId": "punta-vista",
+    "casaNombre": "Casa Punta Vista",
+    "casaSlug": "casa-punta-vista"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/14-punta-vista.jpg",
+    "casaId": "punta-vista",
+    "casaNombre": "Casa Punta Vista",
+    "casaSlug": "casa-punta-vista"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/15-punta-vista.jpg",
+    "casaId": "punta-vista",
+    "casaNombre": "Casa Punta Vista",
+    "casaSlug": "casa-punta-vista"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/16-cali.jpg",
+    "casaId": "cali",
+    "casaNombre": "Casa Cali",
+    "casaSlug": "casa-cali"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/17-cali.jpg",
+    "casaId": "cali",
+    "casaNombre": "Casa Cali",
+    "casaSlug": "casa-cali"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/18-cali.jpg",
+    "casaId": "cali",
+    "casaNombre": "Casa Cali",
+    "casaSlug": "casa-cali"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/19-ambar.jpg",
+    "casaId": "ambar",
+    "casaNombre": "Casa Ámbar",
+    "casaSlug": "casa-ambar"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/20-ambar.jpg",
+    "casaId": "ambar",
+    "casaNombre": "Casa Ámbar",
+    "casaSlug": "casa-ambar"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/21-ambar.jpg",
+    "casaId": "ambar",
+    "casaNombre": "Casa Ámbar",
+    "casaSlug": "casa-ambar"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/22-yara.webp",
+    "casaId": "yara",
+    "casaNombre": "Casa Yara",
+    "casaSlug": "casa-yara"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/23-yara.webp",
+    "casaId": "yara",
+    "casaNombre": "Casa Yara",
+    "casaSlug": "casa-yara"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/24-yara.webp",
+    "casaId": "yara",
+    "casaNombre": "Casa Yara",
+    "casaSlug": "casa-yara"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/25-brutal-verde.jpg",
+    "casaId": "brutal-verde",
+    "casaNombre": "Casa Brutal Verde",
+    "casaSlug": "casa-brutal-verde"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/26-brutal-verde.jpg",
+    "casaId": "brutal-verde",
+    "casaNombre": "Casa Brutal Verde",
+    "casaSlug": "casa-brutal-verde"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/27-brutal-verde.jpg",
+    "casaId": "brutal-verde",
+    "casaNombre": "Casa Brutal Verde",
+    "casaSlug": "casa-brutal-verde"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/28-aloha-punta.jpg",
+    "casaId": "aloha-punta",
+    "casaNombre": "Casa Aloha Punta",
+    "casaSlug": "casa-aloha-punta"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/29-aloha-punta.jpg",
+    "casaId": "aloha-punta",
+    "casaNombre": "Casa Aloha Punta",
+    "casaSlug": "casa-aloha-punta"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/30-aloha-punta.jpg",
+    "casaId": "aloha-punta",
+    "casaNombre": "Casa Aloha Punta",
+    "casaSlug": "casa-aloha-punta"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/31-loulette.jpg",
+    "casaId": "loulette",
+    "casaNombre": "Casa Loulette",
+    "casaSlug": "casa-loulette"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/32-loulette.jpg",
+    "casaId": "loulette",
+    "casaNombre": "Casa Loulette",
+    "casaSlug": "casa-loulette"
+  },
+  {
+    "foto": "/assets/img/hero-puerto-escondido/33-loulette.jpg",
+    "casaId": "loulette",
+    "casaNombre": "Casa Loulette",
+    "casaSlug": "casa-loulette"
+  }
+]

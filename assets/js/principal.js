@@ -626,6 +626,26 @@
     renderPhotoCarousel();
   }
 
+  function initHeroCarousel() {
+    fetch('/data/hero-puerto-escondido.json')
+      .then(function(res) { return res.json(); })
+      .then(function(heroFotos) {
+        photoCarouselState.allPhotos = heroFotos.map(function(item) {
+          return {
+            src: item.foto,
+            casaId: item.casaId,
+            casaSlug: item.casaSlug,
+            casaNombre: item.casaNombre
+          };
+        });
+        renderPhotoCarousel();
+      })
+      .catch(function(err) {
+        console.error('Error cargando hero carrusel:', err);
+        initPhotoCarousel(photoCarouselState.allCasas);
+      });
+  }
+
   function renderPhotoCarousel() {
     var container = document.getElementById('casas-grid-home');
     if (!container) return;
@@ -688,6 +708,7 @@
     renderPerks: renderPerks,
     initCarousel: initCarousel,
     initPhotoCarousel: initPhotoCarousel,
+    initHeroCarousel: initHeroCarousel,
     renderTestimonios: renderTestimonios,
     wireBuscador: wireBuscador,
     abrirModal: abrirModal,
@@ -695,6 +716,7 @@
     moverSlide: moverSlide,
     buildWhatsAppLink: buildWhatsAppLink,
     mensajeCasa: mensajeCasa,
-    WHATSAPP_NUMBER: WHATSAPP_NUMBER
+    WHATSAPP_NUMBER: WHATSAPP_NUMBER,
+    photoCarouselState: photoCarouselState
   };
 })();
