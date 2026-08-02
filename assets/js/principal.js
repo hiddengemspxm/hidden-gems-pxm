@@ -596,6 +596,94 @@
     }
   }
 
+  // Carrusel de fotos sin tarjetas de información
+  var photoCarouselState = {
+    allPhotos: [],
+    currentPhotos: [],
+    allCasas: [],
+    rotationInterval: null,
+    isPaused: false,
+    usedIndices: new Set()
+  };
+
+  function initPhotoCarousel(casas) {
+    photoCarouselState.allCasas = casas;
+
+    // Recopilar todas las fotos con información de la casa
+    photoCarouselState.allPhotos = [];
+    casas.forEach(function(casa) {
+      if (casa.fotos && casa.fotos.length > 0) {
+        casa.fotos.forEach(function(foto) {
+          photoCarouselState.allPhotos.push({
+            src: foto,
+            casaId: casa.id,
+            casaSlug: casa.slug,
+            casaNombre: casa.nombre
+          });
+        });
+      }
+    });
+
+    renderPhotoCarousel();
+    photoCarouselState.rotationInterval = setInterval(rotatePhotoCarousel, 6000);
+  }
+
+  function getRandomPhotos(count) {
+    var selected = [];
+    var available = [];
+
+    for (var i = 0; i < photoCarouselState.allPhotos.length; i++) {
+      available.push(i);
+    }
+
+    for (var j = 0; j < count && available.length > 0; j++) {
+      var randomIdx = Math.floor(Math.random() * available.length);
+      var photoIdx = available[randomIdx];
+      selected.push(photoCarouselState.allPhotos[photoIdx]);
+      available.splice(randomIdx, 1);
+    }
+
+    return selected;
+  }
+
+  function renderPhotoCarousel() {
+    photoCarouselState.currentPhotos = getRandomPhotos(3);
+    var container = document.getElementById('casas-grid-home');
+    if (!container) return;
+
+    container.classList.add('carousel-fade-out');
+    setTimeout(function() {
+      var html = '<div class="casas-photo-grid">' +
+        photoCarouselState.currentPhotos.map(function(photo) {
+          var clickUrl = photo.casaSlug ? '/casas/' + photo.casaSlug : '#';
+          return '<div class="casa-photo-card" onclick="' + (photo.casaSlug ? 'window.location.href=\'' + clickUrl + '\'' : '') + '; return false;" style="cursor:' + (photo.casaSlug ? 'pointer' : 'default') + '">' +
+            '<img src="' + photo.src + '" alt="' + photo.casaNombre + '" style="width:100%;height:100%;object-fit:cover;display:block;">' +
+          '</div>';
+        }).join('') +
+      '</div>';
+
+      container.innerHTML = html;
+      container.classList.remove('carousel-fade-out');
+      applyLangSafe();
+    }, 300);
+  }
+
+  function rotatePhotoCarousel() {
+    if (!photoCarouselState.isPaused) {
+      renderPhotoCarousel();
+    }
+  }
+
+  function pausePhotoCarousel(container) {
+    photoCarouselState.isPaused = true;
+    clearInterval(photoCarouselState.rotationInterval);
+  }
+
+  function resumePhotoCarousel() {
+    photoCarouselState.isPaused = false;
+    photoCarouselState.rotationInterval = setInterval(rotatePhotoCarousel, 6000);
+  }
+
   window.HGP = {
     cargarCasas: cargarCasas,
     cargarTestimonios: cargarTestimonios,
@@ -604,6 +692,7 @@
     renderDetalleCasa: renderDetalleCasa,
     renderPerks: renderPerks,
     initCarousel: initCarousel,
+    initPhotoCarousel: initPhotoCarousel,
     renderTestimonios: renderTestimonios,
     wireBuscador: wireBuscador,
     abrirModal: abrirModal,

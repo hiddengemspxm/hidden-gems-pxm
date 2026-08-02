@@ -109,12 +109,9 @@ nav.site-nav a:hover, nav.site-nav a.active{color:var(--ink);}
 .btn-block{width:100%;}
 .btn-sm{padding:9px 14px; font-size:0.85rem;}
 
-/* ===== Hero Home (con imagen de fondo) ===== */
+/* ===== Hero Home (carrusel de fondo) ===== */
 .hero-home{
   position:relative;
-  background:linear-gradient(135deg, rgba(30,26,20,0.52) 0%, rgba(30,26,20,0.48) 100%),
-              url('/assets/img/hero-home.jpeg') center/cover no-repeat;
-  background-attachment:fixed;
   color:#fff;
   text-align:center;
   min-height:100vh;
@@ -127,13 +124,31 @@ nav.site-nav a:hover, nav.site-nav a.active{color:var(--ink);}
 @media(max-width:768px){
   .hero-home{
     min-height:75vh;
-    background-attachment:scroll;
   }
 }
 @media(max-width:480px){
   .hero-home{
     min-height:70vh;
   }
+}
+.hero-home-bg{
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  z-index:0;
+}
+@media(max-width:768px){
+  .hero-home-bg{
+    background-attachment:scroll;
+  }
+}
+.hero-home-overlay{
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background:linear-gradient(135deg, rgba(30,26,20,0.52) 0%, rgba(30,26,20,0.48) 100%);
+  z-index:1;
 }
 .hero-home-content{
   max-width:720px;
@@ -280,6 +295,34 @@ section{padding:56px 24px;}
 }
 .casa-card:hover{transform:translateY(-4px); box-shadow:0 14px 30px rgba(30,26,20,0.1);}
 .casa-card-body{padding:14px 18px 0; display:flex; flex-direction:column; gap:8px; flex:1;}
+
+/* Carrusel de fotos sin tarjetas de información */
+.casas-photo-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;
+}
+@media(max-width:768px){
+  .casas-photo-grid{
+    grid-template-columns:repeat(2, 1fr); gap:12px;
+  }
+}
+@media(max-width:480px){
+  .casas-photo-grid{
+    grid-template-columns:1fr; gap:10px;
+  }
+}
+.casa-photo-card{
+  position:relative;
+  border-radius:10px;
+  overflow:hidden;
+  aspect-ratio:3/4;
+  background:#f0f0f0;
+  box-shadow:0 4px 12px rgba(30,26,20,0.1);
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+.casa-photo-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(30,26,20,0.15);
+}
 
 /* Mini-carrusel deslizable (scroll-snap nativo, sin JS) */
 .casa-card-carrusel{position:relative;}

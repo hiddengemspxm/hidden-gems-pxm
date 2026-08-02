@@ -38,7 +38,9 @@
   </div>
 </header>
 
-<section class="hero-home">
+<section class="hero-home" id="hero-home">
+  <div class="hero-home-bg" id="hero-bg"></div>
+  <div class="hero-home-overlay"></div>
   <div class="hero-home-content">
     <h2 class="hero-home-headline">
       <span data-es>Puerto Escondido, como lo vive quien ya lo llama casa.</span>
@@ -331,9 +333,68 @@
 <script src="/assets/js/disponibilidad.js"></script>
 <script src="/assets/js/principal.js"></script>
 <script>
+  /* Carrusel de imágenes hero con fade */
+  (function() {
+    var heroBg = document.getElementById('hero-bg');
+    var currentIndex = 0;
+    var heroImages = [];
+    var isTransitioning = false;
+
+    function preloadImages(images) {
+      images.forEach(function(src) {
+        var img = new Image();
+        img.src = src;
+      });
+    }
+
+    function fadeToImage(index) {
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      var nextImage = heroImages[index];
+      heroBg.style.opacity = '0';
+
+      setTimeout(function() {
+        heroBg.style.backgroundImage = 'url(' + nextImage + ')';
+        heroBg.style.opacity = '1';
+        isTransitioning = false;
+      }, 300);
+    }
+
+    function initHeroCarousel() {
+      var baseUrl = '/assets/img/hero/';
+      heroImages = [
+        baseUrl + 'hero-1.jpg',
+        baseUrl + 'hero-2.jpg',
+        baseUrl + 'hero-3.jpg',
+        baseUrl + 'hero-4.jpg',
+        baseUrl + 'hero-5.jpg',
+        baseUrl + 'hero-6.jpg'
+      ];
+
+      heroBg.style.transition = 'opacity 0.8s ease-in-out';
+      heroBg.style.backgroundSize = 'cover';
+      heroBg.style.backgroundPosition = 'center';
+
+      fadeToImage(0);
+      preloadImages(heroImages);
+
+      setInterval(function() {
+        currentIndex = (currentIndex + 1) % heroImages.length;
+        fadeToImage(currentIndex);
+      }, 6500);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeroCarousel);
+    } else {
+      initHeroCarousel();
+    }
+  })();
+
   var gridHome = document.getElementById('casas-grid-home');
   HGP.cargarCasas().then(function (casas) {
-    HGP.initCarousel(casas);
+    HGP.initPhotoCarousel(casas);
   });
   HGP.cargarTestimonios().then(function (testimonios) {
     HGP.renderTestimonios(document.getElementById('testimonios-grid'), testimonios);
