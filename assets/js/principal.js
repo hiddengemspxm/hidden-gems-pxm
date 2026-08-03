@@ -720,3 +720,52 @@
     photoCarouselState: photoCarouselState
   };
 })();
+
+  // ===== Extras / Add-ons =====
+  function cotizarExtra(tipo) {
+    var mensajes = {
+      transporte: {
+        es: 'Hola Paty! Me interesa el servicio de transporte con groceries — ¿cómo funciona, con parada en el súper o con lista previa?',
+        en: 'Hi Paty! I\'m interested in the transportation + groceries service — how does it work, a stop at the store or a pre-arrival list?'
+      },
+      scooters: {
+        es: 'Hola Paty! Me interesa Renta de scooters para mi estancia — ¿me pasas info?',
+        en: 'Hi Paty! I\'m interested in Scooter Rental for my stay — could you share info?'
+      },
+      surf: {
+        es: 'Hola Paty! Me interesa Clases de surf (recogida en la casa) para mi estancia — ¿me pasas info?',
+        en: 'Hi Paty! I\'m interested in Surf Lessons (Pickup from home) for my stay — could you share info?'
+      },
+      chef: {
+        es: 'Hola Paty! Me interesa Chef privado — Chicama Dinner Night para mi estancia — ¿me pasas info?',
+        en: 'Hi Paty! I\'m interested in Private Chef — Chicama Dinner Night for my stay — could you share info?'
+      },
+      dj: {
+        es: 'Hola Paty! Me interesa Puerto DJ Sunset para mi estancia — ¿me pasas info?',
+        en: 'Hi Paty! I\'m interested in Puerto DJ Sunset for my stay — could you share info?'
+      },
+      mazunte: {
+        es: 'Hola Paty! Me interesa Guía a Mazunte para mi estancia — ¿me pasas info?',
+        en: 'Hi Paty! I\'m interested in a Mazunte Tour Guide for my stay — could you share info?'
+      },
+      wellness: {
+        es: 'Hola Paty! Me interesa Wellness en casa (yoga / sound healing) para mi estancia — ¿me pasas info?',
+        en: 'Hi Paty! I\'m interested in Wellness at Home (yoga / sound healing) for my stay — could you share info?'
+      },
+      masaje: {
+        es: 'Hola Paty! Me interesa Masajes en casa para mi estancia — ¿me pasas info?',
+        en: 'Hi Paty! I\'m interested in In-Home Massage for my stay — could you share info?'
+      },
+      descuentos: {
+        es: 'Hola Paty! Me interesa Descuentos en restaurantes y cafés aliados para mi estancia — ¿me pasas info?',
+        en: 'Hi Paty! I\'m interested in Discounts at Partner Restaurants & Cafés for my stay — could you share info?'
+      }
+    };
+    
+    var l = lang();
+    var mensaje = mensajes[tipo] ? mensajes[tipo][l] : 'Hola Paty!';
+    var waLink = 'https://wa.me/528661154305?text=' + encodeURIComponent(mensaje);
+    window.open(waLink, '_blank');
+  }
+
+  window.HGP.cotizarExtra = cotizarExtra;
