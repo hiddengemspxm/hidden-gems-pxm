@@ -137,63 +137,70 @@
       <p class="extras-nota"><span data-es>Disponibles como extra, con costo aparte de tu reserva.</span><span data-en>Available as add-ons, at an extra cost beyond your booking.</span></p>
     </div>
     
-    <div class="extras-grid">
-      <div class="extra-card">
-        <div class="extra-icon">🛒</div>
+    <form id="extras-form" class="extras-grid">
+      <label class="extra-card" data-addon="transporte">
+        <input type="checkbox" class="extra-checkbox" value="transporte">
+        <div class="extra-bg" style="background-image: url('/assets/img/addons/transporte-groceries.jpg')"></div>
         <h3>Transporte + Groceries</h3>
-        <button class="btn-cotiza" onclick="cotizarExtra('transporte')"><span data-es>Cotiza por WhatsApp</span><span data-en>Quote on WhatsApp</span></button>
-      </div>
+      </label>
       
-      <div class="extra-card">
-        <div class="extra-icon">🛵</div>
+      <label class="extra-card" data-addon="scooters">
+        <input type="checkbox" class="extra-checkbox" value="scooters">
+        <div class="extra-bg" style="background-image: url('/assets/img/addons/scooters.jpg')"></div>
         <h3><span data-es>Renta de scooters</span><span data-en>Scooter Rental</span></h3>
-        <button class="btn-cotiza" onclick="cotizarExtra('scooters')"><span data-es>Cotiza por WhatsApp</span><span data-en>Quote on WhatsApp</span></button>
-      </div>
+      </label>
       
-      <div class="extra-card">
-        <div class="extra-icon">🏄</div>
+      <label class="extra-card" data-addon="surf">
+        <input type="checkbox" class="extra-checkbox" value="surf">
+        <div class="extra-bg" style="background-image: url('/assets/img/addons/surf.jpg')"></div>
         <h3><span data-es>Clases de surf (recogida en la casa)</span><span data-en>Surf Lessons (Pickup from home)</span></h3>
-        <button class="btn-cotiza" onclick="cotizarExtra('surf')"><span data-es>Cotiza por WhatsApp</span><span data-en>Quote on WhatsApp</span></button>
-      </div>
+      </label>
       
-      <div class="extra-card">
-        <div class="extra-icon">👨‍🍳</div>
+      <label class="extra-card" data-addon="chef">
+        <input type="checkbox" class="extra-checkbox" value="chef">
+        <div class="extra-bg" style="background-image: url('/assets/img/addons/chef-privado.jpg')"></div>
         <h3><span data-es>Chef privado — Chicama Dinner Night</span><span data-en>Private Chef — Chicama Dinner Night</span></h3>
-        <button class="btn-cotiza" onclick="cotizarExtra('chef')"><span data-es>Cotiza por WhatsApp</span><span data-en>Quote on WhatsApp</span></button>
-      </div>
+      </label>
       
-      <div class="extra-card">
-        <div class="extra-icon">🎧</div>
+      <label class="extra-card" data-addon="dj">
+        <input type="checkbox" class="extra-checkbox" value="dj">
+        <div class="extra-bg" style="background-image: url('/assets/img/addons/dj-sunset.jpg')"></div>
         <h3><span data-es>Puerto DJ Sunset</span><span data-en>Puerto DJ Sunset</span></h3>
-        <button class="btn-cotiza" onclick="cotizarExtra('dj')"><span data-es>Cotiza por WhatsApp</span><span data-en>Quote on WhatsApp</span></button>
-      </div>
+      </label>
       
-      <div class="extra-card">
-        <div class="extra-icon">🌿</div>
-        <h3><span data-es>Guía a Mazunte</span><span data-en>Mazunte Tour Guide</span></h3>
-        <button class="btn-cotiza" onclick="cotizarExtra('mazunte')"><span data-es>Cotiza por WhatsApp</span><span data-en>Quote on WhatsApp</span></button>
-      </div>
+      <label class="extra-card" data-addon="mazunte">
+        <input type="checkbox" class="extra-checkbox" value="mazunte">
+        <div class="extra-bg" style="background-image: url('/assets/img/addons/mazunte.jpg')"></div>
+        <h3><span data-es>Mazunte Roadtrip Day</span><span data-en>Mazunte Roadtrip Day</span></h3>
+      </label>
       
-      <div class="extra-card">
-        <div class="extra-icon">🧘</div>
+      <label class="extra-card" data-addon="wellness">
+        <input type="checkbox" class="extra-checkbox" value="wellness">
+        <div class="extra-bg" style="background-image: url('/assets/img/addons/wellness.jpg')"></div>
         <h3><span data-es>Wellness en casa (yoga / sound healing)</span><span data-en>Wellness at Home (yoga / sound healing)</span></h3>
-        <button class="btn-cotiza" onclick="cotizarExtra('wellness')"><span data-es>Cotiza por WhatsApp</span><span data-en>Quote on WhatsApp</span></button>
-      </div>
+      </label>
       
-      <div class="extra-card">
-        <div class="extra-icon">💆</div>
+      <label class="extra-card" data-addon="masaje">
+        <input type="checkbox" class="extra-checkbox" value="masaje">
+        <div class="extra-bg" style="background-image: url('/assets/img/addons/masajes.jpg')"></div>
         <h3><span data-es>Masajes en casa</span><span data-en>In-Home Massage</span></h3>
-        <button class="btn-cotiza" onclick="cotizarExtra('masaje')"><span data-es>Cotiza por WhatsApp</span><span data-en>Quote on WhatsApp</span></button>
-      </div>
-      
-      <div class="extra-card">
-        <div class="extra-icon">🍽️</div>
+      </label>
+
+      <label class="extra-card" data-addon="descuentos">
+        <input type="checkbox" class="extra-checkbox" value="descuentos">
+        <div class="extra-bg" style="background-image: url('/assets/img/addons/restaurantes.jpg')"></div>
         <h3><span data-es>Descuentos en restaurantes y cafés aliados</span><span data-en>Discounts at Partner Restaurants & Cafés</span></h3>
-        <button class="btn-cotiza" onclick="cotizarExtra('descuentos')"><span data-es>Cotiza por WhatsApp</span><span data-en>Quote on WhatsApp</span></button>
-      </div>
+      </label>
+    </form>
+
+    <div class="extras-cta">
+      <button id="extras-btn" class="btn btn-primary" onclick="cotizarExtrasBundle()" disabled>
+        <span data-es>Cotiza por WhatsApp</span><span data-en>Quote on WhatsApp</span>
+      </button>
     </div>
   </div>
 </section>
+
 
 
 

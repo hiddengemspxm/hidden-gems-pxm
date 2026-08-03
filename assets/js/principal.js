@@ -769,3 +769,45 @@
   }
 
   window.HGP.cotizarExtra = cotizarExtra;
+
+  // ===== Extras Bundle (Selección múltiple) =====
+  function cotizarExtrasBundle() {
+    var checkboxes = document.querySelectorAll('.extra-checkbox:checked');
+    var selectedItems = [];
+    
+    checkboxes.forEach(function(cb) {
+      var label = cb.closest('.extra-card');
+      var h3 = label.querySelector('h3');
+      selectedItems.push(h3.textContent.trim());
+    });
+    
+    if (selectedItems.length === 0) return;
+    
+    var l = lang();
+    var itemList = selectedItems.join(', ');
+    var mensaje = l === 'es'
+      ? 'Hola Paty! Me interesa agregar a mi estancia: ' + itemList + ' — ¿me pasas info y presupuesto?'
+      : 'Hi Paty! I\'d like to add to my stay: ' + itemList + ' — could you share info and pricing?';
+    
+    var waLink = 'https://wa.me/528661154305?text=' + encodeURIComponent(mensaje);
+    window.open(waLink, '_blank');
+  }
+
+  // Habilitar/deshabilitar botón según selección
+  function updateExtrasButton() {
+    var checkboxes = document.querySelectorAll('.extra-checkbox:checked');
+    var btn = document.getElementById('extras-btn');
+    if (btn) {
+      btn.disabled = checkboxes.length === 0;
+    }
+  }
+
+  // Listener para checkboxes
+  document.addEventListener('DOMContentLoaded', function() {
+    var checkboxes = document.querySelectorAll('.extra-checkbox');
+    checkboxes.forEach(function(cb) {
+      cb.addEventListener('change', updateExtrasButton);
+    });
+  });
+
+  window.HGP.cotizarExtrasBundle = cotizarExtrasBundle;
