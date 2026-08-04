@@ -717,28 +717,6 @@
     photoCarouselState.isPaused = false;
   }
 
-  window.HGP = {
-    cargarCasas: cargarCasas,
-    cargarTestimonios: cargarTestimonios,
-    renderCasasGrid: renderCasasGrid,
-    renderCasasPorSeccion: renderCasasPorSeccion,
-    renderDetalleCasa: renderDetalleCasa,
-    renderPerks: renderPerks,
-    initCarousel: initCarousel,
-    initPhotoCarousel: initPhotoCarousel,
-    initHeroCarousel: initHeroCarousel,
-    renderTestimonios: renderTestimonios,
-    wireBuscador: wireBuscador,
-    abrirModal: abrirModal,
-    cerrarModal: cerrarModal,
-    moverSlide: moverSlide,
-    buildWhatsAppLink: buildWhatsAppLink,
-    mensajeCasa: mensajeCasa,
-    WHATSAPP_NUMBER: WHATSAPP_NUMBER,
-    photoCarouselState: photoCarouselState
-  };
-})();
-
   // ===== Extras / Add-ons =====
   function cotizarExtra(tipo) {
     var mensajes = {
@@ -779,14 +757,12 @@
         en: 'Hi Paty! I\'m interested in Discounts at Partner Restaurants & Cafés for my stay — could you share info?'
       }
     };
-    
+
     var l = lang();
     var mensaje = mensajes[tipo] ? mensajes[tipo][l] : 'Hola Paty!';
     var waLink = 'https://wa.me/528661154305?text=' + encodeURIComponent(mensaje);
     window.open(waLink, '_blank');
   }
-
-  window.HGP.cotizarExtra = cotizarExtra;
 
   // ===== Extras Bundle (Selección múltiple) =====
   function cotizarExtrasBundle() {
@@ -826,21 +802,41 @@
     }
   }
 
-  // Configurar listeners para checkboxes (inmediato, no esperar DOMContentLoaded)
+  // Configurar listeners para checkboxes
   function setupExtrasListeners() {
     var checkboxes = document.querySelectorAll('.extra-checkbox');
     checkboxes.forEach(function(cb) {
       cb.addEventListener('change', updateExtrasButton);
     });
-    // Llamar inicial para establecer estado del botón
     updateExtrasButton();
   }
 
-  // Ejecutar si el DOM ya está listo, o esperar
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', setupExtrasListeners);
   } else {
     setupExtrasListeners();
   }
 
-  window.HGP.cotizarExtrasBundle = cotizarExtrasBundle;
+  window.HGP = {
+    cargarCasas: cargarCasas,
+    cargarTestimonios: cargarTestimonios,
+    renderCasasGrid: renderCasasGrid,
+    renderCasasPorSeccion: renderCasasPorSeccion,
+    renderDetalleCasa: renderDetalleCasa,
+    renderPerks: renderPerks,
+    initCarousel: initCarousel,
+    initPhotoCarousel: initPhotoCarousel,
+    initHeroCarousel: initHeroCarousel,
+    renderTestimonios: renderTestimonios,
+    wireBuscador: wireBuscador,
+    abrirModal: abrirModal,
+    cerrarModal: cerrarModal,
+    moverSlide: moverSlide,
+    buildWhatsAppLink: buildWhatsAppLink,
+    mensajeCasa: mensajeCasa,
+    WHATSAPP_NUMBER: WHATSAPP_NUMBER,
+    photoCarouselState: photoCarouselState,
+    cotizarExtrasBundle: cotizarExtrasBundle,
+    cotizarExtra: cotizarExtra
+  };
+})();
