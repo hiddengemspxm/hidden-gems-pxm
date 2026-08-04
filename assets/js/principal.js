@@ -566,44 +566,52 @@
       e.preventDefault();
       var checkin = formEl.querySelector('[name="checkin"]').value;
       var checkout = formEl.querySelector('[name="checkout"]').value;
+      var personas = parseInt(formEl.querySelector('[name="personas"]').value, 10) || 1;
       if (!checkin || !checkout || checkout <= checkin) {
         renderMensajeBuscador(msgEl, 'error', lang() === 'es'
           ? 'Revisa las fechas: el check-out debe ser después del check-in.'
           : 'Check your dates: check-out must be after check-in.');
         return;
       }
-      ultimaBusqueda = { checkin: checkin, checkout: checkout };
+      ultimaBusqueda = { checkin: checkin, checkout: checkout, personas: personas };
       renderMensajeBuscador(msgEl, '', lang() === 'es' ? 'Buscando…' : 'Searching…');
 
       cargarCasas().then(function (casas) {
-        return window.Disponibilidad.getCasasDisponibles(casas, checkin, checkout);
+        return window.Disponibilidad.getCasasDisponibles(casas, checkin, checkout, personas);
       }).then(function (resultado) {
         if (!resultado.ok) {
           renderCasasGrid(gridEl, casasCache);
           renderMensajeBuscador(msgEl, 'error', lang() === 'es'
-            ? 'No pudimos cargar la disponibilidad en vivo — aquí tienes el catálogo completo. <a href="' + buildWhatsAppLink(lang() === 'es' ? 'Hola Patty, busco disponibilidad del ' + formatFecha(checkin) + ' al ' + formatFecha(checkout) : 'Hi Patty, I\'m checking availability from ' + formatFecha(checkin) + ' to ' + formatFecha(checkout)) + '" target="_blank" rel="noopener" style="text-decoration:underline">Escríbeme por WhatsApp</a> y te confirmo al instante.'
-            : 'We couldn\'t load live availability — here\'s the full catalog. <a href="' + buildWhatsAppLink('Hi Patty, checking availability from ' + formatFecha(checkin) + ' to ' + formatFecha(checkout)) + '" target="_blank" rel="noopener" style="text-decoration:underline">Message me on WhatsApp</a> and I\'ll confirm right away.');
+            ? 'No pudimos cargar la disponibilidad en vivo — aquí tienes el catálogo completo. <a href="' + buildWhatsAppLink(lang() === 'es' ? 'Hola Patty, busco disponibilidad del ' + formatFecha(checkin) + ' al ' + formatFecha(checkout) + ' para ' + personas + ' personas' : 'Hi Patty, I\'m checking availability from ' + formatFecha(checkin) + ' to ' + formatFecha(checkout) + ' for ' + personas + ' guests') + '" target="_blank" rel="noopener" style="text-decoration:underline">Escríbeme por WhatsApp</a> y te confirmo al instante.'
+            : 'We couldn\'t load live availability — here\'s the full catalog. <a href="' + buildWhatsAppLink('Hi Patty, checking availability from ' + formatFecha(checkin) + ' to ' + formatFecha(checkout) + ' for ' + personas + ' guests') + '" target="_blank" rel="noopener" style="text-decoration:underline">Message me on WhatsApp</a> and I\'ll confirm right away.');
           return;
         }
 
         renderCasasGrid(gridEl, resultado.disponibles);
 
         var mensajeSinOpciones = lang() === 'es'
-          ? 'Hola Patty, busco disponibilidad del ' + formatFecha(checkin) + ' al ' + formatFecha(checkout)
-          : "Hi Patty, I'm checking availability from " + formatFecha(checkin) + ' to ' + formatFecha(checkout);
+          ? 'Hola Patty, busco disponibilidad del ' + formatFecha(checkin) + ' al ' + formatFecha(checkout) + ' para ' + personas + ' personas'
+          : "Hi Patty, I'm checking availability from " + formatFecha(checkin) + ' to ' + formatFecha(checkout) + ' for ' + personas + ' guests';
 
         if (resultado.disponibles.length === 0) {
-          renderMensajeBuscador(msgEl, 'escasez', (lang() === 'es'
-            ? 'No hay casas libres para esas fechas. <a href="' + buildWhatsAppLink(mensajeSinOpciones) + '" target="_blank" rel="noopener" style="text-decoration:underline">Escríbeme y te consigo opciones</a>.'
-            : 'No homes are free for those dates. <a href="' + buildWhatsAppLink(mensajeSinOpciones) + '" target="_blank" rel="noopener" style="text-decoration:underline">Message me and I\'ll find options</a>.'));
+          var mensajeNoDisponibles = lang() === 'es'
+            ? 'No hay casas libres para esas fechas y cantidad de personas. <a href="' + buildWhatsAppLink(mensajeSinOpciones) + '" target="_blank" rel="noopener" style="text-decoration:underline">Escríbeme y te consigo opciones</a>.'
+            : 'No homes are free for those dates and number of guests. <a href="' + buildWhatsAppLink(mensajeSinOpciones) + '" target="_blank" rel="noopener" style="text-decoration:underline">Message me and I\'ll find options</a>.';
+
+          if (resultado.insuficientes && resultado.insuficientes.length > 0) {
+            mensajeNoDisponibles = lang() === 'es'
+              ? 'No hay casas con capacidad para ' + personas + ' personas disponibles en esas fechas. ' + resultado.insuficientes.length + ' casa(s) no caben ese número de huéspedes. <a href="' + buildWhatsAppLink(mensajeSinOpciones) + '" target="_blank" rel="noopener" style="text-decoration:underline">Escríbeme y te consigo opciones</a>.'
+              : 'No homes with capacity for ' + personas + ' guests available for those dates. ' + resultado.insuficientes.length + ' home(s) don\'t fit that many guests. <a href="' + buildWhatsAppLink(mensajeSinOpciones) + '" target="_blank" rel="noopener" style="text-decoration:underline">Message me and I\'ll find options</a>.';
+          }
+          renderMensajeBuscador(msgEl, 'escasez', mensajeNoDisponibles);
         } else if (resultado.disponibles.length <= 3) {
           renderMensajeBuscador(msgEl, 'escasez', lang() === 'es'
-            ? 'Solo quedan ' + resultado.disponibles.length + ' casas para tus fechas.'
-            : 'Only ' + resultado.disponibles.length + ' homes left for your dates.');
+            ? 'Solo ' + resultado.disponibles.length + ' casa(s) disponible(s) para ' + personas + ' personas en esas fechas.'
+            : 'Only ' + resultado.disponibles.length + ' home(s) available for ' + personas + ' guests on those dates.');
         } else {
           renderMensajeBuscador(msgEl, '', lang() === 'es'
-            ? resultado.disponibles.length + ' casas disponibles para tus fechas.'
-            : resultado.disponibles.length + ' homes available for your dates.');
+            ? resultado.disponibles.length + ' casas disponibles para ' + personas + ' personas en tus fechas.'
+            : resultado.disponibles.length + ' homes available for ' + personas + ' guests on your dates.');
         }
       });
     });

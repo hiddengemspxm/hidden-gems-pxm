@@ -94,20 +94,31 @@
     return ventanas;
   }
 
-  function getCasasDisponibles(casasList, checkin, checkout) {
+  function getCasasDisponibles(casasList, checkin, checkout, minPersonas) {
     return fetchReservas().then(function (bloqueados) {
       var disponibles = [];
       var ocupadas = [];
+      var insuficientes = [];
       casasList.forEach(function (casa) {
+        // Filtrar por capacidad si se especifica minPersonas
+        if (minPersonas && casa.huespedes && casa.huespedes < minPersonas) {
+          insuficientes.push(casa);
+          return;
+        }
         if (casaEstaLibre(casa.id, checkin, checkout, bloqueados)) {
           disponibles.push(casa);
         } else {
           ocupadas.push(casa);
         }
       });
-      return { ok: true, disponibles: disponibles, ocupadas: ocupadas };
+      return {
+        ok: true,
+        disponibles: disponibles,
+        ocupadas: ocupadas,
+        insuficientes: insuficientes
+      };
     }).catch(function () {
-      return { ok: false, disponibles: casasList, ocupadas: [] };
+      return { ok: false, disponibles: casasList, ocupadas: [], insuficientes: [] };
     });
   }
 
