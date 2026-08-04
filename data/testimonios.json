@@ -1,29 +1,32 @@
 [
   {
     "placeholder": true,
-    "nombre": "[EJEMPLO: Nombre del viajero]",
-    "pais": "[País de origen]",
+    "nombre": "[Nombre]",
+    "pais": "[País]",
     "actividad": "tour",
+    "foto": "/assets/img/testimonios/testimonio-mazunte.jpg",
     "texto_es": "[EJEMPLO] Llevé a esta persona a un tour privado a Mazunte — avistamiento de iguanas, playa virgen, y las mejores enchiladas de la región. Alguien que conoce el lugar hace toda la diferencia.",
     "texto_en": "[EXAMPLE] I took this person on a private tour to Mazunte — iguana sightings, pristine beach, and the best enchiladas in the region. Someone who knows the place makes all the difference.",
     "fecha": "2026-01"
   },
   {
     "placeholder": true,
-    "nombre": "[EJEMPLO: Nombre del viajero]",
-    "pais": "[País de origen]",
+    "nombre": "[Nombre]",
+    "pais": "[País]",
     "actividad": "surf",
+    "foto": "/assets/img/testimonios/testimonio-surf.jpg",
     "texto_es": "[EJEMPLO] Conecté a este grupo con un instructor de surf local que conocía en La Punta — sesión privada en la mejor hora del día, tips de spots según el swell. Eso no se compra en Airbnb.",
     "texto_en": "[EXAMPLE] I connected this group with a local surf instructor I knew in La Punta — private session at the best time of day, tips on spots depending on swell. You can't get that on Airbnb.",
     "fecha": "2025-12"
   },
   {
     "placeholder": true,
-    "nombre": "[EJEMPLO: Nombre del viajero]",
-    "pais": "[País de origen]",
-    "actividad": "recomendaciones",
-    "texto_es": "[EJEMPLO] Cada viajero recibe mi lista de spots locales — dónde desayunar sin turistas, qué restaurante abrir a las 6 AM porque el chef es colega, cuál es la playa de verdad. 15 años aquí no se improvisan.",
-    "texto_en": "[EXAMPLE] Every traveler gets my list of local spots — where to eat breakfast away from tourists, which restaurant opens at 6 AM because the chef is a friend, which beach is the real deal. 15 years here can't be faked.",
+    "nombre": "[Nombre]",
+    "pais": "[País]",
+    "actividad": "bioluminiscencia",
+    "foto": "/assets/img/testimonios/testimonio-bioluminiscencia.jpg",
+    "texto_es": "La noche de bioluminiscencia fue el highlight de todo el viaje — Paty armó una lancha privada con el timing perfecto, nada de subirte a un tour genérico con veinte personas más. Se sintió hecho a la medida.",
+    "texto_en": "The bioluminescence night was the highlight of the whole trip — Paty arranged a private boat with perfect timing, none of that generic tour-with-twenty-strangers feeling. It felt made just for us.",
     "fecha": "2025-11"
   }
 ]

@@ -446,6 +446,15 @@ section{padding:56px 24px;}
   background:#fff; border:1px solid rgba(45,74,53,0.1); border-radius:14px;
   padding:20px; display:flex; flex-direction:column; gap:10px;
 }
+
+.testimonio-foto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  display: block;
+}
 .testimonio-card .texto{font-size:0.94rem; color:var(--ink); font-style:italic;}
 .testimonio-card .autor{font-size:0.84rem; color:var(--gris); font-weight:600;}
 .testimonio-card .placeholder-flag{
