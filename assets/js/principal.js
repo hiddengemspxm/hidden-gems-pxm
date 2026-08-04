@@ -620,9 +620,19 @@
   // ===== Testimonios =====
   function testimonioCardHTML(t) {
     var actividad = t.actividad ? t.actividad.charAt(0).toUpperCase() + t.actividad.slice(1) : '';
+    var escapeHtml = function(text) {
+      if (!text) return '';
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/”/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    };
+    var altText = 'Testimonio de ' + escapeHtml(t.nombre || '') + ' en Puerto Escondido';
     return (
       '<div class=”testimonio-card”>' +
-        (t.foto ? '<img class=”testimonio-foto” src=”' + t.foto + '” alt=”' + t.nombre + '” loading=”lazy”>' : '') +
+        (t.foto ? '<img class=”testimonio-foto” src=”' + t.foto + '” alt=”' + altText + '” loading=”lazy”>' : '') +
         (t.placeholder ? '<span class=”placeholder-flag” data-es>Ejemplo — reemplazar con testimonio real</span><span class=”placeholder-flag” data-en>Example — replace with a real testimonial</span>' : '') +
         '<p class=”texto” data-es>”' + t.texto_es + '”</p>' +
         '<p class=”texto” data-en>”' + t.texto_en + '”</p>' +
