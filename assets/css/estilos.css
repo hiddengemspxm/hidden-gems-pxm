@@ -951,6 +951,15 @@ footer nav a:hover{color:var(--ocre-suave);}
   color: #8b7d71 !important;
   font-style: italic;
   font-weight: 400;
+
+.seasonal {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #9a8b7e;
+  margin-top: 4px;
+  font-style: italic;
+}
 }
 
 .extras-grid {
