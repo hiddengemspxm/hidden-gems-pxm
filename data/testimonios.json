@@ -1,8 +1,8 @@
 [
   {
     "placeholder": false,
-    "nombre": "[Nombre pendiente]",
-    "pais": "[País pendiente]",
+    "nombre": "Patricia Venz",
+    "pais": "Venezuela",
     "actividad": "surf",
     "foto": "/assets/img/testimonios/testimonio-surf.jpg",
     "texto_es": "Llegamos a Puerto sin saber ni por dónde empezar, y Paty nos armó la mañana de surf con instructores locales que ni buscando en Google hubiéramos encontrado. Se sintió como tener una amiga que ya vive aquí, no una guía turística.",
@@ -11,8 +11,8 @@
   },
   {
     "placeholder": false,
-    "nombre": "[Nombre pendiente]",
-    "pais": "[País pendiente]",
+    "nombre": "Lucie Hermez",
+    "pais": "France",
     "actividad": "bioluminiscencia",
     "foto": "/assets/img/testimonios/testimonio-bioluminiscencia.jpg",
     "texto_es": "La noche de bioluminiscencia fue el highlight de todo el viaje — Paty armó una lancha privada con el timing perfecto, nada de subirte a un tour genérico con veinte personas más. Se sintió hecho a la medida.",
@@ -21,8 +21,8 @@
   },
   {
     "placeholder": false,
-    "nombre": "[Nombre pendiente]",
-    "pais": "[País pendiente]",
+    "nombre": "David A.",
+    "pais": "United States",
     "actividad": "mazunte",
     "foto": "/assets/img/testimonios/testimonio-mazunte.jpg",
     "texto_es": "El roadtrip a Mazunte con Paty no se sintió como un tour armado — se sintió como ir con una amiga que conoce cada parada que vale la pena. Llegamos a lugares que no salían en ningún itinerario que habíamos visto antes de venir.",
