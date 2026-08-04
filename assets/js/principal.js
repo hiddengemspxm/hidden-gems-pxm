@@ -131,7 +131,8 @@
   function casaCarruselHTML(casa) {
     var fotos = casa.fotos.slice(0, 5);
     var imgs = fotos.map(function (src, i) {
-      return '<img src="' + src + '" loading="lazy" alt="' + casa.nombre + ' foto ' + (i + 1) + '">';
+      var loading = i < 3 ? '' : 'loading="lazy"';
+      return '<img src="' + src + '" ' + loading + ' alt="' + casa.nombre + ' foto ' + (i + 1) + '">';
     }).join('');
     var dots = fotos.length > 1
       ? '<div class="carrusel-dots">' + fotos.map(function () { return '<span></span>'; }).join('') + '</div>'
