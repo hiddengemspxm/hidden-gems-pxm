@@ -427,6 +427,11 @@ section{padding:56px 24px;}
 .modal-unidad p{font-size:0.85rem; color:var(--gris);}
 .modal-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px;}
 .modal-actions .link-wa{flex:1; min-width:160px; padding:12px 16px; font-size:0.9rem;}
+.modal-disponibilidad{margin:8px 0; padding:12px 14px; background:rgba(26,127,76,0.05); border-radius:8px; border-left:3px solid var(--musgo);}
+.ventanas-list{font-size:0.9rem; color:var(--ink);}
+.ventanas-list strong{color:var(--musgo); display:block; margin-bottom:6px;}
+.ventana-badge{display:inline-block; background:var(--musgo); color:white; padding:4px 8px; border-radius:4px; font-size:0.8rem; margin-right:6px; margin-bottom:4px; white-space:nowrap;}
+.ventana-mas{display:inline-block; color:var(--musgo); font-size:0.8rem; font-weight:600;}
 
 /* ===== Como funciona ===== */
 .pasos{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:28px;}

@@ -381,6 +381,29 @@
     var waLink = overlay.querySelector('.modal-wa');
     waLink.href = buildWhatsAppLink(mensajeCasa(casa, ultimaBusqueda.checkin, ultimaBusqueda.checkout));
 
+    // Cargar y mostrar ventanas disponibles
+    var disponibilidadEl = overlay.querySelector('#modal-disponibilidad');
+    if (disponibilidadEl && window.Disponibilidad) {
+      disponibilidadEl.innerHTML = '';
+      window.Disponibilidad.getVentanasDisponibles(casa.id).then(function(ventanas) {
+        if (ventanas && ventanas.length > 0) {
+          var l = lang();
+          var titulo = l === 'es' ? 'Disponible:' : 'Available:';
+          var html = '<div class="ventanas-list"><strong>' + titulo + '</strong><br>';
+          ventanas.slice(0, 5).forEach(function(v) {
+            html += '<span class="ventana-badge">' + v.inicio + ' – ' + v.fin + '</span>';
+          });
+          if (ventanas.length > 5) {
+            html += '<span class="ventana-mas">... +' + (ventanas.length - 5) + ' más</span>';
+          }
+          html += '</div>';
+          disponibilidadEl.innerHTML = html;
+        }
+      }).catch(function(err) {
+        console.warn('Error cargando disponibilidad:', err);
+      });
+    }
+
     overlay.classList.add('abierto');
     applyLangSafe();
   }

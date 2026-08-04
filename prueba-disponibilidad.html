@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prueba de Disponibilidad</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333;
+      margin-top: 0;
+    }
+    h2 {
+      color: #555;
+      border-bottom: 2px solid #1a7f4c;
+      padding-bottom: 10px;
+    }
+    .status {
+      padding: 10px;
+      border-radius: 4px;
+      margin: 10px 0;
+      font-weight: 500;
+    }
+    .status.loading {
+      background: #e3f2fd;
+      color: #1976d2;
+    }
+    .status.error {
+      background: #ffebee;
+      color: #c62828;
+    }
+    .status.success {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+    .ventana {
+      display: inline-block;
+      background: #1a7f4c;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin: 5px 5px 5px 0;
+      font-size: 14px;
+    }
+    .ventana-count {
+      font-weight: bold;
+      color: #1a7f4c;
+      margin: 10px 0;
+    }
+    .debug {
+      background: #f5f5f5;
+      padding: 10px;
+      border-left: 3px solid #999;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      margin: 10px 0;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🏠 Prueba de Disponibilidad — Hidden Gems</h1>
+
+<div class="container">
+  <h2>Estado de Carga</h2>
+  <div id="status-general" class="status loading">⏳ Cargando datos...</div>
+</div>
+
+<div id="casas-container"></div>
+
+<script src="/assets/js/disponibilidad.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async function() {
+  const casasTest = ['palacio', 'amara', 'alegria'];
+  const container = document.getElementById('casas-container');
+  const statusGeneral = document.getElementById('status-general');
+
+  try {
+    for (const casaId of casasTest) {
+      console.log(`🔄 Procesando ${casaId}...`);
+
+      const div = document.createElement('div');
+      div.className = 'container';
+      div.innerHTML = `<h2>📍 ${casaId.toUpperCase()}</h2>
+                       <div class="status loading">Calculando ventanas disponibles...</div>
+                       <div id="content-${casaId}"></div>`;
+      container.appendChild(div);
+
+      try {
+        const ventanas = await window.Disponibilidad.getVentanasDisponibles(casaId);
+        const contenido = document.getElementById(`content-${casaId}`);
+        const statusDiv = div.querySelector('.status');
+
+        if (ventanas.length === 0) {
+          statusDiv.className = 'status error';
+          statusDiv.textContent = '❌ No hay ventanas disponibles (todos bloqueados)';
+        } else {
+          statusDiv.className = 'status success';
+          statusDiv.textContent = `✅ Ventanas calculadas: ${ventanas.length} períodos`;
+
+          let html = `<div class="ventana-count">📅 ${ventanas.length} ventanas disponibles:</div>`;
+          html += ventanas.map(v => `<div class="ventana">${v.inicio} → ${v.fin}</div>`).join('');
+
+          // Debug info
+          html += `<div class="debug">Primeras 3 ventanas (debug):
+${ventanas.slice(0, 3).map(v => `${v.inicio} → ${v.fin}`).join('\n')}</div>`;
+
+          contenido.innerHTML = html;
+        }
+      } catch (err) {
+        const statusDiv = div.querySelector('.status');
+        statusDiv.className = 'status error';
+        statusDiv.textContent = `❌ Error: ${err.message}`;
+        console.error(`Error en ${casaId}:`, err);
+      }
+    }
+
+    statusGeneral.className = 'status success';
+    statusGeneral.textContent = '✅ Prueba completada. Verifica las ventanas de disponibilidad arriba.';
+  } catch (err) {
+    statusGeneral.className = 'status error';
+    statusGeneral.textContent = `❌ Error general: ${err.message}`;
+    console.error('Error:', err);
+  }
+});
+</script>
+
+</body>
+</html>
