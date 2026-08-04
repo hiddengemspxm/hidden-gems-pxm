@@ -810,12 +810,21 @@
     }
   }
 
-  // Listener para checkboxes
-  document.addEventListener('DOMContentLoaded', function() {
+  // Configurar listeners para checkboxes (inmediato, no esperar DOMContentLoaded)
+  function setupExtrasListeners() {
     var checkboxes = document.querySelectorAll('.extra-checkbox');
     checkboxes.forEach(function(cb) {
       cb.addEventListener('change', updateExtrasButton);
     });
-  });
+    // Llamar inicial para establecer estado del botón
+    updateExtrasButton();
+  }
+
+  // Ejecutar si el DOM ya está listo, o esperar
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupExtrasListeners);
+  } else {
+    setupExtrasListeners();
+  }
 
   window.HGP.cotizarExtrasBundle = cotizarExtrasBundle;
