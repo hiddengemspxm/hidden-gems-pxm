@@ -2,6 +2,17 @@
 (function () {
   var WHATSAPP_NUMBER = '528661154305';
 
+  // ===== Optimización de imágenes con Netlify Image CDN =====
+  function optimizeImageUrl(src, width, height) {
+    if (!src) return src;
+    // Pasar por Netlify Image CDN para redimensionar, comprimir y convertir a WebP/AVIF
+    // Sintaxis: /.netlify/images?url=<image-path>&w=<width>&h=<height>&q=80
+    var params = 'url=' + encodeURIComponent(src) + '&w=' + width;
+    if (height) params += '&h=' + height;
+    params += '&q=75'; // Quality 75 es bueno para web
+    return '/.netlify/images?' + params;
+  }
+
   var casasCache = null;
   var ultimaBusqueda = { checkin: null, checkout: null };
 
@@ -131,7 +142,9 @@
   function casaCarruselHTML(casa) {
     var fotos = casa.fotos.slice(0, 5);
     var imgs = fotos.map(function (src, i) {
-      return '<img src="' + src + '" alt="' + casa.nombre + ' foto ' + (i + 1) + '">';
+      // Para mini-carrusel: 400px de ancho (thumbnails)
+      var optimizedSrc = optimizeImageUrl(src, 400);
+      return '<img src="' + optimizedSrc + '" loading="lazy" alt="' + casa.nombre + ' foto ' + (i + 1) + '">';
     }).join('');
     var dots = fotos.length > 1
       ? '<div class="carrusel-dots">' + fotos.map(function () { return '<span></span>'; }).join('') + '</div>'
@@ -357,7 +370,8 @@
     slideshow.querySelectorAll('img').forEach(function (im) { im.remove(); });
     casa.fotos.forEach(function (src, i) {
       var img = document.createElement('img');
-      img.src = src;
+      // Para modal: 1000px de ancho (grande pero no enorme)
+      img.src = optimizeImageUrl(src, 1000);
       img.loading = 'lazy';
       img.alt = casa.nombre + ' foto ' + (i + 1);
       if (i === 0) img.classList.add('active');
@@ -478,13 +492,15 @@
           '</div>';
       }
 
-      // Galería modo portafolio: todas las fotos en columna, tamaño natural
-      // (sin recortes), con lazy loading en cada una para que cargue rápido.
+      // Galería modo portafolio: todas las fotos en columna, optimizadas con Netlify Image CDN
+      // Lazy loading en cada foto para carga progresiva.
       var galeriaHTML =
         '<div class="detalle-galeria-titulo"><span data-es>Fotos</span><span data-en>Photos</span></div>' +
         '<div class="detalle-galeria">' +
           casa.fotos.map(function (src, i) {
-            return '<img src="' + src + '" loading="lazy" alt="' + casa.nombre + ' foto ' + (i + 1) + '">';
+            // Para galería: 1200px de ancho (pantalla completa)
+            var optimizedSrc = optimizeImageUrl(src, 1200);
+            return '<img src="' + optimizedSrc + '" loading="lazy" alt="' + casa.nombre + ' foto ' + (i + 1) + '">';
           }).join('') +
         '</div>';
 
