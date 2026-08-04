@@ -49,11 +49,11 @@
   <form id="form-buscador" class="buscador">
     <div class="campo">
       <label data-es>Check-in</label><label data-en>Check-in</label>
-      <input type="date" name="checkin" required>
+      <input type="date" name="checkin" required id="input-checkin">
     </div>
     <div class="campo">
       <label data-es>Check-out</label><label data-en>Check-out</label>
-      <input type="date" name="checkout" required>
+      <input type="date" name="checkout" required id="input-checkout">
     </div>
     <div class="campo">
       <label data-es>Personas</label><label data-en>Guests</label>
@@ -64,6 +64,45 @@
     </button>
   </form>
   <p id="buscador-msg" class="buscador-msg"></p>
+
+  <script>
+    (function() {
+      var inputCheckin = document.getElementById('input-checkin');
+      var inputCheckout = document.getElementById('input-checkout');
+
+      inputCheckin.addEventListener('change', function() {
+        if (!inputCheckin.value) return;
+
+        // Calcular fecha mínima para checkout (día después de checkin)
+        var checkinDate = new Date(inputCheckin.value + 'T00:00:00');
+        var minCheckoutDate = new Date(checkinDate);
+        minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
+        var minCheckoutStr = minCheckoutDate.getFullYear() + '-' +
+                             String(minCheckoutDate.getMonth() + 1).padStart(2, '0') + '-' +
+                             String(minCheckoutDate.getDate()).padStart(2, '0');
+
+        // Establecer fecha mínima para checkout
+        inputCheckout.min = minCheckoutStr;
+
+        // Si checkout es menor que checkin, preseleccionar checkout + 7 días
+        if (!inputCheckout.value || inputCheckout.value < inputCheckin.value) {
+          var suggestedCheckout = new Date(checkinDate);
+          suggestedCheckout.setDate(suggestedCheckout.getDate() + 7);
+          var suggestedCheckoutStr = suggestedCheckout.getFullYear() + '-' +
+                                     String(suggestedCheckout.getMonth() + 1).padStart(2, '0') + '-' +
+                                     String(suggestedCheckout.getDate()).padStart(2, '0');
+          inputCheckout.value = suggestedCheckoutStr;
+        }
+      });
+
+      inputCheckout.addEventListener('change', function() {
+        // Si checkout es menor que checkin, limpiar y mostrar error
+        if (inputCheckout.value && inputCheckin.value && inputCheckout.value <= inputCheckin.value) {
+          inputCheckout.value = '';
+        }
+      });
+    })();
+  </script>
 </section>
 
 <section id="casas" style="padding-top:0;">
