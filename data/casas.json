@@ -770,5 +770,48 @@
       "Cleaning Monday to Saturday",
       "Optional concierge services"
     ]
+  },
+  {
+    "id": "sicilia",
+    "nombre": "Casa Sicilia",
+    "tag_es": "Frente al mar",
+    "tag_en": "Oceanfront",
+    "meta_es": "Villa de lujo con 9 habitaciones frente al mar en Rancho Neptuno. Capacidad para 16 huéspedes, alberca privada, acceso a playa y todo lo que necesitas para una reunión familiar o de amigos memorable.",
+    "meta_en": "Luxury 9-bedroom villa oceanfront in Rancho Neptuno. Capacity for 16 guests, private pool, beach access and everything you need for a memorable family or friends gathering.",
+    "descripcion_es": "Casa Sicilia es la villa de lujo para reuniones grandes: 9 habitaciones, 16 huéspedes, 14 camas y 10 baños. Está en Rancho Neptuno, literalmente frente al mar, con una alberca privada, acceso a playa, jardín exuberante, cocina completa, área de trabajo con Starlink y WiFi de alta velocidad. Perfecta para una reunión familiar, retiro de amigos, evento corporativo o celebración especial — cada grupo tiene su propio espacio, pero se comparte la experiencia de la vista al mar y el ambiente de lujo. Paty coordina todo: desde trasferencias desde el aeropuerto hasta recomendaciones de chef privado o planificador de eventos.",
+    "descripcion_en": "Casa Sicilia is the luxury villa for large gatherings: 9 bedrooms, 16 guests, 14 beds and 10 bathrooms. It's in Rancho Neptuno, literally oceanfront, with a private pool, beach access, lush gardens, full kitchen, work area with Starlink and high-speed WiFi. Perfect for a family reunion, friends retreat, corporate event or special celebration — each group has their own space, but shares the experience of the ocean view and luxury atmosphere. Paty coordinates everything: from airport transfers to recommendations for private chefs or event planners.",
+    "capacidad_es": "16 huéspedes · 9 habitaciones · 14 camas · 10 baños",
+    "capacidad_en": "16 guests · 9 bedrooms · 14 beds · 10 bathrooms",
+    "fotos": [
+      "/assets/img/sicilia/sicilia-01.jpg",
+      "/assets/img/sicilia/sicilia-02.jpg",
+      "/assets/img/sicilia/sicilia-03.jpg",
+      "/assets/img/sicilia/sicilia-04.jpg",
+      "/assets/img/sicilia/sicilia-05.jpg"
+    ],
+    "seccion": "villas",
+    "exAirbnb": false,
+    "huespedes": 16,
+    "habitaciones": 9,
+    "slug": "casa-sicilia",
+    "banos": 10,
+    "zona_es": "Rancho Neptuno — frente al mar",
+    "zona_en": "Rancho Neptuno — oceanfront",
+    "amenidades_es": [
+      "Acceso a playa privada",
+      "Alberca privada",
+      "Jardín",
+      "WiFi de alta velocidad",
+      "Cocina equipada",
+      "Área de trabajo con Starlink"
+    ],
+    "amenidades_en": [
+      "Private beach access",
+      "Private pool",
+      "Garden",
+      "High-speed WiFi",
+      "Fully equipped kitchen",
+      "Work area with Starlink"
+    ]
   }
 ]

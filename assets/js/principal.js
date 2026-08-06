@@ -14,6 +14,7 @@
   }
 
   var casasCache = null;
+  var seccionesCache = null;
   var ultimaBusqueda = { checkin: null, checkout: null };
 
   function lang() {
@@ -39,6 +40,10 @@
       msg = l === 'es'
         ? ('Hola Paty! Me interesa ' + casa.nombre + ' — ¿cuántos huéspedes seríamos? Así me dices si conviene el complejo completo o una unidad, con disponibilidad y tarifa.')
         : ("Hi Paty! I'm interested in " + casa.nombre + ' — how many guests would we be? Let me know if the full complex or a single unit makes more sense, with availability and rates.');
+    } else if (casa.id === 'sicilia') {
+      msg = l === 'es'
+        ? ('Hola Paty! Me interesa Casa Sicilia — por favor incluir cotización de traslado desde el aeropuerto, disponibilidad y tarifa.')
+        : ("Hi Paty! I'm interested in Casa Sicilia — please include airport transfer quote, availability and rates.");
     } else {
       msg = l === 'es'
         ? ('Hola Paty! Me interesa ' + casa.nombre + ' — ¿me compartes disponibilidad y tarifa?')
@@ -67,6 +72,14 @@
   function cargarPerks() {
     return fetch('/data/perks.json').then(function (res) { return res.json(); }).then(function (data) {
       return data.filter(function (p) { return !p.draft; });
+    });
+  }
+
+  function cargarSecciones() {
+    if (seccionesCache) return Promise.resolve(seccionesCache);
+    return fetch('/data/secciones.json').then(function (res) { return res.json(); }).then(function (data) {
+      seccionesCache = data;
+      return seccionesCache;
     });
   }
 
@@ -105,11 +118,8 @@
 
 
   // ===== Secciones del catálogo =====
-  var SECCIONES = [
-    { id: 'parejas', es: 'Parejas y amigos', en: 'Couples & friends' },
-    { id: 'grupos', es: 'Grupos y celebraciones', en: 'Groups & celebrations' },
-    { id: 'lujo', es: 'Lujo frente al mar', en: 'Beachfront luxury' }
-  ];
+  // Se cargan desde /data/secciones.json
+  var SECCIONES = [];
 
   // ===== Tarjetas de casas =====
   // Fila de specs de la card: 👥 huéspedes y 🛏 habitaciones. Si algún dato no
@@ -860,6 +870,7 @@
 
   window.HGP = {
     cargarCasas: cargarCasas,
+    cargarSecciones: cargarSecciones,
     cargarTestimonios: cargarTestimonios,
     renderCasasGrid: renderCasasGrid,
     renderCasasPorSeccion: renderCasasPorSeccion,

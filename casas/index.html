@@ -150,8 +150,9 @@
 <script src="/assets/js/principal.js"></script>
 <script>
   var gridFull = document.getElementById('casas-grid-full');
-  HGP.cargarCasas().then(function (casas) {
-    HGP.renderCasasGrid(gridFull, casas);
+  Promise.all([HGP.cargarCasas(), HGP.cargarSecciones()]).then(function (results) {
+    var casas = results[0];
+    HGP.renderCasasPorSeccion(gridFull, casas);
   });
   HGP.wireBuscador(document.getElementById('form-buscador'), gridFull, document.getElementById('buscador-msg'));
 </script>
