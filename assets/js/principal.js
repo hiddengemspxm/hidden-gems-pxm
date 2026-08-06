@@ -79,6 +79,7 @@
     if (seccionesCache) return Promise.resolve(seccionesCache);
     return fetch('/data/secciones.json').then(function (res) { return res.json(); }).then(function (data) {
       seccionesCache = data;
+      SECCIONES = data;
       return seccionesCache;
     });
   }
