@@ -70,13 +70,23 @@
   </p>
 
   <form id="form-buscador" class="buscador" onsubmit="event.preventDefault(); var ci = document.querySelector('#form-buscador [name=checkin]').value; var co = document.querySelector('#form-buscador [name=checkout]').value; var p = document.querySelector('#form-buscador [name=personas]').value; if (ci && co) { window.location.href = '/casas?checkin=' + ci + '&checkout=' + co + '&personas=' + (p || 2); }">
-    <div class="campo">
-      <label data-es>Check-in</label><label data-en>Check-in</label>
-      <input type="date" name="checkin" required>
-    </div>
-    <div class="campo">
-      <label data-es>Check-out</label><label data-en>Check-out</label>
-      <input type="date" name="checkout" required>
+    <div class="campo date-range-picker-container">
+      <label data-es>Selecciona fechas</label><label data-en>Select dates</label>
+      <div class="date-range-input" id="date-range-display">
+        <span data-es>Check-in → Check-out</span><span data-en>Check-in → Check-out</span>
+      </div>
+      <div class="date-range-calendar-modal" id="date-range-calendar-modal" style="display:none;">
+        <div class="calendar-overlay"></div>
+        <div class="calendar-popup">
+          <div class="calendar-months-container" id="calendar-months-container"></div>
+          <div class="calendar-actions">
+            <button type="button" class="btn-secondary" id="calendar-clear" data-es>Limpiar</button><span data-en style="display:none;">Clear</span>
+            <button type="button" class="btn-primary" id="calendar-apply" data-es>Aplicar</button><span data-en style="display:none;">Apply</span>
+          </div>
+        </div>
+      </div>
+      <input type="date" name="checkin" required id="input-checkin" style="display:none;">
+      <input type="date" name="checkout" required id="input-checkout" style="display:none;">
     </div>
     <div class="campo">
       <label data-es>Personas</label><label data-en>Guests</label>
@@ -422,6 +432,162 @@
     HGP.renderTestimonios(document.getElementById('testimonios-grid'), testimonios);
   });
   HGP.wireBuscador(document.getElementById('form-buscador'), gridHome, document.getElementById('buscador-msg'));
+
+  /* Date range picker Airbnb-style */
+  (function() {
+    var display = document.getElementById('date-range-display');
+    var modal = document.getElementById('date-range-calendar-modal');
+    var overlay = modal.querySelector('.calendar-overlay');
+    var container = modal.querySelector('.calendar-months-container');
+    var inputCheckin = document.getElementById('input-checkin');
+    var inputCheckout = document.getElementById('input-checkout');
+    var currentMonth = new Date();
+    var selectedCheckin = null;
+    var selectedCheckout = null;
+
+    function formatDate(d) {
+      return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+    }
+
+    function parseDate(str) {
+      return new Date(str + 'T00:00:00');
+    }
+
+    function updateDisplay() {
+      if (selectedCheckin && selectedCheckout) {
+        var ci = parseDate(selectedCheckin);
+        var co = parseDate(selectedCheckout);
+        var ciStr = ci.getDate() + ' ' + ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'][ci.getMonth()];
+        var coStr = co.getDate() + ' ' + ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'][co.getMonth()];
+        display.innerHTML = '<strong>' + ciStr + '</strong> → <strong>' + coStr + '</strong>';
+        display.classList.add('active');
+        inputCheckin.value = selectedCheckin;
+        inputCheckout.value = selectedCheckout;
+      } else if (selectedCheckin) {
+        var ci = parseDate(selectedCheckin);
+        var ciStr = ci.getDate() + ' ' + ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'][ci.getMonth()];
+        display.innerHTML = '<strong>' + ciStr + '</strong> → <span data-es>Check-out</span><span data-en>Check-out</span>';
+        display.classList.add('active');
+        inputCheckin.value = selectedCheckin;
+      } else {
+        display.innerHTML = '<span data-es>Check-in → Check-out</span><span data-en>Check-in → Check-out</span>';
+        display.classList.remove('active');
+      }
+    }
+
+    function renderTwoMonths() {
+      var html = '';
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      for (var m = 0; m < 2; m++) {
+        var d = new Date(currentMonth);
+        d.setMonth(d.getMonth() + m);
+        var year = d.getFullYear();
+        var month = d.getMonth();
+        var monthName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'][month];
+
+        html += '<div class="calendar-month">';
+        html += '<div class="calendar-month-header">';
+        if (m === 0) {
+          html += '<span class="calendar-nav" id="prev-month">‹</span>';
+        } else {
+          html += '<span></span>';
+        }
+        html += '<strong>' + monthName + ' ' + year + '</strong>';
+        if (m === 1) {
+          html += '<span class="calendar-nav" id="next-month">›</span>';
+        } else {
+          html += '<span></span>';
+        }
+        html += '</div>';
+
+        html += '<div class="calendar-weekdays">';
+        ['D', 'L', 'M', 'X', 'J', 'V', 'S'].forEach(function(day) {
+          html += '<div class="calendar-weekday">' + day + '</div>';
+        });
+        html += '</div>';
+
+        var firstDay = new Date(year, month, 1);
+        var lastDay = new Date(year, month + 1, 0);
+        var startDate = new Date(firstDay);
+        startDate.setDate(startDate.getDate() - firstDay.getDay());
+
+        html += '<div class="calendar-days">';
+        var curr = new Date(startDate);
+        while (curr <= lastDay || curr.getDay() !== 0) {
+          var dateStr = formatDate(curr);
+          var isOtherMonth = curr.getMonth() !== month;
+          var isDisabled = curr < today;
+          var isSelected = (dateStr === selectedCheckin || dateStr === selectedCheckout);
+          var isInRange = selectedCheckin && selectedCheckout && curr > parseDate(selectedCheckin) && curr < parseDate(selectedCheckout);
+
+          var classes = 'calendar-day';
+          if (isOtherMonth) classes += ' other-month';
+          if (isDisabled) classes += ' disabled';
+          if (isSelected) classes += ' selected';
+          if (isInRange) {
+            classes += ' in-range';
+            if (dateStr === selectedCheckin) classes += ' start';
+            if (dateStr === selectedCheckout) classes += ' end';
+          }
+
+          var onclick = isDisabled ? '' : ' onclick="window._drp_selectDate(\'' + dateStr + '\')"';
+          html += '<div class="' + classes + '"' + onclick + '>' + curr.getDate() + '</div>';
+
+          curr.setDate(curr.getDate() + 1);
+        }
+        html += '</div>';
+        html += '</div>';
+      }
+
+      container.innerHTML = html;
+      document.getElementById('prev-month').addEventListener('click', function() {
+        currentMonth.setMonth(currentMonth.getMonth() - 1);
+        renderTwoMonths();
+      });
+      document.getElementById('next-month').addEventListener('click', function() {
+        currentMonth.setMonth(currentMonth.getMonth() + 1);
+        renderTwoMonths();
+      });
+    }
+
+    window._drp_selectDate = function(dateStr) {
+      if (!selectedCheckin || (selectedCheckin && selectedCheckout)) {
+        selectedCheckin = dateStr;
+        selectedCheckout = null;
+      } else if (dateStr <= selectedCheckin) {
+        selectedCheckin = dateStr;
+        selectedCheckout = null;
+      } else {
+        selectedCheckout = dateStr;
+      }
+      updateDisplay();
+      renderTwoMonths();
+    };
+
+    display.addEventListener('click', function() {
+      modal.style.display = 'block';
+      renderTwoMonths();
+    });
+
+    overlay.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    document.getElementById('calendar-clear').addEventListener('click', function() {
+      selectedCheckin = null;
+      selectedCheckout = null;
+      updateDisplay();
+      renderTwoMonths();
+    });
+
+    document.getElementById('calendar-apply').addEventListener('click', function() {
+      if (selectedCheckin && selectedCheckout) {
+        modal.style.display = 'none';
+      }
+    });
+  })();
 </script>
 </body>
 </html>
