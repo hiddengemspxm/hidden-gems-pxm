@@ -457,7 +457,7 @@ section{padding:56px 24px;}
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
   display: block;
 }
 .testimonio-card .texto{font-size:0.94rem; color:var(--ink); font-style:italic;}
