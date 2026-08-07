@@ -260,7 +260,7 @@
     carouselState.allCasas = casas;
     carouselState.currentIndex = 0;
     renderCarouselCasas();
-    carouselState.rotationInterval = setInterval(rotateCarousel, 7000);
+    carouselState.rotationInterval = setInterval(rotateCarousel, 4500);
   }
 
   function getNextCarouselCasas() {
@@ -302,7 +302,7 @@
   function resumeCarousel(container) {
     carouselState.isPaused = false;
     container.classList.remove('carousel-paused');
-    carouselState.rotationInterval = setInterval(rotateCarousel, 7000);
+    carouselState.rotationInterval = setInterval(rotateCarousel, 4500);
   }
 
   function attachCarouselInteractions(container) {

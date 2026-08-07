@@ -22,6 +22,7 @@
 <header>
   <div class="header-inner">
     <a class='brand' href='/'><em>Hidden Gems</em> Puerto Escondido · Patty Hernández</a>
+    <button class="hamburger-menu" id="hamburger-btn" onclick="document.body.classList.toggle('nav-open')">☰</button>
     <nav class="site-nav">
       <a href='/casas'><span data-es>Las casas</span><span data-en>Homes</span></a>
       <a href='/como-llegar'><span data-es>Cómo llegar</span><span data-en>How to get here</span></a>
@@ -68,7 +69,7 @@
     <span data-en>Live availability, the best price, and personal attention over WhatsApp — no hidden platform fees at checkout.</span>
   </p>
 
-  <form id="form-buscador" class="buscador">
+  <form id="form-buscador" class="buscador" onsubmit="event.preventDefault(); var ci = document.querySelector('#form-buscador [name=checkin]').value; var co = document.querySelector('#form-buscador [name=checkout]').value; var p = document.querySelector('#form-buscador [name=personas]').value; if (ci && co) { window.location.href = '/casas?checkin=' + ci + '&checkout=' + co + '&personas=' + (p || 2); }">
     <div class="campo">
       <label data-es>Check-in</label><label data-en>Check-in</label>
       <input type="date" name="checkin" required>
@@ -76,6 +77,10 @@
     <div class="campo">
       <label data-es>Check-out</label><label data-en>Check-out</label>
       <input type="date" name="checkout" required>
+    </div>
+    <div class="campo">
+      <label data-es>Personas</label><label data-en>Guests</label>
+      <input type="number" name="personas" min="1" max="20" value="2" required>
     </div>
     <button type="submit" class="btn btn-primary">
       <span data-es>Buscar disponibilidad</span><span data-en>Search availability</span>
