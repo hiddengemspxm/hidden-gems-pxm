@@ -153,8 +153,9 @@
   function casaCarruselHTML(casa) {
     var fotos = casa.fotos.slice(0, 5);
     var imgs = fotos.map(function (src, i) {
-      // Para mini-carrusel: 400px de ancho (thumbnails)
-      var optimizedSrc = optimizeImageUrl(src, 400);
+      // Para mini-carrusel en móvil: 600px de ancho (retina/2x density)
+      // Calidad 80 para mantener balance peso/calidad
+      var optimizedSrc = optimizeImageUrl(src, 600);
       return '<img src="' + optimizedSrc + '" loading="lazy" alt="' + casa.nombre + ' foto ' + (i + 1) + '">';
     }).join('');
     var dots = fotos.length > 1
