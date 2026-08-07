@@ -585,6 +585,10 @@
     document.getElementById('calendar-apply').addEventListener('click', function() {
       if (selectedCheckin && selectedCheckout) {
         modal.style.display = 'none';
+        /* Ejecutar la búsqueda después de cerrar el modal */
+        setTimeout(function() {
+          document.getElementById('form-buscador').dispatchEvent(new Event('submit'));
+        }, 100);
       }
     });
   })();
