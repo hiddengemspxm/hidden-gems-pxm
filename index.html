@@ -69,7 +69,7 @@
     <span data-en>Live availability, the best price, and personal attention over WhatsApp — no hidden platform fees at checkout.</span>
   </p>
 
-  <form id="form-buscador" class="buscador" onsubmit="event.preventDefault(); var ci = document.querySelector('#form-buscador [name=checkin]').value; var co = document.querySelector('#form-buscador [name=checkout]').value; var p = document.querySelector('#form-buscador [name=personas]').value; if (ci && co) { window.location.href = '/casas?checkin=' + ci + '&checkout=' + co + '&personas=' + (p || 2); }">
+  <form id="form-buscador" class="buscador" onsubmit="event.preventDefault(); var ci = document.getElementById('input-checkin').value; var co = document.getElementById('input-checkout').value; var p = document.querySelector('#form-buscador [name=personas]').value; if (ci && co) { window.location.href = '/casas?checkin=' + ci + '&checkout=' + co + '&personas=' + (p || 2); }">
     <div class="campo date-range-picker-container">
       <label data-es>Selecciona fechas</label><label data-en>Select dates</label>
       <div class="date-range-input" id="date-range-display">

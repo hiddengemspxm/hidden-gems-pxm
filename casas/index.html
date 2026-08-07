@@ -278,11 +278,45 @@
 <script src="/assets/js/principal.js"></script>
 <script>
   var gridFull = document.getElementById('casas-grid-full');
+  var formBuscador = document.getElementById('form-buscador');
+
   Promise.all([HGP.cargarCasas(), HGP.cargarSecciones()]).then(function (results) {
     var casas = results[0];
     HGP.renderCasasPorSeccion(gridFull, casas);
   });
-  HGP.wireBuscador(document.getElementById('form-buscador'), gridFull, document.getElementById('buscador-msg'));
+
+  HGP.wireBuscador(formBuscador, gridFull, document.getElementById('buscador-msg'));
+
+  /* Leer parámetros de búsqueda de la URL y auto-ejecutar */
+  (function() {
+    var params = new URLSearchParams(window.location.search);
+    var checkin = params.get('checkin');
+    var checkout = params.get('checkout');
+    var personas = params.get('personas');
+
+    if (checkin && checkout) {
+      /* Rellenar el formulario con los parámetros */
+      document.getElementById('input-checkin').value = checkin;
+      document.getElementById('input-checkout').value = checkout;
+      if (personas) {
+        formBuscador.querySelector('[name="personas"]').value = personas;
+      }
+
+      /* Actualizar el display del date range picker */
+      var display = document.getElementById('date-range-display');
+      var ci = new Date(checkin + 'T00:00:00');
+      var co = new Date(checkout + 'T00:00:00');
+      var ciStr = ci.getDate() + ' ' + ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'][ci.getMonth()];
+      var coStr = co.getDate() + ' ' + ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'][co.getMonth()];
+      display.innerHTML = '<strong>' + ciStr + '</strong> → <strong>' + coStr + '</strong>';
+      display.classList.add('active');
+
+      /* Ejecutar la búsqueda automáticamente después de 500ms */
+      setTimeout(function() {
+        formBuscador.dispatchEvent(new Event('submit'));
+      }, 500);
+    }
+  })();
 </script>
 </body>
 </html>
