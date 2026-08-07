@@ -52,7 +52,16 @@
       <div class="date-range-input" id="date-range-display">
         <span data-es>Check-in → Check-out</span><span data-en>Check-in → Check-out</span>
       </div>
-      <div class="date-range-calendar" id="date-range-calendar" style="display:none;"></div>
+      <div class="date-range-calendar-modal" id="date-range-calendar-modal" style="display:none;">
+        <div class="calendar-overlay"></div>
+        <div class="calendar-popup">
+          <div class="calendar-months-container" id="calendar-months-container"></div>
+          <div class="calendar-actions">
+            <button type="button" class="btn-secondary" id="calendar-clear" data-es>Limpiar</button><span data-en style="display:none;">Clear</span>
+            <button type="button" class="btn-primary" id="calendar-apply" data-es>Aplicar</button><span data-en style="display:none;">Apply</span>
+          </div>
+        </div>
+      </div>
       <input type="date" name="checkin" required id="input-checkin" style="display:none;">
       <input type="date" name="checkout" required id="input-checkout" style="display:none;">
     </div>
@@ -69,7 +78,9 @@
   <script>
     (function() {
       var display = document.getElementById('date-range-display');
-      var calendar = document.getElementById('date-range-calendar');
+      var modal = document.getElementById('date-range-calendar-modal');
+      var overlay = modal.querySelector('.calendar-overlay');
+      var container = modal.querySelector('.calendar-months-container');
       var inputCheckin = document.getElementById('input-checkin');
       var inputCheckout = document.getElementById('input-checkout');
       var currentMonth = new Date();
@@ -106,55 +117,81 @@
         }
       }
 
-      function renderCalendar() {
-        var year = currentMonth.getFullYear();
-        var month = currentMonth.getMonth();
-        var monthName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'][month];
-
-        var html = '<div class="calendar-header">';
-        html += '<span class="calendar-nav" onclick="this.closest(\'.date-range-picker-container\').dataset.prevMonth=1">‹</span>';
-        html += '<strong>' + monthName + ' ' + year + '</strong>';
-        html += '<span class="calendar-nav" onclick="this.closest(\'.date-range-picker-container\').dataset.nextMonth=1">›</span>';
-        html += '</div>';
-
-        html += '<div class="calendar-weekdays">';
-        ['D', 'L', 'M', 'X', 'J', 'V', 'S'].forEach(function(day) {
-          html += '<div>' + day + '</div>';
-        });
-        html += '</div>';
-
-        var firstDay = new Date(year, month, 1);
-        var lastDay = new Date(year, month + 1, 0);
-        var startDate = new Date(firstDay);
-        startDate.setDate(startDate.getDate() - firstDay.getDay());
-
+      function renderTwoMonths() {
+        var html = '';
         var today = new Date();
         today.setHours(0, 0, 0, 0);
 
-        html += '<div class="calendar-days">';
-        var d = new Date(startDate);
-        while (d <= lastDay || d.getDay() !== 0) {
-          var dateStr = formatDate(d);
-          var isOtherMonth = d.getMonth() !== month;
-          var isToday = d.getTime() === today.getTime();
-          var isDisabled = d < today;
-          var isSelected = (dateStr === selectedCheckin || dateStr === selectedCheckout);
-          var isInRange = selectedCheckin && selectedCheckout && d > parseDate(selectedCheckin) && d < parseDate(selectedCheckout);
+        for (var m = 0; m < 2; m++) {
+          var d = new Date(currentMonth);
+          d.setMonth(d.getMonth() + m);
+          var year = d.getFullYear();
+          var month = d.getMonth();
+          var monthName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'][month];
 
-          var classes = 'calendar-day';
-          if (isOtherMonth) classes += ' other-month';
-          if (isDisabled) classes += ' disabled';
-          if (isSelected) classes += ' selected';
-          if (isInRange) classes += ' in-range';
+          html += '<div class="calendar-month">';
+          html += '<div class="calendar-month-header">';
+          if (m === 0) {
+            html += '<span class="calendar-nav" id="prev-month">‹</span>';
+          } else {
+            html += '<span></span>';
+          }
+          html += '<strong>' + monthName + ' ' + year + '</strong>';
+          if (m === 1) {
+            html += '<span class="calendar-nav" id="next-month">›</span>';
+          } else {
+            html += '<span></span>';
+          }
+          html += '</div>';
 
-          var onclick = isDisabled ? '' : ' onclick="window._drp_selectDate(\'' + dateStr + '\')"';
-          html += '<div class="' + classes + '"' + onclick + '>' + d.getDate() + '</div>';
+          html += '<div class="calendar-weekdays">';
+          ['D', 'L', 'M', 'X', 'J', 'V', 'S'].forEach(function(day) {
+            html += '<div class="calendar-weekday">' + day + '</div>';
+          });
+          html += '</div>';
 
-          d.setDate(d.getDate() + 1);
+          var firstDay = new Date(year, month, 1);
+          var lastDay = new Date(year, month + 1, 0);
+          var startDate = new Date(firstDay);
+          startDate.setDate(startDate.getDate() - firstDay.getDay());
+
+          html += '<div class="calendar-days">';
+          var curr = new Date(startDate);
+          while (curr <= lastDay || curr.getDay() !== 0) {
+            var dateStr = formatDate(curr);
+            var isOtherMonth = curr.getMonth() !== month;
+            var isDisabled = curr < today;
+            var isSelected = (dateStr === selectedCheckin || dateStr === selectedCheckout);
+            var isInRange = selectedCheckin && selectedCheckout && curr > parseDate(selectedCheckin) && curr < parseDate(selectedCheckout);
+
+            var classes = 'calendar-day';
+            if (isOtherMonth) classes += ' other-month';
+            if (isDisabled) classes += ' disabled';
+            if (isSelected) classes += ' selected';
+            if (isInRange) {
+              classes += ' in-range';
+              if (dateStr === selectedCheckin) classes += ' start';
+              if (dateStr === selectedCheckout) classes += ' end';
+            }
+
+            var onclick = isDisabled ? '' : ' onclick="window._drp_selectDate(\'' + dateStr + '\')"';
+            html += '<div class="' + classes + '"' + onclick + '>' + curr.getDate() + '</div>';
+
+            curr.setDate(curr.getDate() + 1);
+          }
+          html += '</div>';
+          html += '</div>';
         }
-        html += '</div>';
 
-        calendar.innerHTML = html;
+        container.innerHTML = html;
+        document.getElementById('prev-month').addEventListener('click', function() {
+          currentMonth.setMonth(currentMonth.getMonth() - 1);
+          renderTwoMonths();
+        });
+        document.getElementById('next-month').addEventListener('click', function() {
+          currentMonth.setMonth(currentMonth.getMonth() + 1);
+          renderTwoMonths();
+        });
       }
 
       window._drp_selectDate = function(dateStr) {
@@ -168,37 +205,30 @@
           selectedCheckout = dateStr;
         }
         updateDisplay();
-        renderCalendar();
-        if (selectedCheckout) {
-          calendar.style.display = 'none';
-        }
+        renderTwoMonths();
       };
 
       display.addEventListener('click', function() {
-        calendar.style.display = calendar.style.display === 'none' ? 'block' : 'none';
-        renderCalendar();
+        modal.style.display = 'block';
+        renderTwoMonths();
       });
 
-      document.addEventListener('click', function(e) {
-        if (!e.target.closest('.date-range-picker-container')) {
-          calendar.style.display = 'none';
-        }
+      overlay.addEventListener('click', function() {
+        modal.style.display = 'none';
       });
 
-      var container = display.closest('.date-range-picker-container');
-      var observer = new MutationObserver(function() {
-        if (container.dataset.prevMonth) {
-          currentMonth.setMonth(currentMonth.getMonth() - 1);
-          delete container.dataset.prevMonth;
-          renderCalendar();
-        }
-        if (container.dataset.nextMonth) {
-          currentMonth.setMonth(currentMonth.getMonth() + 1);
-          delete container.dataset.nextMonth;
-          renderCalendar();
+      document.getElementById('calendar-clear').addEventListener('click', function() {
+        selectedCheckin = null;
+        selectedCheckout = null;
+        updateDisplay();
+        renderTwoMonths();
+      });
+
+      document.getElementById('calendar-apply').addEventListener('click', function() {
+        if (selectedCheckin && selectedCheckout) {
+          modal.style.display = 'none';
         }
       });
-      observer.observe(container, { attributes: true });
     })();
   </script>
 </section>
