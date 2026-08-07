@@ -4,6 +4,7 @@
     "nombre": "Patricia Venz",
     "pais": "Venezuela",
     "actividad": "surf",
+    "foto": "/assets/img/testimonios/testimonio-surf.jpg",
     "texto_es": "Llegamos a Puerto sin saber ni por dónde empezar, y Paty nos armó la mañana de surf con instructores locales que ni buscando en Google hubiéramos encontrado. Se sintió como tener una amiga que ya vive aquí, no una guía turística.",
     "texto_en": "We arrived in Puerto with no idea where to start, and Paty set up a surf morning with local instructors we would never have found even searching on Google. It felt like having a friend who already lives here, not a tour guide.",
     "fecha": "2026-08"
@@ -13,6 +14,7 @@
     "nombre": "Lucie Hermez",
     "pais": "France",
     "actividad": "bioluminiscencia",
+    "foto": "/assets/img/testimonios/testimonio-bioluminiscencia.jpg",
     "texto_es": "La noche de bioluminiscencia fue el highlight de todo el viaje — Paty armó una lancha privada con el timing perfecto, nada de subirte a un tour genérico con veinte personas más. Se sintió hecho a la medida.",
     "texto_en": "The bioluminescence night was the highlight of the whole trip — Paty arranged a private boat with perfect timing, none of that generic tour-with-twenty-strangers feeling. It felt made just for us.",
     "fecha": "2026-08"
@@ -22,6 +24,7 @@
     "nombre": "David A.",
     "pais": "United States",
     "actividad": "mazunte",
+    "foto": "/assets/img/testimonios/testimonio-mazunte.jpg",
     "texto_es": "El roadtrip a Mazunte con Paty no se sintió como un tour armado — se sintió como ir con una amiga que conoce cada parada que vale la pena. Llegamos a lugares que no salían en ningún itinerario que habíamos visto antes de venir.",
     "texto_en": "The Mazunte roadtrip with Paty didn't feel like a packaged tour — it felt like going with a friend who knows every stop worth making. We arrived at places that weren't on any itinerary we'd seen before coming.",
     "fecha": "2026-08"

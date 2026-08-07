@@ -642,12 +642,12 @@
     };
     var altText = 'Testimonio de ' + escapeHtml(t.nombre || '') + ' en Puerto Escondido';
     return (
-      '<div class=”testimonio-card”>' +
-        (t.foto ? '<img class=”testimonio-foto” src=”' + t.foto + '” alt=”' + altText + '” loading=”lazy”>' : '') +
-        (t.placeholder ? '<span class=”placeholder-flag” data-es>Ejemplo — reemplazar con testimonio real</span><span class=”placeholder-flag” data-en>Example — replace with a real testimonial</span>' : '') +
-        '<p class=”texto” data-es>”' + t.texto_es + '”</p>' +
-        '<p class=”texto” data-en>”' + t.texto_en + '”</p>' +
-        '<p class=”autor”>' + t.nombre + ' · ' + t.pais + ' · ' + actividad + '</p>' +
+      '<div class="testimonio-card">' +
+        (t.foto ? '<img class="testimonio-foto" src="' + t.foto + '" alt="' + altText + '" loading="lazy">' : '') +
+        (t.placeholder ? '<span class="placeholder-flag" data-es>Ejemplo — reemplazar con testimonio real</span><span class="placeholder-flag" data-en>Example — replace with a real testimonial</span>' : '') +
+        '<p class="texto" data-es>"' + t.texto_es + '"</p>' +
+        '<p class="texto" data-en>"' + t.texto_en + '"</p>' +
+        '<p class="autor">' + t.nombre + ' · ' + t.pais + ' · ' + actividad + '</p>' +
       '</div>'
     );
   }
