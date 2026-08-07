@@ -47,13 +47,14 @@
   </p>
 
   <form id="form-buscador" class="buscador">
-    <div class="campo">
-      <label data-es>Check-in</label><label data-en>Check-in</label>
-      <input type="date" name="checkin" required id="input-checkin">
-    </div>
-    <div class="campo">
-      <label data-es>Check-out</label><label data-en>Check-out</label>
-      <input type="date" name="checkout" required id="input-checkout">
+    <div class="campo date-range-picker-container">
+      <label data-es>Selecciona fechas</label><label data-en>Select dates</label>
+      <div class="date-range-input" id="date-range-display">
+        <span data-es>Check-in → Check-out</span><span data-en>Check-in → Check-out</span>
+      </div>
+      <div class="date-range-calendar" id="date-range-calendar" style="display:none;"></div>
+      <input type="date" name="checkin" required id="input-checkin" style="display:none;">
+      <input type="date" name="checkout" required id="input-checkout" style="display:none;">
     </div>
     <div class="campo">
       <label data-es>Personas</label><label data-en>Guests</label>
@@ -67,40 +68,137 @@
 
   <script>
     (function() {
+      var display = document.getElementById('date-range-display');
+      var calendar = document.getElementById('date-range-calendar');
       var inputCheckin = document.getElementById('input-checkin');
       var inputCheckout = document.getElementById('input-checkout');
+      var currentMonth = new Date();
+      var selectedCheckin = null;
+      var selectedCheckout = null;
 
-      inputCheckin.addEventListener('change', function() {
-        if (!inputCheckin.value) return;
+      function formatDate(d) {
+        return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+      }
 
-        // Calcular fecha mínima para checkout (día después de checkin)
-        var checkinDate = new Date(inputCheckin.value + 'T00:00:00');
-        var minCheckoutDate = new Date(checkinDate);
-        minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
-        var minCheckoutStr = minCheckoutDate.getFullYear() + '-' +
-                             String(minCheckoutDate.getMonth() + 1).padStart(2, '0') + '-' +
-                             String(minCheckoutDate.getDate()).padStart(2, '0');
+      function parseDate(str) {
+        return new Date(str + 'T00:00:00');
+      }
 
-        // Establecer fecha mínima para checkout
-        inputCheckout.min = minCheckoutStr;
+      function updateDisplay() {
+        if (selectedCheckin && selectedCheckout) {
+          var ci = parseDate(selectedCheckin);
+          var co = parseDate(selectedCheckout);
+          var ciStr = ci.getDate() + ' ' + ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'][ci.getMonth()];
+          var coStr = co.getDate() + ' ' + ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'][co.getMonth()];
+          display.innerHTML = '<strong>' + ciStr + '</strong> → <strong>' + coStr + '</strong>';
+          display.classList.add('active');
+          inputCheckin.value = selectedCheckin;
+          inputCheckout.value = selectedCheckout;
+        } else if (selectedCheckin) {
+          var ci = parseDate(selectedCheckin);
+          var ciStr = ci.getDate() + ' ' + ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'][ci.getMonth()];
+          display.innerHTML = '<strong>' + ciStr + '</strong> → <span data-es>Check-out</span><span data-en>Check-out</span>';
+          display.classList.add('active');
+          inputCheckin.value = selectedCheckin;
+        } else {
+          display.innerHTML = '<span data-es>Check-in → Check-out</span><span data-en>Check-in → Check-out</span>';
+          display.classList.remove('active');
+        }
+      }
 
-        // Si checkout es menor que checkin, preseleccionar checkout + 7 días
-        if (!inputCheckout.value || inputCheckout.value < inputCheckin.value) {
-          var suggestedCheckout = new Date(checkinDate);
-          suggestedCheckout.setDate(suggestedCheckout.getDate() + 7);
-          var suggestedCheckoutStr = suggestedCheckout.getFullYear() + '-' +
-                                     String(suggestedCheckout.getMonth() + 1).padStart(2, '0') + '-' +
-                                     String(suggestedCheckout.getDate()).padStart(2, '0');
-          inputCheckout.value = suggestedCheckoutStr;
+      function renderCalendar() {
+        var year = currentMonth.getFullYear();
+        var month = currentMonth.getMonth();
+        var monthName = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'][month];
+
+        var html = '<div class="calendar-header">';
+        html += '<span class="calendar-nav" onclick="this.closest(\'.date-range-picker-container\').dataset.prevMonth=1">‹</span>';
+        html += '<strong>' + monthName + ' ' + year + '</strong>';
+        html += '<span class="calendar-nav" onclick="this.closest(\'.date-range-picker-container\').dataset.nextMonth=1">›</span>';
+        html += '</div>';
+
+        html += '<div class="calendar-weekdays">';
+        ['D', 'L', 'M', 'X', 'J', 'V', 'S'].forEach(function(day) {
+          html += '<div>' + day + '</div>';
+        });
+        html += '</div>';
+
+        var firstDay = new Date(year, month, 1);
+        var lastDay = new Date(year, month + 1, 0);
+        var startDate = new Date(firstDay);
+        startDate.setDate(startDate.getDate() - firstDay.getDay());
+
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        html += '<div class="calendar-days">';
+        var d = new Date(startDate);
+        while (d <= lastDay || d.getDay() !== 0) {
+          var dateStr = formatDate(d);
+          var isOtherMonth = d.getMonth() !== month;
+          var isToday = d.getTime() === today.getTime();
+          var isDisabled = d < today;
+          var isSelected = (dateStr === selectedCheckin || dateStr === selectedCheckout);
+          var isInRange = selectedCheckin && selectedCheckout && d > parseDate(selectedCheckin) && d < parseDate(selectedCheckout);
+
+          var classes = 'calendar-day';
+          if (isOtherMonth) classes += ' other-month';
+          if (isDisabled) classes += ' disabled';
+          if (isSelected) classes += ' selected';
+          if (isInRange) classes += ' in-range';
+
+          var onclick = isDisabled ? '' : ' onclick="window._drp_selectDate(\'' + dateStr + '\')"';
+          html += '<div class="' + classes + '"' + onclick + '>' + d.getDate() + '</div>';
+
+          d.setDate(d.getDate() + 1);
+        }
+        html += '</div>';
+
+        calendar.innerHTML = html;
+      }
+
+      window._drp_selectDate = function(dateStr) {
+        if (!selectedCheckin || (selectedCheckin && selectedCheckout)) {
+          selectedCheckin = dateStr;
+          selectedCheckout = null;
+        } else if (dateStr <= selectedCheckin) {
+          selectedCheckin = dateStr;
+          selectedCheckout = null;
+        } else {
+          selectedCheckout = dateStr;
+        }
+        updateDisplay();
+        renderCalendar();
+        if (selectedCheckout) {
+          calendar.style.display = 'none';
+        }
+      };
+
+      display.addEventListener('click', function() {
+        calendar.style.display = calendar.style.display === 'none' ? 'block' : 'none';
+        renderCalendar();
+      });
+
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.date-range-picker-container')) {
+          calendar.style.display = 'none';
         }
       });
 
-      inputCheckout.addEventListener('change', function() {
-        // Si checkout es menor que checkin, limpiar y mostrar error
-        if (inputCheckout.value && inputCheckin.value && inputCheckout.value <= inputCheckin.value) {
-          inputCheckout.value = '';
+      var container = display.closest('.date-range-picker-container');
+      var observer = new MutationObserver(function() {
+        if (container.dataset.prevMonth) {
+          currentMonth.setMonth(currentMonth.getMonth() - 1);
+          delete container.dataset.prevMonth;
+          renderCalendar();
+        }
+        if (container.dataset.nextMonth) {
+          currentMonth.setMonth(currentMonth.getMonth() + 1);
+          delete container.dataset.nextMonth;
+          renderCalendar();
         }
       });
+      observer.observe(container, { attributes: true });
     })();
   </script>
 </section>
