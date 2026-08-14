@@ -1,13 +1,2 @@
 [build]
   publish = "."
-  command = "echo 'Static site - no build required'"
-
-[[redirects]]
-  from = "/casas/*"
-  to = "/casas/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/surf-retreat/*"
-  to = "/surf-retreat/index.html"
-  status = 200
