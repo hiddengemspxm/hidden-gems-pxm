@@ -1,32 +1,3 @@
 [build]
   publish = "."
-  command = "echo 'Static site'"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Cache-Control = "public, max-age=3600"
-
-[[redirects]]
-  from = "/surf-retreat"
-  to = "/surf-retreat/index.html"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/surf-retreat/"
-  to = "/surf-retreat/index.html"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/casas"
-  to = "/casas/index.html"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/casas/"
-  to = "/casas/index.html"
-  status = 200
-  force = true
+  command = "node build.js"
