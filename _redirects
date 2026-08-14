@@ -1,6 +1,2 @@
-# Netlify redirects configuration
-/surf-retreat  /surf-retreat/index.html  200
-/casas  /casas/index.html  200
-
-# Catch-all for 404
-/*  /index.html  404
+/surf-retreat/*  /surf-retreat/index.html  200
+/casas/*  /casas/index.html  200
