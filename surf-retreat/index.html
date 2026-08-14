@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surf Retreat — January 2027 · Hidden Gems</title>
+  <meta name="description" content="Seven nights, five sessions, eight women. A real beach town, not a resort.">
+  <style>
+    :root {
+      --ocean-dark: #0A2A33;
+      --cream: #F0E2BC;
+      --cream-dark: #E8D4A0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, 'Segoe UI', Roboto, 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: var(--ocean-dark);
+      color: var(--cream);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .display {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 200;
+      font-style: normal;
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    a:hover {
+      opacity: 0.8;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--ocean-dark);
+      border-bottom: 1px solid rgba(240, 226, 188, 0.1);
+      padding: 16px 24px;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--cream);
+    }
+
+    .brand em {
+      font-style: italic;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--cream);
+      color: var(--ocean-dark);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 8px 24px rgba(240, 226, 188, 0.35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--cream);
+      color: var(--cream);
+    }
+
+    .btn-secondary:hover {
+      background: var(--cream);
+      color: var(--ocean-dark);
+    }
+
+    .btn-sm {
+      padding: 9px 14px;
+      font-size: 0.85rem;
+    }
+
+    .btn-block {
+      width: 100%;
+    }
+
+    /* ===== Main Container ===== */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(240, 226, 188, 0.1);
+    }
+
+    section:last-child {
+      border-bottom: none;
+      padding-bottom: 120px;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      padding: 40px 0 80px;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+      opacity: 0.4;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(180deg, rgba(10, 42, 51, 0.7) 0%, rgba(10, 42, 51, 0.5) 100%);
+      z-index: -1;
+    }
+
+    .eyebrow {
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0.8;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .hero-phrases {
+      position: absolute;
+      top: 50%;
+      left: 24px;
+      right: 24px;
+      transform: translateY(-50%);
+      z-index: 1;
+      font-size: 0.9rem;
+      font-style: italic;
+      opacity: 0.6;
+      pointer-events: none;
+      font-family: -apple-system, sans-serif;
+    }
+
+    .hero-phrase {
+      position: absolute;
+      white-space: nowrap;
+    }
+
+    .hero-phrase:nth-child(1) { top: 10%; left: 5%; }
+    .hero-phrase:nth-child(2) { top: 25%; right: 10%; }
+    .hero-phrase:nth-child(3) { top: 45%; left: 15%; }
+    .hero-phrase:nth-child(4) { bottom: 20%; right: 5%; }
+    .hero-phrase:nth-child(5) { bottom: 10%; left: 20%; }
+    .hero-phrase:nth-child(6) { top: 60%; right: 15%; }
+    .hero-phrase:nth-child(7) { bottom: 30%; left: 5%; }
+    .hero-phrase:nth-child(8) { top: 35%; right: 20%; }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-subheadline {
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+      opacity: 0.9;
+      max-width: 500px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 600px) {
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .hero-ctas .btn {
+        width: 100%;
+      }
+    }
+
+    .hero-note {
+      font-size: 0.9rem;
+      opacity: 0.75;
+    }
+
+    /* ===== Section Styles ===== */
+    .section-headline {
+      font-size: 2rem;
+      margin-bottom: 32px;
+      line-height: 1.3;
+    }
+
+    .section-content {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .section-content p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .section-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ===== Coach Section ===== */
+    .coach-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .coach-text h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+
+    .coach-text .credential {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .coach-info {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    /* ===== House Info ===== */
+    .house-details {
+      background: rgba(240, 226, 188, 0.05);
+      padding: 32px;
+      border-radius: 8px;
+      margin: 40px 0;
+      font-size: 0.95rem;
+    }
+
+    .house-details strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 16px;
+    }
+
+    .house-specs {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+
+    /* ===== Gallery ===== */
+    .gallery {
+      margin: 60px 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 4px;
+      aspect-ratio: 4/3;
+      background: rgba(240, 226, 188, 0.05);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ===== Pricing Table ===== */
+    .pricing-table {
+      margin: 40px 0;
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .pricing-table th,
+    .pricing-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(240, 226, 188, 0.1);
+    }
+
+    .pricing-table th {
+      font-weight: 600;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .pricing-table td:first-child {
+      font-weight: 500;
+    }
+
+    /* ===== What's Included ===== */
+    .included-list {
+      columns: 1;
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    @media (min-width: 768px) {
+      .included-list {
+        columns: 2;
+      }
+    }
+
+    .included-list li {
+      margin-bottom: 12px;
+      list-style: none;
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .included-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      opacity: 0.7;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-item {
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(240, 226, 188, 0.1);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    /* ===== Sticky Bottom Bar (Mobile) ===== */
+    .sticky-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--ocean-dark);
+      border-top: 1px solid rgba(240, 226, 188, 0.1);
+      padding: 12px 16px;
+      z-index: 40;
+    }
+
+    .sticky-bar-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .sticky-price {
+      font-weight: 600;
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+
+    .sticky-ctas {
+      display: flex;
+      gap: 8px;
+    }
+
+    .sticky-ctas .btn {
+      padding: 10px 16px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .sticky-bar {
+        display: block;
+      }
+
+      body {
+        padding-bottom: 70px;
+      }
+    }
+
+    /* ===== Paty Section ===== */
+    .paty-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .paty-text h3 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+
+    .paty-text p {
+      margin-bottom: 20px;
+    }
+
+    .paty-link {
+      display: inline-block;
+      margin-top: 12px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid var(--cream);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .paty-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Close Section ===== */
+    .close-section {
+      text-align: center;
+    }
+
+    .close-section h2 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .close-ctas {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 600px) {
+      .close-ctas {
+        flex-direction: column;
+      }
+
+      .close-ctas .btn {
+        width: 100%;
+      }
+    }
+
+    /* ===== Who It's For ===== */
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 32px;
+    }
+
+    .who-grid h4 {
+      font-size: 1.1rem;
+      margin-bottom: 16px;
+      color: var(--cream);
+    }
+
+    .who-grid ul {
+      list-style: none;
+    }
+
+    .who-grid li {
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .who-grid li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+    }
+
+    @media (max-width: 768px) {
+      .who-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== Loading optimization ===== */
+    img {
+      loading: lazy;
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<script>
+const RETREAT_CONFIG = {
+  dates: "January 16–23, 2027",
+  nights: 7,
+  spots: { min: 4, max: 8 },
+  deposit: 400,
+  foundingDeadline: "August 31, 2026",
+  tiers: [
+    { id: "private", label: "Private room, king bed", founding: 2095, regular: 2395, available: 3 },
+    { id: "ownbed", label: "Own bed, shared room (queen)", founding: 1695, regular: 1895, available: 2 },
+    { id: "sharedkg", label: "Shared king, per person", founding: 1545, regular: 1745, available: 2 }
+  ],
+  stripeUrl: "PLACEHOLDER",
+  whatsappNumber: "+52 8661154305",
+  cocoDescription: "Coco was born in this water. He's spent his life on these breaks, and he's the reason women who've never stood on a board are riding by day three — and the reason intermediate surfers finally get past what they've been stuck on for years."
+};
+
+function formatPrice(price) {
+  return "$" + price.toLocaleString();
+}
+
+function renderConfig() {
+  document.querySelectorAll('[data-config]').forEach(el => {
+    const key = el.getAttribute('data-config');
+    let value = RETREAT_CONFIG;
+    key.split('.').forEach(k => { value = value[k]; });
+    el.textContent = value;
+  });
+
+  document.querySelectorAll('[data-price]').forEach(el => {
+    const key = el.getAttribute('data-price');
+    let value = RETREAT_CONFIG;
+    key.split('.').forEach(k => { value = value[k]; });
+    el.textContent = formatPrice(value);
+  });
+
+  // Pricing table
+  const tbody = document.querySelector('.pricing-table tbody');
+  if (tbody) {
+    tbody.innerHTML = RETREAT_CONFIG.tiers.map((tier, idx) => `
+      <tr>
+        <td>${tier.label}</td>
+        <td>${formatPrice(tier.founding)}</td>
+        <td>${tier.available} available</td>
+        <td>${formatPrice(tier.regular)}</td>
+      </tr>
+    `).join('');
+  }
+
+  // Update CTA href
+  document.querySelectorAll('[data-cta-stripe]').forEach(el => {
+    el.href = RETREAT_CONFIG.stripeUrl;
+    el.onclick = (e) => {
+      if (RETREAT_CONFIG.stripeUrl === "PLACEHOLDER") {
+        e.preventDefault();
+        alert("Stripe link coming soon");
+      }
+    };
+  });
+
+  document.querySelectorAll('[data-cta-whatsapp]').forEach(el => {
+    el.href = `https://wa.me/${RETREAT_CONFIG.whatsappNumber.replace(/[^\d]/g, '')}?text=${encodeURIComponent('Hi Paty — I saw the January surf retreat and I have a question.')}`;
+  });
+
+  // Lowest founding price
+  const lowestFounding = Math.min(...RETREAT_CONFIG.tiers.map(t => t.founding));
+  document.querySelectorAll('[data-lowest-founding]').forEach(el => {
+    el.textContent = formatPrice(lowestFounding);
+  });
+}
+
+window.addEventListener('DOMContentLoaded', renderConfig);
+</script>
+
+<header>
+  <div class="header-inner">
+    <div class="brand"><em>Hidden Gems</em> Surf Retreat</div>
+    <button class="btn btn-primary" data-cta-stripe>Reserve your spot</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- 1. Hero -->
+  <section class="hero">
+    <div class="hero-bg" style="background-image: url('/assets/img/hero-puerto-escondido/07-alegria.webp')"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-phrases">
+      <span class="hero-phrase">Me</span>
+      <span class="hero-phrase">learning from a champion</span>
+      <span class="hero-phrase">eight women, one house</span>
+      <span class="hero-phrase">nothing to organise</span>
+      <span class="hero-phrase">a left-hand point break</span>
+      <span class="hero-phrase">the colectivo into town</span>
+      <span class="hero-phrase">dancing on the roof</span>
+      <span class="hero-phrase">local by day two</span>
+    </div>
+
+    <div class="hero-content">
+      <div class="eyebrow">
+        <span data-config="dates"></span> · Puerto Escondido, Mexico · 8 women max
+      </div>
+      <h1>Six days of surf in the town I actually live in.</h1>
+      <p class="hero-subheadline">
+        You show up. That's the whole ask.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn btn-primary" data-cta-stripe>Reserve your spot — <span data-price="deposit"></span></button>
+        <button class="btn btn-secondary" data-cta-whatsapp>Ask me on WhatsApp</button>
+      </div>
+      <p class="hero-note">
+        Founding rates from <span data-lowest-founding></span>. Ends <span data-config="foundingDeadline"></span>.
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. The Pitch -->
+  <section id="pitch">
+    <h2 class="section-headline">The pitch</h2>
+    <div class="section-content">
+      <p>Most surf trips to Mexico are one of two things: a hostel with a schedule, or a villa someone flew in to rent for the week.</p>
+      <p>This is neither. I live in Puerto Escondido. The surf coach, the chef, the trainers — they're my neighbours, and they've been doing this here for years. I know which corner the colectivo stops at and which taco stand is worth the walk.</p>
+      <p>You show up. That's the whole ask.</p>
+    </div>
+  </section>
+
+  <!-- 3. The Week -->
+  <section id="the-week">
+    <h2 class="section-headline">The week</h2>
+    <div class="section-content">
+      <p><strong>Rhythm, not a timetable. Waves don't take appointments.</strong></p>
+
+      <p><strong>Mornings — water.</strong> Five surf sessions with Coco and his team. Carrizalillo when it's your first time on a board, La Punta when you're ready for a longer ride. He picks us up and drops us back. Boards included.</p>
+
+      <p><strong>One morning — into town.</strong> We take the colectivo like everyone here does and train at a local studio, alongside people who actually live in Puerto. It's twenty pesos and it's the part you'll tell people about.</p>
+
+      <p><strong>Afternoons — recovery, not wellness.</strong> Guided mobility at the house, built around what paddling actually does to your shoulders. Mid-week, contrast therapy — sauna and ice bath with guided breathing. Not a spa treatment: it's how you handle the moment a wave holds you under and your body decides to panic.</p>
+
+      <p><strong>Evenings — the long table.</strong> We cook breakfast together every morning and eat dinner together most nights. One night Chicama cooks for us in the house.</p>
+
+      <p>Two nights are loud. One is a sunset set on the roof — I DJ, we dance until the light goes. The other we head into town together, cover included. The rest of the week is early mornings and long dinners.</p>
+
+      <p>And two nights out of the ordinary. Swimming in the bioluminescence at Manialtepec, and a day down the coast to Mazunte.</p>
+    </div>
+  </section>
+
+  <!-- 4. Your Coach -->
+  <section id="coach">
+    <h2 class="section-headline">Your coach</h2>
+    <div class="coach-info">
+      <div class="coach-text">
+        <h3>Coco Ramírez</h3>
+        <div class="credential">Five-time national champion</div>
+        <p><span data-config="cocoDescription"></span></p>
+        <p>He reads the forecast each morning and picks the beach for the group's level, not the other way around. That's the difference between a surf lesson and surfing with a local.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. The House -->
+  <section id="house">
+    <h2 class="section-headline">Casa Alegría</h2>
+    <div class="house-details">
+      <strong>La Punta, Puerto Escondido</strong>
+      <div class="house-specs">
+        <span>4 bedrooms</span>
+        <span>4.5 bathrooms</span>
+        <span>private pool</span>
+        <span>rooftop</span>
+        <span>full kitchen</span>
+      </div>
+    </div>
+
+    <div class="section-content">
+      <p>Almost a bathroom each. A pool nobody else is using. A kitchen table long enough for all of us.</p>
+      <p>A 12-minute walk to the beach and to La Punta's main strip — the taco stands, the coffee, the sunset. La Punta is the quiet end of Puerto: a left-hand point break, a dirt road, no resorts. It's where the surfers actually stay.</p>
+    </div>
+
+    <!-- Gallery -->
+    <div class="gallery">
+      <h3 style="font-size: 1.1rem; margin-bottom: 24px;">Gallery</h3>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="/assets/img/casa-alegria-foto-1.jpg" alt="Casa Alegría – Room" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/img/casa-alegria-foto-2.jpg" alt="Casa Alegría – Pool" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/img/casa-alegria-foto-3.jpg" alt="Casa Alegría – Kitchen table" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/img/casa-alegria-foto-4.jpg" alt="Casa Alegría – Rooftop" loading="lazy">
+        </div>
+        <div class="gallery-item">
+          <img src="/assets/img/casa-alegria-foto-5.jpg" alt="Casa Alegría – Street" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Your Room -->
+  <section id="rooms">
+    <h2 class="section-headline">Your room</h2>
+    <div class="section-content">
+      <p>Three ways to stay, and one promise that holds for all of them: you will never share a bed with someone you just met.</p>
+
+      <ul style="margin: 32px 0; list-style: none;">
+        <li style="margin-bottom: 20px; padding-left: 0;">
+          <strong>Private room, king bed</strong><br>
+          Your own room, your own door. 3 available.
+        </li>
+        <li style="margin-bottom: 20px; padding-left: 0;">
+          <strong>Own bed in a shared room</strong><br>
+          Two queen beds, one roommate, your own bed. 2 available.
+        </li>
+        <li style="padding-left: 0;">
+          <strong>Shared king</strong><br>
+          For two friends travelling together. The best price in the house.
+        </li>
+      </ul>
+
+      <p>Coming with a friend? Share a king and you both pay less. Coming alone? You'll have your own bed and, if you want it, your own room.</p>
+    </div>
+  </section>
+
+  <!-- 7. What's Included -->
+  <section id="included">
+    <h2 class="section-headline">What's included</h2>
+    <ul class="included-list">
+      <li>7 nights at Casa Alegría</li>
+      <li>5 surf sessions — coaching, boards, transport, all levels</li>
+      <li>A class at a local studio in town, colectivo and all</li>
+      <li>Guided mobility at the house</li>
+      <li>Contrast therapy: sauna, ice bath, guided breathing</li>
+      <li>Breakfast every day — the house is stocked, we cook together</li>
+      <li>A private dinner cooked in the house by Chicama</li>
+      <li>Sunset DJ set on the roof</li>
+      <li>One night out in town, cover included</li>
+      <li>Bioluminescence night at Manialtepec</li>
+      <li>Mazunte day trip, transport included</li>
+      <li>Airport pickup and drop-off</li>
+      <li>Me, on the ground, all week</li>
+    </ul>
+    <p style="margin-top: 32px; opacity: 0.8;">
+      <strong>Not included:</strong> flights, travel insurance, drinks, lunches and dinners out, extra tours or massages (I'll book those for you at local prices).
+    </p>
+  </section>
+
+  <!-- 8. Who This Is For -->
+  <section id="who">
+    <h2 class="section-headline">Who this is for</h2>
+    <div class="who-grid">
+      <div>
+        <h4>This is your week if:</h4>
+        <ul>
+          <li>You surf sometimes — beginner or intermediate — and want to actually improve</li>
+          <li>You'd travel alone but would rather not eat alone</li>
+          <li>You want a real Mexican beach town, not a resort</li>
+          <li>You're done organising other people's trips</li>
+        </ul>
+      </div>
+      <div>
+        <h4>This isn't for you if:</h4>
+        <ul>
+          <li>You're chasing Zicatela. That's a serious wave and this isn't that trip.</li>
+          <li>You want a party trip. Two nights are loud; the rest are early.</li>
+          <li>You want a packed schedule. Half of this week is deliberately empty.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Price -->
+  <section id="price">
+    <h2 class="section-headline">Price</h2>
+    <div class="section-content">
+      <p>Founding rates end <span data-config="foundingDeadline"></span>. This is the first edition. Eight women, one house, and prices that won't be this low again.</p>
+    </div>
+
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Room type</th>
+          <th>Founding rate</th>
+          <th></th>
+          <th>Regular rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Populated by script -->
+      </tbody>
+    </table>
+
+    <div class="section-content" style="margin-top: 40px;">
+      <p><span data-price="deposit"></span> reserves your spot. Balance due 30 days before arrival. The deposit is non-refundable but transferable to another woman if your plans change.</p>
+    </div>
+
+    <div class="hero-ctas" style="margin-top: 40px;">
+      <button class="btn btn-primary" data-cta-stripe>Reserve your spot</button>
+      <button class="btn btn-secondary" data-cta-whatsapp>Questions? WhatsApp me</button>
+    </div>
+  </section>
+
+  <!-- 10. Who's Behind This -->
+  <section id="about">
+    <h2 class="section-headline">Who's behind this</h2>
+    <div class="paty-section">
+      <div class="paty-text">
+        <h3>I'm Paty</h3>
+        <p>I run Hidden Gems Puerto Escondido — I book and manage stays across 11 houses here, from La Punta to the beachfront villas, and I've spent the last year sending travellers to the right beach, the right dinner and the right wave.</p>
+        <p>This retreat is the version of that I've wanted to build: not a house I hand you the keys to, but a week I put together myself.</p>
+        <a href="/casas" class="paty-link">See the houses I work with →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. Questions -->
+  <section id="faq">
+    <h2 class="section-headline">Questions</h2>
+
+    <div class="faq-item">
+      <strong>How do I get there?</strong>
+      <p>Fly into Puerto Escondido (PXM), connecting through Mexico City or Oaxaca. January books up — reserve your spot first, then buy the flight. I'll send you the flight guide and pick you up at the airport.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>I've never surfed. Really?</strong>
+      <p>Really. Carrizalillo is a protected bay and it's where everyone in this town learns.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>How hard is the training?</strong>
+      <p>It's recovery, not bootcamp. Mobility so you can still paddle on day five, not so you're sore for it.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>What's the colectivo?</strong>
+      <p>A shared pickup truck — how most of Puerto gets around. We go together, I know the stop, and if it's not your thing you can ride with me instead.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Is it safe to travel here alone as a woman?</strong>
+      <p>Yes, and you won't be alone from the moment you land. On the night out we go together and come back together.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>What if not enough people book?</strong>
+      <p>The retreat runs with a minimum of 4. If it doesn't run, your deposit comes back in full.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Can I extend my stay?</strong>
+      <p>Yes — tell me and I'll sort the extra nights.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>Do I need to be fit?</strong>
+      <p>No. You need to be able to swim.</p>
+    </div>
+  </section>
+
+  <!-- 12. Close -->
+  <section class="close-section" id="close">
+    <h2>Eight spots. <span data-config="dates"></span>.</h2>
+    <p style="margin-top: 16px; font-size: 1rem;">Founding rates end <span data-config="foundingDeadline"></span>.</p>
+    <div class="close-ctas">
+      <button class="btn btn-primary" data-cta-stripe>Reserve your spot — <span data-price="deposit"></span></button>
+      <button class="btn btn-secondary" data-cta-whatsapp>Ask me on WhatsApp</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- Sticky Bar (Mobile) -->
+<div class="sticky-bar">
+  <div class="sticky-bar-content">
+    <div class="sticky-price">From <span data-lowest-founding></span> / 7 nights</div>
+    <div class="sticky-ctas">
+      <button class="btn btn-primary btn-sm" data-cta-stripe>Reserve</button>
+      <a class="btn btn-secondary btn-sm" href="#" data-cta-whatsapp>💬</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
